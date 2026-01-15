@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Jeu de trajet interactif</title>
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<div class="dashboard">
+    <div class="block temps">
+        <span id="time">0</span>
+        <div class="button"></div>
+    </div>
+
+        <div class="block meteo">
+        <span id="environment">0</span>
+        <div class="drop"></div>
+    </div>
+
+        <div class="block transport">
+        <span id="transport">0</span>
+    </div>
+
+        <!-- BARRE DE RISQUE -->
+    <div id="risk-container">
+        <div id="risk-indicator"></div>
+    </div>
+</div>
+
+<div id="scene"></div>
+
+
+
+<main>
+
+
+    <div id="game">
+        <div id="choices"></div>
+        <p>Bonjour et bienvenu sur notre jeu en ligne !!</p>
+        <button id="startBtn">Commencer à jouer</button>
+    </div>
+</main>
+
+<!-- MODAL CARTE -->
+<div id="card-modal">
+    <div id="card">
+        <img id="card-image" src="" alt="Image situation">
+        <p id="card-question"></p>
+        <div id="card-choices"></div>
+    </div>
+</div>
+
+<!-- BLOC EXPLICATION / PIoche -->
+<div id="explanation-modal">
+    <div id="explanation-card">
+        <p id="explanation-text"></p>
+        <button id="next-step-btn">Continuer</button>
+    </div>
+</div>
+
+<!-- BLOC SCORE FINAL -->
+<div id="final-score" style="display:none; text-align:center; margin-top:50px;">
+    <h2>Fin de la partie !</h2>
+    <p id="score-text"></p>
+    <button onclick="window.location.reload()">Rejouer</button>
+
+</div>
+
+<div id="progress-container">
+    <div id="progress-bar"></div>
+</div>
+
+
+<script src="./js/script.js"></script>
+</body>
+</html>
