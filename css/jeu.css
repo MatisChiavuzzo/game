@@ -1,56 +1,60 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden; /* bloque complètement le scroll */
+/* =========================== */
+/* RESET ET BODY */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    /* bloque scroll */
+    font-family: Arial, sans-serif;
 }
 
 /* ====================================== */
-/* RETOUR ACCUEIL */
+/* BOUTON ACCUEIL */
 #index {
-  padding: 10px 20px;
-  font-size: 18px;
-  border: none;
-  border-radius: 6px;
-  background-color: #0077cc;
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+    padding: 1vh 2vw;
+    font-size: 2vh;
+    border: none;
+    border-radius: 0.5vw;
+    background-color: #0077cc;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
 }
 
 #index:hover {
-  background-color: #005fa3;
-  transform: scale(1.05);
+    background-color: #005fa3;
+    transform: scale(1.05);
 }
 
 #index:active {
-  transform: scale(0.95);
+    transform: scale(0.95);
 }
 
-
-/* =================================== */ 
+/* =================================== */
 /* BOUTON PLAY */
 #game {
-    position: fixed; /* toujours au-dessus */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5); /* semi-transparent pour flou d'arrière-plan */
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
-    justify-content: center; /* centre verticalement */
-    align-items: center;     /* centre horizontalement */
-    backdrop-filter: blur(5px); /* effet de flou sur le fond */
-    z-index: 1000; /* au-dessus du reste */
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    z-index: 1000;
 }
 
 #game button {
-    padding: 15px 30px;
-    font-size: 20px;
+    padding: 1.5vh 3vw;
+    font-size: 2vh;
     cursor: pointer;
     border: none;
-    border-radius: 8px;
+    border-radius: 0.8vw;
     background-color: #ff6f61;
     color: white;
     transition: background 0.3s;
@@ -60,171 +64,168 @@ html, body {
     background-color: #ff3b2e;
 }
 
-#game p {font-size: 50px;}
-
-.grid {
-  display: grid;
-  width: 100%;
-  height: 100vh; /* prend toute la hauteur de la fenêtre */
-  
-  /* colonnes et lignes */
-  grid-template-columns: 3fr 1fr 1fr; 
-  grid-template-rows: auto 1fr auto; /* ligne du haut, ligne du milieu, ligne du bas */
-  
-  grid-template-areas:
-    "header header header"
-    "left-top center center"
-    "left-bottom bottom-1 bottom-2";
-  
-  gap: 6px;
+#game p {
+    font-size: 5vh;
+    text-align: center;
 }
 
+/* =================================== */
+/* GRID PRINCIPAL */
+.grid {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    grid-template-columns: 3fr 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header header"
+        "left-top center center"
+        "left-bottom bottom-1 bottom-2";
+    gap: 1vw;
+}
 
-/* zones */
+/* =================================== */
+/* HEADER */
 .header {
     grid-area: header;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    padding: 0 40px;       /* espace gauche / droite */
-    box-sizing: border-box;
-    gap: 60px;
-    margin-top: 20px;
+    padding: 0 2vw;
+    margin-top: 2vh;
+    gap: 5vw;
 }
 
+/* =================================== */
+/* COLONNES CENTRALES */
 .left-top {
-  height: 100%; /* remplit toute la ligne du milieu */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* si tu veux centrer le contenu verticalement */
-  align-items: center;     /* centré horizontalement */
-  gap: 10px;
+    height: 100%;
+    /* remplit toute la ligne du milieu */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* si tu veux centrer le contenu verticalement */
+    align-items: center;
+    /* centré horizontalement */
+    gap: 1vh;
 }
 
 .center {
-  grid-area: center;
-  height: 100%;         /* prend toute la hauteur de la ligne */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+    grid-area: center;
+    height: 100%;
+    /* prend toute la hauteur de la ligne */
+    gap: 1vh;
 }
 
 
+/* =================================== */
+/* FOOTER */
+.left-bottom,
+.bottom-1,
+.bottom-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+}
 
 .left-bottom {
-  grid-area: left-bottom;
-    align-items: center;
-    justify-content: space-between;
+    grid-area: left-bottom;
+    background: #fff;
     width: 100%;
     box-sizing: border-box;
-    background: #ffffff;
+}
+
+/* =================================== */
+/* TEXTE */
+
+.left-bottom p {
+    margin: 3vh auto;
+    padding: 0;
+    font-size: 2vh;
+    text-align: center;
+    line-height: 1.2;
+    color: #000;
+    margin-top: -1vh;
 }
 
 p {
-    margin: 30px auto;        /* centre horizontalement */
-    padding: 1px x;
+    margin: 3vh auto;
+    padding: 0;
+    font-size: 2vh;
     text-align: center;
-    font-size: 20px;
-    line-height: 0.1;
-    color: #000000;
+    line-height: 1.2;
+    color: #000;
 }
 
-.bottom-1 {
-  grid-area: bottom-1;
-    display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-.bottom-2 {
-  grid-area: bottom-2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-
-
+/* =================================== */
 /* BARRE DE RISQUE */
 #risk-container {
-    flex: 1; /* prend toute la place dispo */
-    height: 20px;
+    flex: 1;
+    height: 2vh;
     background: linear-gradient(to right, red, yellow, green);
     position: relative;
-    border: 2px solid #444;
-    border-radius: 12px;
+    border: 0.2vh solid #444;
+    border-radius: 1.2vh;
 }
 
-/* INDICATEUR */
 #risk-indicator {
     position: absolute;
-    bottom: -5px;
+    bottom: -0.5vh;
     left: 0;
-    width: 4px;
-    height: 30px;
+    width: 0.4vh;
+    height: 3vh;
     background-color: black;
-    border-radius: 2px;
+    border-radius: 0.2vh;
     transition: left 0.3s ease;
 }
 
-/* COMPTEUR STYLE RÉVEIL */
+/* =================================== */
+/* COMPTEUR */
 .block.temps {
-    flex-shrink: 0; /* empêche le rétrécissement */
-    width: 90px;
-    height: 90px;
+    width: 6vw;
+    height: 6vw;
     background: #f5f5f5;
-    border: 3px solid #333;
+    border: 0.3vw solid #333;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     font-family: 'Courier New', monospace;
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
+    box-shadow: inset 0 0 0.6vw rgba(0, 0, 0, 0.4);
 }
 
-/* TEXTE TEMPS */
 #time {
-    font-size: 24px;
+    font-size: 2.5vh;
     font-weight: bold;
 }
 
-/* BOUTON RÉVEIL */
 .block.temps .button {
     position: absolute;
-    top: -8px;
-    width: 18px;
-    height: 8px;
+    top: -0.8vw;
+    width: 1.8vw;
+    height: 0.8vw;
     background: #333;
-    border-radius: 4px;
+    border-radius: 0.4vw;
 }
 
-
-
-
-
-/* ===================================================== */
+/* =================================== */
 /* BAR DE PROGRESSION */
 #progress-container {
     width: 90%;
-    height: 12px;
+    height: 1.2vh;
     background: #e0e0e0;
-    border-radius: 6px;
+    border-radius: 0.6vh;
     overflow: hidden;
-    margin: 20px auto;
+    margin: 2vh auto;
 }
 
 #progress-bar {
     display: flex;
     justify-content: space-around;
-    padding: 10px 20px;
+    padding: 1vh 2vw;
     height: 100%;
     width: 0%;
     background: linear-gradient(90deg, #4caf50, #8bc34a);
@@ -232,8 +233,8 @@ p {
 }
 
 #progress-bar .step {
-    width: 20px;
-    height: 20px;
+    width: 2vw;
+    height: 2vw;
     border-radius: 50%;
     background: gray;
     transition: background 0.4s, transform 0.3s;
@@ -244,44 +245,38 @@ p {
     transform: scale(1.2);
 }
 
-
-
-/* ===================================== */
-/* JOUR, NUIT ou PLUIE */
-#environment {
-  font-size: 35px;
-  font-weight: bold;
-  color: #ffffff;
-  background: linear-gradient(180deg, #1e293b, #0f172a);
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 1px solid rgba(56,189,248,0.6);
-  box-shadow: inset 0 0 8px rgba(56,189,248,0.5);
-  min-width: 70px;
-  text-align: center;
-}
-/* TROTINETTE, MOTO, VELO */
+/* =================================== */
+/* ENVIRONNEMENT & TRANSPORT */
+#environment,
 #transport {
-  font-size: 35px;
-  font-weight: bold;
-  color: #ffffff;
-  background: linear-gradient(180deg, #1e293b, #0f172a);
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 1px solid rgba(56,189,248,0.6);
-  box-shadow: inset 0 0 8px rgba(56,189,248,0.5);
-  min-width: 70px;
-  text-align: center;
+    font-size: 3vh;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(180deg, #1e293b, #0f172a);
+    padding: 1vh 2vw;
+    border-radius: 1vh;
+    border: 0.1vh solid rgba(56, 189, 248, 0.6);
+    box-shadow: inset 0 0 0.8vh rgba(56, 189, 248, 0.5);
+    text-align: center;
+    min-width: 7vw;
 }
 
+/* =================================== */
+/* SCENE */
+#scene {
+    margin-left: 50%;
+    width: 40%;
+    height: 40vh;
+    /* responsive */
+    border-radius: 2vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease-in-out;
+}
 
-
-
-
-
-
-/* ============================================== */
-/* CARTE JEU */
+/* =================================== */
 /* MODAL CARTE */
 #card-modal {
     position: relative;
@@ -289,18 +284,18 @@ p {
     height: 100%;
     justify-content: center;
     z-index: 99;
-    padding: 20px;
+    padding: 2vh 2vw;
 }
 
 #card {
     background: white;
-    padding: 20px;
-    border-radius: 12px;
+    padding: 2vh 2vw;
+    border-radius: 1vw;
     width: 50%;
     max-width: 50%;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    margin-left: 20px;
+    box-shadow: 0 0.4vw 1.5vw rgba(0, 0, 0, 0.3);
+    margin-left: 2vw;
     transform: translateX(100%);
     opacity: 0;
     transition: transform 0.5s ease, opacity 0.5s ease;
@@ -313,21 +308,18 @@ p {
 
 #card img {
     width: 30%;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    border-radius: 1vw;
+    margin-bottom: 1.5vh;
 }
 
 #card-choices button {
-    margin: 10px;
-    padding: 10px 20px;
+    margin: 1vh;
+    padding: 1vh 2vw;
     cursor: pointer;
 }
 
-
-
-/* =================================================== */
-/* CARTE d'EXPLICATIONS */
-/* BLOC EXPLICATION / PIoche */
+/* =================================== */
+/* MODAL EXPLICATION */
 #explanation-modal {
     display: none;
     position: relative;
@@ -337,27 +329,27 @@ p {
     justify-content: center;
     align-items: center;
     z-index: 100;
-    padding: 20px;
+    padding: 2vh 2vw;
 }
 
 #explanation-card {
     background: #fff;
-    border-radius: 12px;
+    border-radius: 1vw;
     width: 50%;
-    padding: 20px;
+    padding: 2vh 2vw;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.4vw 1.5vw rgba(0, 0, 0, 0.3);
 }
 
 #next-step-btn {
-    margin-top: 20px;
-    padding: 10px 20px;
+    margin-top: 2vh;
+    padding: 1vh 2vw;
     cursor: pointer;
     border: none;
-    border-radius: 8px;
+    border-radius: 0.8vw;
     background-color: #0077cc;
     color: white;
-    font-size: 18px;
+    font-size: 2vh;
     transition: transform 0.2s;
 }
 
@@ -369,128 +361,60 @@ p {
     transform: scale(0.95);
 }
 
-
-
-
-/* =========================================== */
-/* FOOTER */
-.site-footer {
-  margin-top: auto;
-  padding: 1.5rem;
-  text-align: center;
-
-  font-size: .9rem;
-  color: #475569;
-
-  background: rgba(255,255,255,.75);
-  backdrop-filter: blur(14px);
-  border-top: 1px solid rgba(0,0,0,.06);
-
-  animation: fadeInUp .8s ease;
-}
-
-
-
-
-
-
-
-
-/* ================================ */
-/* SCORE FINAL */
+/* =================================== */
+/* SCORE FINAL OVERLAY */
 #final-score-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5); /* semi-transparent */
-  backdrop-filter: blur(5px);   /* flou derrière */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000; /* au-dessus de tout */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
 }
 
-/* Card score final */
 #final-score-card {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  min-width: 300px;
+    background: white;
+    padding: 3vh 3vw;
+    border-radius: 1vw;
+    text-align: center;
+    min-width: 20vw;
+    box-shadow: 0 0.4vw 1.5vw rgba(0, 0, 0, 0.3);
 }
 
 #final-score-card h2 {
-  color: green;
+    color: green;
 }
 
 #final-score-card button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 8px;
-  background-color: #0077cc;
-  color: #fff;
-  border: none;
-}
-
-
-
-
-
-
-
-
-
-
-
-/* MODE SOMBRE 
-body.night-mode {
-    background-color: #121212;
-    color: #e0e0e0;
-}
-
-body.night-mode header {
-    background: #1e1e1e;
-}
-
-body.night-mode #progress-bar {
-    background: #333;
-}
-
-body.night-mode #risk-container {
-    background: linear-gradient(to top, darkred, #555, darkgreen);
-}
-
-body.night-mode #card,
-body.night-mode #explanation-card {
-    background: #2b2b2b;
-    color: #e0e0e0;
-}
-
-body.night-mode button {
-    background-color: #444;
+    margin-top: 2vh;
+    padding: 1vh 2vw;
+    cursor: pointer;
+    border-radius: 0.8vw;
+    background-color: #0077cc;
     color: #fff;
+    border: none;
+    font-size: 2vh;
 }
-    */
 
 
-
-    #scene {
-    margin-left: 50%;
-    width: 40%;
-    height: 600px;
+#scene {
+    height: 90%;
+    width: 100%;
     border-radius: 16px;
-    margin-bottom: 20px;
-    background-size: cover;
-    background-position: center;
+    margin: 2% auto 20px auto; /* centré horizontalement avec margin auto */
+    max-width: 90%;            /* optionnel : limite la largeur pour les grands écrans */
+    background-size: cover;     /* l’image couvre tout le bloc */
+    background-position: center center; /* centre l’image verticalement et horizontalement */
+    background-repeat: no-repeat; /* empêche la répétition */
     transition: background-image 0.5s ease-in-out;
-    margin-top: 2%;
-
 }
-.scene-0 { background-image: url("../image/casque.png"); }
+
+.scene-0 { background-image: url("../image/image1.jpg"); }
 .scene-1 { background-image: url("../images/scene-helmet.jpg"); }
 .scene-2 { background-image: url("../images/scene-light.jpg"); }
 .scene-3 { background-image: url("../images/scene-road.jpg"); }
