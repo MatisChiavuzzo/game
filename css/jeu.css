@@ -5,8 +5,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden;
-    /* bloque scroll */
+
     font-family: Arial, sans-serif;
 }
 
@@ -414,12 +413,12 @@ p {
     transition: background-image 0.5s ease-in-out;
 }
 
-.scene-0 { background-image: url("../image/image1.jpg"); }
-.scene-1 { background-image: url("../images/scene-helmet.jpg"); }
-.scene-2 { background-image: url("../images/scene-light.jpg"); }
-.scene-3 { background-image: url("../images/scene-road.jpg"); }
-.scene-4 { background-image: url("../images/scene-bus.jpg"); }
-.scene-5 { background-image: url("../images/scene-street.jpg"); }
-.scene-6 { background-image: url("../images/scene-redlight.jpg"); }
-.scene-7 { background-image: url("../images/scene-works.jpg"); }
-.scene-8 { background-image: url("../images/scene-finish.jpg"); }
+.scene-0 { background-image: url(""); }
+.scene-1 { background-image: url(""); }
+.scene-2 { background-image: url(""); }
+.scene-3 { background-image: url(""); }
+.scene-4 { background-image: url(""); }
+.scene-5 { background-image: url(""); }
+.scene-6 { background-image: url(""); }
+.scene-7 { background-image: url(""); }
+.scene-8 { background-image: url(""); }
