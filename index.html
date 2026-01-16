@@ -1,78 +1,51 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<title>Jeu de trajet interactif</title>
-<link rel="stylesheet" href="./css/style.css">
+    <meta charset="UTF-8">
+    <title>Jeu de trajet interactif</title>
+    <link rel="stylesheet" href="./css/accueil.css">
 </head>
+
 <body>
 
-<div class="dashboard">
-    <div class="block temps">
-        <span id="time">0</span>
-        <div class="button"></div>
+
+<header class="site-header">
+  <h1>Jeu de trajet interactif</h1>
+  <nav>
+    <a href="./index.html">Accueil</a>
+    <a href="./html/regles.html">Règles du jeu</a>
+    <a href="./html/jeu.html">Jouer</a>
+    <a href="mailto:matis.chiavuzzo@laposte.net" class="mail-button">Contact</a>
+  </nav>
+</header>
+
+
+<main class="home-center">
+  <section class="intro-card">
+    <h2>Bienvenue sur notre jeu à choix</h2>
+
+    <p>
+      Cette page a été conçu dans le cadre d’un projet portant sur l'INCIDENCES COMPORTEMENTALES DES FONCTIONS DU RISQUE CHEZ LES JEUNES MOTOCYCLISTES.  
+      Vous y trouverez un jeu interactif ainsi qu’une notice explicative permettant de comprendre son fonctionnement et ses règles.
+      blablablabalblabnlablablablbalbal
+    </p>
+
+    <p>
+      L’objectif est de proposer un jeu dans lequel l'utilisateur ets amené à faire des choix qui influencerons sont "aventure". Egalement, au cours de la partie, vous serons proposé des éléments complémentaire, permettant d'aprendre tout en jouant.
+    </p>
+
+    <div class="links">
+      <a href="./html/regles.html" class="btn">Lire la notice</a>
+      <a href="./html/jeu.html" class="btn btn-primary">Accéder au jeu</a>
     </div>
-
-        <div class="block meteo">
-        <span id="environment">0</span>
-        <div class="drop"></div>
-    </div>
-
-        <div class="block transport">
-        <span id="transport">0</span>
-    </div>
-
-        <!-- BARRE DE RISQUE -->
-    <div id="risk-container">
-        <div id="risk-indicator"></div>
-    </div>
-</div>
+  </section>
+</main>
 
 
 
+<footer class="site-footer">© 2026 - CHIAVUZZO Matis & TUAILLON Ninon<br>Dernière mise à jour : Janvier 2026<br><a href="mailto:matis.chiavuzzo@laposte.net" class="mail-button">Nous contacter</a></footer>
 
-
-
-
-<!-- MODAL CARTE -->
-<div id="card-modal">
-    <div id="card">
-        <img id="card-image" src="" alt="Image situation">
-        <p id="card-question"></p>
-        <div id="card-choices"></div>
-    </div>
-</div>
-
-<!-- BLOC EXPLICATION / PIoche -->
-<div id="explanation-modal">
-    <div id="explanation-card">
-        <p id="explanation-text"></p>
-        <button id="next-step-btn">Continuer</button>
-    </div>
-</div>
-
-<!-- BLOC SCORE FINAL -->
-<div id="final-score" style="display:none; text-align:center; margin-top:50px;">
-    <h2>Fin de la partie !</h2>
-    <p id="score-text"></p>
-    <button onclick="window.location.reload()">Rejouer</button>
-
-</div>
-
-
-<div id="scene"></div>
-<div id="progress-container">
-    <div id="progress-bar"></div>
-</div>
-
-
-    <div id="game">
-        <div id="choices"></div>
-        <p>Bonjour et bienvenu sur notre jeu en ligne !!<br>
-        <a href=""><i>Télécharer la règle du jeu</i></a></p>
-        <button id="startBtn">Commencer à jouer</button>
-    </div>
-
-<script src="./js/script.js"></script>
 </body>
+
 </html>

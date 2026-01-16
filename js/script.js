@@ -191,7 +191,7 @@ function ruralStraight(){
                 time -= 20;
                 message = "Tu as percuté un lapin !";
             } else {
-                message = "Tu as de la chance";
+                message = "Tu as de la chance 🍀";
             }
 
             updateUI();
