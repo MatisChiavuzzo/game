@@ -1,0 +1,21 @@
+site_name: Jeu interractif
+
+nav:
+  - Accueil: index.md
+  - Installation: installation.md
+  - Utilisation: utilisation.md
+
+nav:
+  - Accueil: index.md
+  - Regles du jeu: ./pages/regles.md
+  - jeu: jeu.html
+
+theme: mkdocs
+theme:
+  name: material
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - codehilite

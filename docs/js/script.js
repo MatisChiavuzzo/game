@@ -120,9 +120,20 @@ startBtn.onclick = ()=>{
     transportEl.textContent = randomFrom(transports);
     environmentEl.textContent = randomFrom(environments);
 
-    if (environmentEl.textContent === "Nuit") {
-        document.body.classList.add("night-mode");
-    }
+    document.body.classList.remove("pluie", "nuit", "jour");
+
+switch (environmentEl.textContent) {
+  case "Pluie":
+    document.body.classList.add("pluie");
+    break;
+  case "Nuit":
+    document.body.classList.add("nuit");
+    break;
+  case "Jour":
+    document.body.classList.add("jour");
+    break;
+}
+
 
     updateUI();
     askHelmet();
@@ -325,3 +336,7 @@ function showFinalScore(){
 updateUI();
 updateProgress();
 updateScene();
+
+
+
+

@@ -14,21 +14,25 @@ body {
 #index {
     padding: 1vh 2vw;
     font-size: 2vh;
-    border: none;
+    border: #0f172a;
     border-radius: 0.5vw;
-    background-color: #0077cc;
+    background-color: #ffffff;
     color: white;
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
 }
 
 #index:hover {
-    background-color: #005fa3;
     transform: scale(1.05);
 }
 
 #index:active {
     transform: scale(0.95);
+}
+
+a {
+  text-decoration: none; 
+  color: #0f172a;        
 }
 
 /* =================================== */
@@ -131,7 +135,6 @@ body {
 
 .left-bottom {
     grid-area: left-bottom;
-    background: #fff;
     width: 100%;
     box-sizing: border-box;
 }
@@ -428,12 +431,36 @@ p {
 
 
 
+body.pluie {
+  background-image: url("../image/pluie.jpg");
+}
 
+body.nuit {
+  background-image: url("../image/nuit.jpg");
+}
 
+body.jour {
+  background-image: url("../image/jour.jpg");
+}
 
+body {
+  background-size: cover;      /* prend toute la place */
+  background-position: center; /* centrée */
+  background-repeat: no-repeat;
+}
 
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* noir à 40% */
+  z-index: 0;
+}
 
-
-
+/* contenu au-dessus */
+body > * {
+  position: relative;
+  z-index: 1;
+}
 
 
