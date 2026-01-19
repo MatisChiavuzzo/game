@@ -12,3 +12,6 @@ L’objectif est de proposer un jeu dans lequel l'utilisateur ets amené à fair
 
 Nous vous invitons dans un premier temps, avant de lancer le jeu à [consulter les règles du jeu](./pages/regles.md). Une fois consulté, vous pourrer [lancer le jeu](jeu.html).
 
+# Nous contacter 
+
+Si vous rencontrer des difficultés vous pouvez [Nous contacter](mailto:matis.chiavuzzo@laposte.net). 
