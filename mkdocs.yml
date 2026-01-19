@@ -1,4 +1,5 @@
 site_name: Jeu interractif
+site_url: https://<matischiavuzzo>.github.io/<game>/
 
 nav:
   - Accueil: index.md
