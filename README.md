@@ -59,11 +59,13 @@ Allez dans "Distribution des sources" et téléchargez la seule version : mkdocs
 
 ## Installation et lancement 
 ### Télécharger ou cloner le projet
-### Ouvrir le projet via la commande suivante dans le terminal : `mkdocs gh-deploy`
+### Ouvrir le projet via la commande suivante dans le terminal :
+`mkdocs gh-deploy`
 ### Commit les modifications (depuis le terminal):
 - `git add .`
 - `git commit -m "Mise à jour de la documentation"`
 - `git push origin main`
+**jfzhejkf**  
 
 # 3. Structure des fichiers
 
