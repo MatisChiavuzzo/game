@@ -59,7 +59,9 @@ Allez dans "Distribution des sources" et téléchargez la seule version : mkdocs
 
 ## Installation et lancement 
 ### Télécharger ou cloner le projet
-### Ouvrir le projet via la commande suivante dans le terminal :
+### Ouvrir le projet en local via la commande suivante dans le terminal :
+- `mkdocs serve`
+### Publier le projet via la commande suivante dans le terminal :
 - `mkdocs gh-deploy`
 ### Commit les modifications (depuis le terminal):
 - `git add .`
