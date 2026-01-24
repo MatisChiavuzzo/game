@@ -1,6 +1,6 @@
-# Projet de dévellopement d'un jeu en ligne 
+# Projet de développement d'un jeu en ligne 
 
-Page web jeu interractif portant sur les risques en deux roues. 
+Page web d'un jeu interractif portant sur les risques en deux roues (vélo, moto, trotinette électrique). 
 
 Janvier - Février 2026
 
@@ -48,6 +48,11 @@ S'il ne se télécharge pas lorsque vous cliquez sur le premier lien, essayez de
 Allez dans "Distribution des sources" et téléchargez la seule version : mkdocs_material-9.6.8.tar.gz.
 
 # 1. Présentation du projet
+Le projet a été effectué dans le cadre de notre cours "Société et environnement" donné lors du second semestre de notre troisième année de licence en Géographie et aménagement au sein de l'université Marie et Louis Pasteur. 
+
+Le but était de produire un jeu de rôle inspiré d'un trad-off game basé sur la prise de risque des adolescents en deux roues développé par L.Colbeau-Jusin, S.Depeau et T.Ramadier en 2001.
+
+Pour répondre à cette attente, nous avons développé un jeu à choix inspiré des "visual novels" où le joueur se voit attribué un moyen de transport (vélo, moto, trotinette électrique) et doit rejoindre son école à temps. Pour cela, le jouer sera confronté tout le long de son trajet à différentes situations face auxquelles il aura un choix à faire. Les choix qu'il décidera de faire influenceront ainsi à la fois son heure d'arrivée mais également sa "barre de prise de risque". Le but final du jeu est ainsi d'arriver à l'heure mais aussi de ne pas finir avec un score trop bas dans la barre de risque.
 
 # 2. Contexte technique 
 
@@ -70,7 +75,22 @@ Allez dans "Distribution des sources" et téléchargez la seule version : mkdocs
 
 # 3. Arboresance des fichiers
 
+## Dossier "docs" :
 
+Ce dossier contient tous les fichers servant à  , on y retrouve les sous-dossiers suivants : 
+    - css : 
+    - image : 
+    - js : 
+    - pages : 
+
+### Dossier "site" :
+
+Ce dossier contient tous les fichiers servant à , on y retrouve les sous-dossiers suivants : 
+    - assets : 
+    - css
+    - js : 
+    - pages : 
+    - search : 
 
 
 # 4. Description de la structure/composition des fichiers
@@ -79,14 +99,17 @@ Allez dans "Distribution des sources" et téléchargez la seule version : mkdocs
 
 Ce code en .md, correpond à la page d'accueil du jeu. Il contient un menu de navigation renvoyant vers : 
 - Acuueil : page principal, dans laquelle on trouve des éléments contextes et de présentations du projet. Egalement, on retrouve un bouton de contact. 
-- Régles du jeu :  Renvoi vers une autre page contenant les règles du jeu (page regles.md).
+- Règles du jeu :  Renvoi vers une autre page contenant les règles du jeu (page regles.md).
 - Jeu : Renvoi vers le jeu (page jeu.html).
 
 ## regles.md
+Ce code en .md recense les règles détaillées du jeu ainsi que les fins et possibilité possibles. 
 
 ## jeu.html
+Ce code en .html permet de . 
 
 ## jeu.css
+Ce code en .css permet de moduler l'apparence de l'ensemble de la page du jeu. 
 
 ## script.js
 
@@ -142,7 +165,7 @@ Ce code en javascript, permet le fonctionnement du jeu. Dans ce script, nous pou
 
 ### Le score final
  - Le score final s'affiche par appel, dans la dernière étape (a la place de la prochaine étape pour l'ensembl des autres étapes). 
- - Il affaiche le temps final, ainsi que le niveau de risque. 
+ - Il affiche le temps final, ainsi que le niveau de risque. 
  - Il offre la possibilité de relancer une partie. 
  - Pour y faire appel dans le html, on utilise "final-score". 
 
