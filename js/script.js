@@ -85,19 +85,6 @@ function formatTime(totalMinutes) {
     return `${hours}h${paddedMinutes}`;
 }
 
-// Temps des trajets selon le mode
-function addTransportTime() {
-    const transport = transportEl.textContent; // récupère le mode de transport actuel
-
-    if (transport === "Moto") {
-        time += 1; // ajoute 1 minute si c'est la moto
-    } else if (transport === "Vélo" || transport === "Trottinette") {
-        time += 4; // ajoute 3 minutes pour vélo ou trottinette
-    }
-
-    updateUI(); // met à jour le compteur temps et barre de risque
-}
-
 // Fonction qui fait appel au compteur temps et risque, les met a jour selon les + ou - appliqués
 function updateUI() {
     // définit que l'on appel l'élément temps par "time"
@@ -238,7 +225,7 @@ startBtn.onclick = () => {
 function askHelmet() {
     // montre la carte, met cette image, ce texte et ces boutons
     showCard("../image/casque.png",
-        "Tu as un trajet de 28 minutes à faire pour te rendre à ton cours de 8h.\n Mais il est déjà 7h37. \n Souhaites-tu mettre ton casque avant de partir ?",
+        "Souhaites-tu mettre ton casque avant de partir ?",
         [
             // DEUX POSSIBILITES : soit Oui, soit Non
             // Texte du bouton, puis ce qu'il fait
@@ -273,7 +260,7 @@ function askHelmet() {
 
 // ========================== ETAPE 2 : La lumière
 function askLight() {
-    showCard("../image/lumière.png", "Ta lumière ne fonctionne plus, prends-tu le temps de la réparer ?", [
+    showCard("../image/lumière.png", "Il est déjà tard et ta lumière ne marche plus… la répares-tu avant de partir ?", [
         {
             text: "Oui", action: () => {
                 lightOn = true;
@@ -293,18 +280,25 @@ function askLight() {
 
 // ========================== ETAPE 3 : L'école
 function school() {
-    showCard("../image/ecole.png", "Tu voulais filer sur la route mais tu habites juste à côté d’une école et il y a un embouteillage des deux côtés de la voie avec les voitures des parents qui veulent déposer leurs enfants. \n Que fais-tu ?", [
-        {
-            text: "Tu profites de la petite taille de ton véhicule pour te faufiler entre les voitures.", action: () => {
-                lightOn = true;
-                risk -= 4; time -= 5; updateUI(); addTransportTime();
+    showCard("../image/ecole.png", "Tu voulais filer, mais tu habites juste à côté d’une école. Les deux voies sont bloquées par les voitures des parents. \n Que fais-tu ?", [
+                {
+            text: "Tu attends", action: () => {
+                lightOn = false;
+                risk += 4; time += 3; updateUI();
                 showExplanation("?", ruralStraight);
             }
         },
-        {
-            text: "Tu attends", action: () => {
+                {
+            text: "Tu met un pied à terre, et passe", action: () => {
                 lightOn = false;
-                risk += 4; time += 3; updateUI(); addTransportTime();
+                risk += 2; time += 1; updateUI();
+                showExplanation("?", ruralStraight);
+            }
+        },
+                {
+            text: "Tu maintient ton allur, avec la petite taille de ton véhicule ça va passer", action: () => {
+                lightOn = true;
+                risk -= 4; updateUI();
                 showExplanation("?", ruralStraight);
             }
         }
@@ -313,18 +307,18 @@ function school() {
 
 // ========================== ETAPE 4 : La ligne droite en milieu rural
 function ruralStraight() {
-    showCard("../image/vitesse.png", "Après être enfin sorti des embouteillages, tu arrives sur une ligne droite vide, est-ce que tu dépasses la limite de vitesse ?", [
+    showCard("../image/vitesse.png", "Enfin ! Tu es sorti des bouchons et une longue ligne droite est devant toi. \n Respectes-tu la vitesse ?", [
         {
-            text: "Non", action: () => {
+            text: "Oui", action: () => {
                 risk += 3;
-                updateUI(); addTransportTime();
+                updateUI();
                 showExplanation("Tu restes prudent, c’est bien ! Surtout que tu te serais exposé à des risques qui auraient pu te faire perdre plus de temps au final.", redLight);
             }
         },
         {
-            text: "Oui", action: () => {
+            text: "Non", action: () => {
                 // Ajout de + 1 dans le compteur temps
-                time -= 3;
+                time -= 2;
                 risk -= 3;
 
                 // Probabilité de l’événement 1
@@ -341,7 +335,7 @@ function ruralStraight() {
                     // Ajout d'un risque de -15
                     risk -= 15;
                     // Ajout de - 20 minutes dans le compteur temps
-                    time -= 20;
+                    time += 3;
                     // Message affiché dans ce cas 
                     message = "Tu as pris un risque cathartique et tu as percuté un lapin !";
                     // Si r était supérieur à la valeur de la proba de l'événement 1, alors fait ca 
@@ -351,7 +345,7 @@ function ruralStraight() {
                 }
 
                 // Met a jour temps et barre de risque
-                updateUI(); addTransportTime();
+                updateUI();
                 // Montre la carte explication, avec ce texte, puis associe le cli du bouton à l'étape suivante, soit le bus à un arrêt
                 showExplanation(message, redLight);
             }
@@ -361,16 +355,16 @@ function ruralStraight() {
 
 // ========================== ETAPE 5 : Le feu rouge
 function redLight() {
-    showCard("../image/feu.png", "Tu arrives à un feu rouge, que fais-tu ?", [
+    showCard("../image/feu.png", "Le feu passe au rouge juste devant toi. \n Que fais-tu ?", [
         {
             text: "Tu attends patiemment", action: () => {
-                time += 3; risk += 2; updateUI(); addTransportTime();
+                time += 2; risk += 2; updateUI();
                 showExplanation("Encore heureux ! C’est bien la base du code de la route que de ne pas griller les feux rouges.", busStop);
             }
         },
         {
             text: "Tu le grilles", action: () => {
-                time -= 3; risk -= 5;
+                risk -= 5;
 
                 const r = Math.random();
                 let message = "";
@@ -380,19 +374,19 @@ function redLight() {
                     message = "C’était super dangereux ! Mais tu as eu de la chance et il ne t'est rien arrivé";
                 } else if (r < 0.9) {
                     // 30 %
-                    time += 5;
+                    time += 4;
                     message = "Oups ! Tu as pris un risque de stimulation mais la police était cachée à côté. Tu te fais arrêter, perds du temps et prends une amende.";
                 } else {
                     // 10 % — MORT
                     risk -= 50;
-                    updateUI(); addTransportTime();
+                    updateUI();
                     showExplanation(
                         "Un tram est arrivé au même moment. Tu es mort et tu as traumatisé le chauffeur et tous les passagers !",
                         showFinalScore
                     );
                     return;
                 }
-                updateUI(); addTransportTime();
+                updateUI();
                 showExplanation(message, busStop);
             }
         }
@@ -402,12 +396,12 @@ function redLight() {
 
 // ========================== ETAPE 6 : Le bus qui prend des passagers à un arrêt
 function busStop() {
-    showCard("../image/arret.png", "Un bus à l’arrêt bloque ta route. \n Que fait tu ?", [
+    showCard("../image/arret.png", "Le bus juste devant toi s’arrête pour faire monter des passagers. \n Quelle est ta réaction ?", [
         {
             text: "J'attend", action: () => {
-                time += 3;
+                time += 2;
                 risk += 4;
-                updateUI(); addTransportTime();
+                updateUI();
                 showExplanation("Bon choix, le bus est vite reparti et tu as évité un risque d’accident.", chooseStreet);
             }
         },
@@ -435,7 +429,7 @@ function busStop() {
                     message = "Tu as failli rentrer dans un piéton que tu n’avais pas vu ! Tu as pris un risque pratique mais tu t’es mis en danger toi et les autres usagers de la route.";
                 }
 
-                updateUI(); addTransportTime();
+                updateUI();
                 showExplanation(message, chooseStreet);
             }
         }
@@ -444,29 +438,29 @@ function busStop() {
 
 // ========================== ETAPE 7 : Le choix de la rue interdite ou non
 function chooseStreet() {
-    showCard("../image/interdit.png", "Tu as le choix entre deux voies : un chemin plus court mais réservé aux vélos et piétons ou un chemin plus long mais où tu es autorisé à rouler. \n Quelle voie prends-tu ?", [
+    showCard("../image/interdit.png", "Tu arrives devant la Grande Rue, mais un arrêté interdit la circulation des motos et trottinettes électriques. \n Que fait tu ?", [
         {
-            text: "La voie réservée aux vélos et piétons", action: () => {
+            text: "Je passa quand même par la Grande Rue (interdite)", action: () => {
                 risk -= 6;
                 const r = Math.random();
                 let message = "";
 
-                if (r < 0.2) {
-                    // 20 %
+                if (r < 0.5) {
+                    // 50 %
                     time += 5
                     message = "Malheur ! Tu t’es fait arrêté par la police. Ce risque d’autonomie a de lourdes conséquences. Tu perds 5 minutes, tu te prends AMENDES et en plus ils t’ont humiliés en te filmant pour publier sur les réseaux sociaux pour faire de toi un exemple.";
                 } else {
-                    // 80 %
+                    // 50 %
                     message = "Tu as de la chance, tu as pris un risque d’autonomie et il ne t'est rien arrivé. Tu aurais pu te faire arrêter par la police ou renverser quelqu’un.";
                 }
 
-                updateUI(); addTransportTime();
+                updateUI();
                 showExplanation(message, sharedLane);
             }
         },
         {
-            text: "La voie autorisée", action: () => {
-                time += 3; risk += 4; updateUI(); addTransportTime();
+            text: "Je fait le détour par une rue parrallèle (autorisée)", action: () => {
+                time += 2; risk += 4; updateUI();
                 showExplanation("Félicitations ! Tu as perdu du temps mais tu as évité de te faire arrêter par la police ou de renverser quelqu’un.", sharedLane);
             }
         }
@@ -475,11 +469,11 @@ function chooseStreet() {
 
 // ========================== ETAPE 8 : La voie partagée
 function sharedLane() {
-    showCard("../image/partage.png", "Ce n’est vraiment pas ta journée ! \n La voie partagée que tu as l’habitude de prendre est entravée par des travaux, réduisant la largeur de la route. En plus, un vélo est devant toi et avance super lentement. \n Que fais-tu ?", [
+    showCard("../image/partage.png", "La voie partagée que tu prends habituellement est entravée par des travaux, réduisant la largeur de la route. \n Pour couronner le tout, un vélo est devant toi et avance très lentement. \n Que fait-tu ?", [
         {
-            text: "La voie réservée aux vélos et piétons", action: () => {
+            text: "Tu zigzague dans la zone en travaux", action: () => {
                 risk -= 5;
-                time -= 2;
+                time += 1;
                 const r = Math.random();
                 let message = "";
 
@@ -487,7 +481,7 @@ function sharedLane() {
                     message = "Tu as énormément de chance...";
                 } else {
                     risk -= 50;
-                    updateUI(); addTransportTime();
+                    updateUI();
                     showExplanation(
                         "Tu tombes dans un trou et es enseveli...",
                         () => showFinalScore() 
@@ -496,20 +490,20 @@ function sharedLane() {
 
 
 
-                updateUI(); addTransportTime();
+                updateUI();
                 showExplanation(message, raceFriend);
             }
         },
 
         {
             text: "Tu dépasse le vélo", action: () => {
-                time -= 2; risk -= 2; updateUI(); addTransportTime();
+                risk -= 5; updateUI();
                 showExplanation("Tu as gagné du temps en prenant ce risque pratique. Mais tu t’es fait insulter par le cycliste qui a failli tomber à cause de toi", raceFriend);
             }
         },
         {
             text: "Tu attends patiemment derrière le vélo.", action: () => {
-                time += 2; risk += 5; updateUI(); addTransportTime();
+                time += 2; risk += 5; updateUI();
                 showExplanation("Quelle chance ! Tu réalises que c’est ton prof devant toi ! Il est donc tout aussi en retard que toi.", raceFriend);
             }
         }
@@ -518,11 +512,11 @@ function sharedLane() {
 
 // ========================== ETAPE 8 : La course avec un/une ami-e
 function raceFriend() {
-    showCard("../image/finish.png", "Tu es presque arrivé ! \n Sur la dernière ligne droite, tu croises un ami à toi, également en deux roues. Il te propose de faire la course sur la dernière portion de route. \n Accepte-tu ?", [
+    showCard("../image/finish.png", "Tu es presque arrivé quand tu croises un ami, lui aussi en deux-roues. Il te propose de faire la course sur cette dernière portion de route.", [
         {
-            text: "Oui", action: () => {
-                risk -= 3;
-                time -= 1
+            text: "Tu accepte le défi !", action: () => {
+                risk -= 5;
+                time -= 2
                 const r = Math.random();
                 let message = "";
 
@@ -535,13 +529,13 @@ function raceFriend() {
                     message = "Tu as pris un risque de prestance en voulant fanfaronner devant ton ami. Tu gagnes la course mais ton prof qui était en vélo juste derrière vous vous a vu. Il vous réprimande et refuse de vous accepter dans son cours.";
                 }
 
-                updateUI(); addTransportTime();
+                updateUI();
                 showExplanation(message, showFinalScore);
             }
         },
         {
-            text: "Non", action: () => {
-                time += 1; risk += 3; updateUI(); addTransportTime();
+            text: "Tu refuse", action: () => {
+                risk += 3; updateUI();
                 showExplanation("Tu as bien fait de ne pas accepter, ton prof était à vélo juste derrière vous. Il a vu ton ami et manquer de renverser quelqu’un en faisant n’importe quoi et il l’a exclu de son cours !", showFinalScore);
             }
         }

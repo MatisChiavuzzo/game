@@ -68,9 +68,14 @@ a {
 }
 
 #game p {
-    font-size: 5vh;
+    font-size: 4vh;
     text-align: center;
 }
+
+#txt p {
+    font-size: 3vh;
+    text-align: center;
+color: white;}
 
 /* =================================== */
 /* GRID PRINCIPAL */
@@ -321,6 +326,8 @@ p {
     margin: 1vh;
     padding: 1vh 2vw;
     cursor: pointer;
+    background-color: #dadada;
+    border-radius: 15px;
 }
 
 /* =================================== */
@@ -334,7 +341,6 @@ p {
     justify-content: center;
     align-items: center;
     z-index: 100;
-    padding: 2vh 2vw;
 }
 
 #explanation-card {
