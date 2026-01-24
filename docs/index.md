@@ -10,7 +10,7 @@ L’objectif est de proposer un jeu dans lequel l'utilisateur ets amené à fair
 
 ## Avant de commerncer 
 
-Nous vous invitons dans un premier temps, avant de lancer le jeu à [consulter les règles du jeu](./pages/regles.md). Une fois consulté, vous pourrer [lancer le jeu](jeu.html).
+Nous vous invitons dans un premier temps, avant de lancer le jeu à [consulter les règles du jeu](./pages/regles.md). Une fois consulté, vous pourrer [lancer le jeu](./pages/jeu.html).
 
 # Nous contacter 
 

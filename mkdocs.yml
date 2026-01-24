@@ -9,7 +9,7 @@ nav:
 nav:
   - Accueil: index.md
   - Regles du jeu: ./pages/regles.md
-  - jeu: jeu.html
+  - Jeu: ./pages/jeu.html
 
 theme: mkdocs
 theme:

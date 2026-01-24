@@ -237,7 +237,7 @@ startBtn.onclick = () => {
 // ========================== ETAPE 1 : Le casque
 function askHelmet() {
     // montre la carte, met cette image, ce texte et ces boutons
-    showCard("./image/casque.png",
+    showCard("../image/casque.png",
         "Tu as un trajet de 28 minutes à faire pour te rendre à ton cours de 8h.\n Mais il est déjà 7h37. \n Souhaites-tu mettre ton casque avant de partir ?",
         [
             // DEUX POSSIBILITES : soit Oui, soit Non
@@ -273,7 +273,7 @@ function askHelmet() {
 
 // ========================== ETAPE 2 : La lumière
 function askLight() {
-    showCard("./image/lumière.png", "Ta lumière ne fonctionne plus, prends-tu le temps de la réparer ?", [
+    showCard("../image/lumière.png", "Ta lumière ne fonctionne plus, prends-tu le temps de la réparer ?", [
         {
             text: "Oui", action: () => {
                 lightOn = true;
@@ -293,7 +293,7 @@ function askLight() {
 
 // ========================== ETAPE 3 : L'école
 function school() {
-    showCard("./image/ecole.png", "Tu voulais filer sur la route mais tu habites juste à côté d’une école et il y a un embouteillage des deux côtés de la voie avec les voitures des parents qui veulent déposer leurs enfants. \n Que fais-tu ?", [
+    showCard("../image/ecole.png", "Tu voulais filer sur la route mais tu habites juste à côté d’une école et il y a un embouteillage des deux côtés de la voie avec les voitures des parents qui veulent déposer leurs enfants. \n Que fais-tu ?", [
         {
             text: "Tu profites de la petite taille de ton véhicule pour te faufiler entre les voitures.", action: () => {
                 lightOn = true;
@@ -313,7 +313,7 @@ function school() {
 
 // ========================== ETAPE 4 : La ligne droite en milieu rural
 function ruralStraight() {
-    showCard("./image/vitesse.png", "Après être enfin sorti des embouteillages, tu arrives sur une ligne droite vide, est-ce que tu dépasses la limite de vitesse ?", [
+    showCard("../image/vitesse.png", "Après être enfin sorti des embouteillages, tu arrives sur une ligne droite vide, est-ce que tu dépasses la limite de vitesse ?", [
         {
             text: "Non", action: () => {
                 risk += 3;
@@ -361,7 +361,7 @@ function ruralStraight() {
 
 // ========================== ETAPE 5 : Le feu rouge
 function redLight() {
-    showCard("./image/feu.png", "Tu arrives à un feu rouge, que fais-tu ?", [
+    showCard("../image/feu.png", "Tu arrives à un feu rouge, que fais-tu ?", [
         {
             text: "Tu attends patiemment", action: () => {
                 time += 3; risk += 2; updateUI(); addTransportTime();
@@ -402,7 +402,7 @@ function redLight() {
 
 // ========================== ETAPE 6 : Le bus qui prend des passagers à un arrêt
 function busStop() {
-    showCard("./image/arret.png", "Un bus à l’arrêt bloque ta route. \n Que fait tu ?", [
+    showCard("../image/arret.png", "Un bus à l’arrêt bloque ta route. \n Que fait tu ?", [
         {
             text: "J'attend", action: () => {
                 time += 3;
@@ -444,7 +444,7 @@ function busStop() {
 
 // ========================== ETAPE 7 : Le choix de la rue interdite ou non
 function chooseStreet() {
-    showCard("./image/interdit.png", "Tu as le choix entre deux voies : un chemin plus court mais réservé aux vélos et piétons ou un chemin plus long mais où tu es autorisé à rouler. \n Quelle voie prends-tu ?", [
+    showCard("../image/interdit.png", "Tu as le choix entre deux voies : un chemin plus court mais réservé aux vélos et piétons ou un chemin plus long mais où tu es autorisé à rouler. \n Quelle voie prends-tu ?", [
         {
             text: "La voie réservée aux vélos et piétons", action: () => {
                 risk -= 6;
@@ -475,7 +475,7 @@ function chooseStreet() {
 
 // ========================== ETAPE 8 : La voie partagée
 function sharedLane() {
-    showCard("./image/partage.png", "Ce n’est vraiment pas ta journée ! \n La voie partagée que tu as l’habitude de prendre est entravée par des travaux, réduisant la largeur de la route. En plus, un vélo est devant toi et avance super lentement. \n Que fais-tu ?", [
+    showCard("../image/partage.png", "Ce n’est vraiment pas ta journée ! \n La voie partagée que tu as l’habitude de prendre est entravée par des travaux, réduisant la largeur de la route. En plus, un vélo est devant toi et avance super lentement. \n Que fais-tu ?", [
         {
             text: "La voie réservée aux vélos et piétons", action: () => {
                 risk -= 5;
@@ -518,7 +518,7 @@ function sharedLane() {
 
 // ========================== ETAPE 8 : La course avec un/une ami-e
 function raceFriend() {
-    showCard("./image/finish.png", "Tu es presque arrivé ! \n Sur la dernière ligne droite, tu croises un ami à toi, également en deux roues. Il te propose de faire la course sur la dernière portion de route. \n Accepte-tu ?", [
+    showCard("../image/finish.png", "Tu es presque arrivé ! \n Sur la dernière ligne droite, tu croises un ami à toi, également en deux roues. Il te propose de faire la course sur la dernière portion de route. \n Accepte-tu ?", [
         {
             text: "Oui", action: () => {
                 risk -= 3;
