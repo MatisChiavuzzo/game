@@ -11,9 +11,9 @@ nav:
   - Regles du jeu: ./pages/regles.md
   - Jeu: ./pages/jeu.html
 
-theme: mkdocs
 theme:
   name: material
+
 
 markdown_extensions:
   - admonition
