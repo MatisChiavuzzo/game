@@ -122,6 +122,17 @@ function randomFrom(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
+function modes() {
+    const transport = transportEl.textContent;
+
+    if (transport === "Vélo") {
+        sharedLane();
+    } else if (transport === "Moto" || transport === "Trottinette") {
+        chooseStreet();
+    }
+}
+
+
 // =====================
 // affiche les CARTES des questions
 // =====================
@@ -402,7 +413,7 @@ function busStop() {
                 time += 2;
                 risk += 4;
                 updateUI();
-                showExplanation("Bon choix, le bus est vite reparti et tu as évité un risque d’accident.", chooseStreet);
+                showExplanation("Bon choix, le bus est vite reparti et tu as évité un risque d’accident.", modes);
             }
         },
         {
@@ -430,7 +441,7 @@ function busStop() {
                 }
 
                 updateUI();
-                showExplanation(message, chooseStreet);
+                showExplanation(message, modes);
             }
         }
     ]);
