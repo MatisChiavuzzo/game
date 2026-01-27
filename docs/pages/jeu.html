@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>Jeu de trajet interactif</title>
     <link rel="stylesheet" href="../css/jeu.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../image/logo.png">
 </head>
 
 <body>
@@ -78,7 +80,7 @@
             <div class="block transport">
                 <span id="transport">...</span>
             </div>
-        <p>Ton mode de transport</p>
+        <p>Ton moyen de transport</p>
         </div>
 
     </div>
@@ -91,7 +93,7 @@
 <div id="final-score" style="display:none;">
   <div id="final-score-overlay">
     <div id="final-score-card">
-      <h2>Fin de la partie !</h2>
+      <h2><p id="mots_fin"></p></h2>
       <p id="score-text"></p>
       <button onclick="window.location.reload()">Rejouer</button>
     </div>

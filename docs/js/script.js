@@ -55,6 +55,8 @@ const finalScoreDiv = document.getElementById("final-score");
 // Carte du texte du score final
 const scoreText = document.getElementById("score-text");
 
+const motsText = document.getElementById("mots_fin");
+
 // =====================
 // DONNÉES base du jeu
 // =====================
@@ -126,12 +128,39 @@ function modes() {
     const transport = transportEl.textContent;
 
     if (transport === "Vélo") {
-        sharedLane();
+        chooseStreet();
     } else if (transport === "Moto" || transport === "Trottinette") {
         chooseStreet();
     }
 }
 
+function modes2() {
+    const transport = transportEl.textContent;
+
+    if (transport === "Moto") {
+        chooseStreet();
+    } else if (transport === "Vélo" || transport === "Trottinette") {
+        chooseStreet();
+    }
+}
+
+function night() {
+    const currentEnv = environmentEl.textContent; 
+    if (currentEnv === "Nuit") {
+        slownight();  
+    } else if (currentEnv === "Pluie" || currentEnv === "Jour") {
+        busStop();   
+    }
+} 
+
+function rain() {
+    const currentEnv = environmentEl.textContent; 
+    if (currentEnv === "Nuit" || currentEnv === "Jour") {
+        redLight();  
+    } else if (currentEnv === "Pluie") {
+        fallrain();   
+    }
+}
 
 // =====================
 // affiche les CARTES des questions
@@ -190,6 +219,9 @@ function showExplanation(text, nextStepFunc) {
     };
 }
 
+function motsdefin(text) {
+    motsText.textContent = text;
+}
 // =====================
 // DÉMARRAGE du jeu
 // =====================
@@ -289,28 +321,28 @@ function askLight() {
     ]);
 }
 
-// ========================== ETAPE 3 : L'école
+// ========================== ETAPE 3 : L'école../image/bus.jpg../image/bus.jpg
 function school() {
     showCard("../image/ecole.png", "Tu voulais filer, mais tu habites juste à côté d’une école. Les deux voies sont bloquées par les voitures des parents. \n Que fais-tu ?", [
                 {
             text: "Tu attends", action: () => {
                 lightOn = false;
                 risk += 4; time += 3; updateUI();
-                showExplanation("?", ruralStraight);
+                showExplanation("Tant mieux ! Tu perds du temps, mais on ne rigole pas avec la sécurité des gens et encore plus avec celles des enfants qui peuvent avoir des comportements très imprévisibles.", ruralStraight);
             }
         },
                 {
             text: "Tu met un pied à terre, et passe", action: () => {
                 lightOn = false;
                 risk += 2; time += 1; updateUI();
-                showExplanation("?", ruralStraight);
+                showExplanation("Un enfant traverse la route sans regarder. Tu manques de l’écraser. Heureusement tu ne roulais pas vite mais en prenant ce risque pratique tu aurais pu l’écraser.", ruralStraight);
             }
         },
                 {
             text: "Tu maintient ton allur, avec la petite taille de ton véhicule ça va passer", action: () => {
                 lightOn = true;
                 risk -= 4; updateUI();
-                showExplanation("?", ruralStraight);
+                showExplanation("Un enfant a ouvert la porte de sa voiture au moment où tu arrivais. Tu te la prends en pleine face et dégringole devant tous les enfants qui se moquent de toi.", ruralStraight);
             }
         }
     ]);
@@ -323,7 +355,7 @@ function ruralStraight() {
             text: "Oui", action: () => {
                 risk += 3;
                 updateUI();
-                showExplanation("Tu restes prudent, c’est bien ! Surtout que tu te serais exposé à des risques qui auraient pu te faire perdre plus de temps au final.", redLight);
+                showExplanation("Tu restes prudent, c’est bien ! Surtout que tu te serais exposé à des risques qui auraient pu te faire perdre plus de temps au final.", rain);
             }
         },
         {
@@ -358,11 +390,49 @@ function ruralStraight() {
                 // Met a jour temps et barre de risque
                 updateUI();
                 // Montre la carte explication, avec ce texte, puis associe le cli du bouton à l'étape suivante, soit le bus à un arrêt
-                showExplanation(message, redLight);
+                showExplanation(message, rain);
             }
         }
     ]);
 }
+
+function rain() {
+    showCard("../image/casque.png",
+        "Il pleut fort et la route est glissante. Que fais-tu ?",
+        [
+            {
+                text: "Je ralentis", 
+                action: () => {
+                    risk += 5;   
+                    time += 1;   
+                    updateUI();
+                    showExplanation("Tu adaptes ta vitesse à la pluie. Tu restes maître de ton véhicule malgré la route glissante.", redLight);
+                }
+            },
+            {
+                text: "Je maintient mon allure", 
+                action: () => {
+                    let probFall = 0.5; // 50% de base
+                    if (!helmetOn) probFall += 0.2; // +20% si le casque n'est pas porté
+                    const r = Math.random();
+
+                    if (r < probFall) {
+                        risk -= 5;  // chute → augmente le risque négatif
+                        time += 2;   // perd plus de temps
+                        updateUI();
+                        showExplanation("La pluie rend la route glissante et tu as perdu le contrôle ! Tu tombes et perds du temps, puis reprend la route !", redLight);
+                    } else {
+                        risk -= 5;  
+                        time -= 1;
+                        updateUI();
+                        showExplanation("Tu as eu de la chance ! Tu gardes ton allure sans tomber, mais le risque reste présent sur la route glissante.", redLight);
+                    }
+                }
+            }
+        ]
+    );
+}
+
 
 // ========================== ETAPE 5 : Le feu rouge
 function redLight() {
@@ -370,7 +440,7 @@ function redLight() {
         {
             text: "Tu attends patiemment", action: () => {
                 time += 2; risk += 2; updateUI();
-                showExplanation("Encore heureux ! C’est bien la base du code de la route que de ne pas griller les feux rouges.", busStop);
+                showExplanation("Encore heureux ! C’est bien la base du code de la route que de ne pas griller les feux rouges.", night);
             }
         },
         {
@@ -398,12 +468,50 @@ function redLight() {
                     return;
                 }
                 updateUI();
-                showExplanation(message, busStop);
+                showExplanation(message, night);
             }
         }
     ]);
 }
 
+function slownight() {
+    showCard("../image/casque.png",
+        "Il fait nuit et l'éclairage public est en panne. Tu vois mal la route. Que fais-tu ?",
+        [
+            {
+                text: "Je ralentis", 
+                action: () => {
+                    risk += 5;  
+                    time += 1;   
+                    updateUI();
+                    showExplanation("Tu ralentis et gardes le contrôle malgré la pénombre. Bonne décision !", busStop);
+                }
+            },
+            {
+                text: "Je maintient mon allure", 
+                action: () => {
+                    // Calcul aléatoire : 50% de chance de tomber
+                    let probFall = 0.5; // 50%
+                    if (!lightOn) probFall += 0.2; // +20% si la lumière n'est pas réparée
+                    const r = Math.random();
+
+                    if (r < probFall) {
+                        // le joueur tombe
+                        risk -= 4;  
+                        time += 2;   
+                        updateUI();
+                        showExplanation("Tu ne voyais pas bien et tu as perdu le contrôle ! Tu tombes et perds du temps, puis reprend la route", busStop);
+                    } else {
+                        risk -= 4;
+                        time -= 1;
+                        updateUI();
+                        showExplanation("Tu as eu de la chance ! Tu gardes ton allure sans tomber, mais tu restes exposé au risque.", busStop);
+                    }
+                }
+            }
+        ]
+    );
+}
 
 // ========================== ETAPE 6 : Le bus qui prend des passagers à un arrêt
 function busStop() {
@@ -466,13 +574,13 @@ function chooseStreet() {
                 }
 
                 updateUI();
-                showExplanation(message, sharedLane);
+                showExplanation(message, modes2);
             }
         },
         {
             text: "Je fait le détour par une rue parrallèle (autorisée)", action: () => {
                 time += 2; risk += 4; updateUI();
-                showExplanation("Félicitations ! Tu as perdu du temps mais tu as évité de te faire arrêter par la police ou de renverser quelqu’un.", sharedLane);
+                showExplanation("Félicitations ! Tu as perdu du temps mais tu as évité de te faire arrêter par la police ou de renverser quelqu’un.", modes2);
             }
         }
     ]);
@@ -498,8 +606,6 @@ function sharedLane() {
                         () => showFinalScore() 
                     );
                 }
-
-
 
                 updateUI();
                 showExplanation(message, raceFriend);
@@ -562,4 +668,18 @@ function showFinalScore() {
     finalScoreDiv.style.display = "block";
     // Affiche le score de a manière suivant, en l'état du niveau du compteur risquue et temps
     scoreText.textContent = `Temps : ${time} min | Risque : ${risk}`;
+    messagefin();
+}
+
+
+function messagefin() {
+    if (time <= 5 && risk > 50) {
+        motsdefin("");
+    } else if (time > 5 && risk > 50) {
+        motsdefin("");
+    } else if (time <= 5 && risk <= 50) {
+        motsdefin("");
+    } else {
+        motsdefin("");
+    }
 }

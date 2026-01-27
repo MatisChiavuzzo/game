@@ -1,22 +1,26 @@
-site_name: Jeu interractif
+site_name: Jeu interractif - Seras-tu à l'heure ?
 site_url: https://<matischiavuzzo>.github.io/<game>/
 
 nav:
   - Accueil: index.md
-  - Installation: installation.md
-  - Utilisation: utilisation.md
-
-nav:
-  - Accueil: index.md
   - Regles du jeu: ./pages/regles.md
-  - Jeu: ./pages/jeu.html
+  - Jouer: ./pages/jeu.html
+  - Documentation: ./pages/documentation.md
 
 theme:
   name: material
+  logo: ./image/logo.png
+  favicon: ./image/logo.png
+  palette:
+    primary: blue grey
+    accent: red
 
+extra:
+  social:
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:<matis.chiavuzzo@laposte.net>
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/matis-chiavuzzo-581044356/
+  generator: false
 
-markdown_extensions:
-  - admonition
-  - toc:
-      permalink: true
-  - codehilite
+copyright: © Matis Chiavuzzo & Ninon Tuaillon | Dernière mise à jour - Janvier 2026
