@@ -1,0 +1,567 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://<matischiavuzzo>.github.io/<game>/pages/documentation/">
+      
+      
+        <link rel="prev" href="../jeu.html">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../image/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Documentation - Jeu interractif - Seras-tu à l'heure ?</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="red">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#projet-de-developpement-dun-jeu-en-ligne" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Jeu interractif - Seras-tu à l&#39;heure ?" class="md-header__button md-logo" aria-label="Jeu interractif - Seras-tu à l'heure ?" data-md-component="logo">
+      
+  <img src="../../image/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Jeu interractif - Seras-tu à l'heure ?
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Documentation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Jeu interractif - Seras-tu à l&#39;heure ?" class="md-nav__button md-logo" aria-label="Jeu interractif - Seras-tu à l'heure ?" data-md-component="logo">
+      
+  <img src="../../image/logo.png" alt="logo">
+
+    </a>
+    Jeu interractif - Seras-tu à l'heure ?
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../regles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Regles du jeu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jeu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jouer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="projet-de-developpement-dun-jeu-en-ligne">Projet de développement d'un jeu en ligne</h1>
+<p>Page web d'un jeu interractif portant sur les risques en deux roues (vélo, moto, trotinette électrique). </p>
+<p>Janvier - Février 2026</p>
+<h1 id="equipe">Equipe</h1>
+<ul>
+<li>Chiavuzzo Matis</li>
+<li>Tuaillon Ninon</li>
+</ul>
+<h1 id="installation-des-outils-de-developpement">Installation des outils de développement</h1>
+<h3 id="vscode">VSCode</h3>
+<p>Se rendre sur le site suivant : https://code.visualstudio.com/docs?dv=win.
+Placer le fichier sur le bureau, puis l'exécuter.</p>
+<p>Une fois VSCode installé, le lancer, puis ajouter l'extension GitHub Pull Requests.
+Vous devez maintenant vous connecter au dossier partagé pour pouvoir travailler en coopération.
+Avant chaque utilisation, il faut pull le fichier pour le mettre à jour sur notre ordinateur, et quand on a fini, il faut le push pour que les suivants puissent reprendre là où vous vous êtes arrêtés.</p>
+<h3 id="python">Python</h3>
+<p>Pour télécharger Python :
+Cliquez directement sur ce lien -&gt; https://www.python.org/ftp/python/3.13.2/python-3.13.2-amd64.exe.</p>
+<p>S'il ne se télécharge pas lorsque vous cliquez sur le premier lien, essayez de vous rendre sur ce site : https://www.python.org/downloads/release/python-3132/.
+Allez en bas de la page et prenez la version recommandée : Windows installer (64-bit).</p>
+<h3 id="pip">PIP</h3>
+<p>Pour télécharger PIP / PyPI :
+Cliquez directement sur ce lien -&gt; https://files.pythonhosted.org/packages/70/53/b309b4a497b09655cb7e07088966881a57d082f48ac3cb54ea729fd2c6cf/pip-25.0.1.tar.gz.</p>
+<p>S'il ne se télécharge pas lorsque vous cliquez sur le premier lien, essayez de vous rendre sur ce site : https://pypi.org/project/pip/#files.
+Allez dans "Distribution des sources" et téléchargez la seule version : pip-25.0.1.tar.gz.</p>
+<h3 id="mkdocs-material">Mkdocs-material</h3>
+<p>Pour télécharger mkdocs-material :
+Cliquez directement sur ce lien -&gt; https://files.pythonhosted.org/packages/10/0a/17557708cfc6a11a1a941199b6b54a8990b297d910db81a43f1082b11e1b/mkdocs_material-9.6.8.tar.gz.</p>
+<p>S'il ne se télécharge pas lorsque vous cliquez sur le premier lien, essayez de vous rendre sur ce site : https://pypi.org/project/mkdocs-material/#files.
+Allez dans "Distribution des sources" et téléchargez la seule version : mkdocs_material-9.6.8.tar.gz.</p>
+<h1 id="1-presentation-du-projet">1. Présentation du projet</h1>
+<p>Le projet a été effectué dans le cadre de notre cours "Société et environnement" donné lors du second semestre de notre troisième année de licence en Géographie et aménagement au sein de l'université Marie et Louis Pasteur. </p>
+<p>Le but était de produire un jeu de rôle inspiré d'un trad-off game basé sur la prise de risque des adolescents en deux roues développé par L.Colbeau-Jusin, S.Depeau et T.Ramadier en 2001.</p>
+<p>Pour répondre à cette attente, nous avons développé un jeu à choix inspiré des "visual novels" où le joueur se voit attribué un moyen de transport (vélo, moto, trotinette électrique) et doit rejoindre son école à temps. Pour cela, le jouer sera confronté tout le long de son trajet à différentes situations face auxquelles il aura un choix à faire. Les choix qu'il décidera de faire influenceront ainsi à la fois son heure d'arrivée mais également sa "barre de prise de risque". Le but final du jeu est ainsi d'arriver à l'heure mais aussi de ne pas finir avec un score trop bas dans la barre de risque.</p>
+<h1 id="2-contexte-technique">2. Contexte technique</h1>
+<h2 id="a-technologies-utilisees">A. Technologies utilisées</h2>
+<ul>
+<li>HTML5</li>
+<li>CSS3</li>
+<li>JavaScript ES6</li>
+<li>Mkdocs</li>
+</ul>
+<h2 id="installation-et-lancement">Installation et lancement</h2>
+<h3 id="telecharger-ou-cloner-le-projet">Télécharger ou cloner le projet</h3>
+<h3 id="ouvrir-le-projet-en-local-via-la-commande-suivante-dans-le-terminal">Ouvrir le projet en local via la commande suivante dans le terminal :</h3>
+<ul>
+<li><code>mkdocs serve</code></li>
+</ul>
+<h3 id="publier-le-projet-via-la-commande-suivante-dans-le-terminal">Publier le projet via la commande suivante dans le terminal :</h3>
+<ul>
+<li><code>mkdocs gh-deploy</code></li>
+</ul>
+<h3 id="commit-les-modifications-depuis-le-terminal">Commit les modifications (depuis le terminal):</h3>
+<ul>
+<li><code>git add .</code></li>
+<li><code>git commit -m "Mise à jour de la documentation"</code></li>
+<li><code>git push origin main</code></li>
+</ul>
+<h1 id="3-arboresance-des-fichiers">3. Arboresance des fichiers</h1>
+<h2 id="dossier-docs">Dossier "docs" :</h2>
+<p>Ce dossier contient tous les fichers servant à  , on y retrouve les sous-dossiers suivants : 
+    - css : 
+    - image : 
+    - js : 
+    - pages : </p>
+<h3 id="dossier-site">Dossier "site" :</h3>
+<p>Ce dossier contient tous les fichiers servant à , on y retrouve les sous-dossiers suivants : 
+    - assets : 
+    - css
+    - js : 
+    - pages : 
+    - search : </p>
+<h1 id="4-description-de-la-structurecomposition-des-fichiers">4. Description de la structure/composition des fichiers</h1>
+<h2 id="indexmd">index.md</h2>
+<p>Ce code en .md, correpond à la page d'accueil du jeu. Il contient un menu de navigation renvoyant vers : 
+- Acuueil : page principal, dans laquelle on trouve des éléments contextes et de présentations du projet. Egalement, on retrouve un bouton de contact. 
+- Règles du jeu :  Renvoi vers une autre page contenant les règles du jeu (page regles.md).
+- Jeu : Renvoi vers le jeu (page jeu.html).</p>
+<h2 id="reglesmd">regles.md</h2>
+<p>Ce code en .md recense les règles détaillées du jeu ainsi que les fins et possibilité possibles. </p>
+<h2 id="jeuhtml">jeu.html</h2>
+<p>Ce code en .html permet de . </p>
+<h2 id="jeucss">jeu.css</h2>
+<p>Ce code en .css permet de moduler l'apparence de l'ensemble de la page du jeu. </p>
+<h2 id="scriptjs">script.js</h2>
+<p>Ce code en javascript, permet le fonctionnement du jeu. Dans ce script, nous pouvons retrouver six blocs d'éléments. </p>
+<h3 id="le-bouton-play">Le bouton PLAY</h3>
+<ul>
+<li>Permet de lancer le jeu.</li>
+<li>Au clic, il disparait et lance les tirages aléatoires du temps et du mode de transport. Egalement il réinitialise selon la valeur par défaut le compteur temps, la barre de risques et la barre de progression. Enfin, il fait appel au lancement de la première étape. </li>
+<li>Pour y faire appel dans le html, on utilise "startBtn". </li>
+</ul>
+<h3 id="le-compteur-temps">Le compteur temps</h3>
+<ul>
+<li>Le compteur temps permet d'afficher et gérer via des additions et soustractions les gains et les pertes de temps qui peuvent apparitre selon les choix du joueur. </li>
+<li>Par defaut, le joueur à 5 minutes de retard. </li>
+<li>Pour y faire appel dans le html, on utilise "time". </li>
+<li>Son fonctionnement est simple, en partant de la valeur 5, à chaque choix fait par le joueur, le compteur se met à jour. </li>
+</ul>
+<p>### La barre de risque 
+ - La barre de risque permet d'indiquer au joueur l'intensité du risque qu'il prend, du rouge (beaucoup de risques) au vert (peu de risques).
+ - Par defaut, le niveau de risque est fixé à 0.
+ - Pour y faire appel dans le html, on utilise "risk-indicator".
+ - Son fonctionnement est simple, en partant de la valeur 0, à chaque choix fait par le joueur, la barre se met à jour. </p>
+<p>### La barre de progression
+ - La barre de progression permet au joueur de visualiser son état d'avancement dans la partie. 
+ - Pour y faire appel dans le html, on utilise "progress-bar".
+ - Son fonctionnement est simple, à chaque fin d'étape, le niveau augmente (d'une longeur proportionnel à la taillle de la barre, selon le nombre d'étapes au total), de la gauche vers la droite. </p>
+<p>### L'indication du temmps
+ - L'indicateur temps indique la météo durant la partie. 
+ - Les valeurs possibles sont les suivantes : Jour, Nuit et Pluie.
+ - Chacune des valeurs est associés à une image de fond la représentant. 
+ - Pour y faire appel dansle html, on utilise "environnement".
+ - Son fonctionnement est simple, au lancement de la partie, le script sélectionne aléatoire l'une des valeurs, puis celle-ci s'affiche dans l'emplacement prévu à cet effet, et l'image de fond se met a jour. </p>
+<p>### L'indicateur du mode de transport
+ - L'indicateur du mode de transport indique le mode utilisé pour la partie. Celui-ci influencera les étapes et les choix possibels.
+ - Les valeurs possibles sont les suivantes : Vélo, Trotinette, Moto.
+ - Pour y faire appel dans le html, on utilise "transport".
+ - Son fonctionnement est simple, au lancement de la partie, le script sélectionne aléatoire l'une des valeurs, puis celle-ci s'affiche dans l'emplacement prévu à cet effet.</p>
+<p>### Le fonctionnement des blocs : QUESTIONS + EXPLICATIONS
+ - Le bloc des questions contient 3 éléments : une image d'illustration, un texte et les choix possibles (qui prennent la forme de boutons).
+ - Le bloc des explications contient 2 éléments : un texte et un bouton permettant de passer à l'étape suivante. 
+ - Les textes, illustrations et choix possibles, ainsi que leurs effets (temps, risques ...) sont codés dans chacun des blocs du js faisant référence aux différentes étapes. Egalement, certains choix peuvent être enregistré, influencant les probablités des événements. C'est par exemple le cas pour le choix ou non de mettre un casque. 
+ - A la fin de chaque étapes, le compteur temps, la barre de risque et la barre de progression sont mis à jour, pis le script fait appel au bloc des explications en déffinissant le texte, et le nom de l'étape suivant, associé à l'action du bouton. 
+ - Ce schéma fonctionne en boucle, sauf pour la dernière étape qui fait appel à l'annonce du score. 
+ - Pour faire appel au bloc des questions dans le html, on utilise "card-modal", avec "card-image", "card-question" et "card-choices".
+ - pour faire appel au bloc des explications dans le html, on utilise "explanation-mmodal", avec "explanation-text et "next-step-btn". </p>
+<p>### Les images d'illustrations
+ - Ces images apparaissent en lien avec l'étape en cours. 
+ - Pour faire appel dans le html, on utilise "scene". </p>
+<h3 id="le-score-final">Le score final</h3>
+<ul>
+<li>Le score final s'affiche par appel, dans la dernière étape (a la place de la prochaine étape pour l'ensembl des autres étapes). </li>
+<li>Il affiche le temps final, ainsi que le niveau de risque. </li>
+<li>Il offre la possibilité de relancer une partie. </li>
+<li>Pour y faire appel dans le html, on utilise "final-score". </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © Matis Chiavuzzo & Ninon Tuaillon | Dernière mise à jour - Janvier 2026
+    </div>
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="mailto:<matis.chiavuzzo@laposte.net>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M536.4-26.3c9.8-3.5 20.6-1 28 6.3s9.8 18.2 6.3 28l-178 496.9c-5 13.9-18.1 23.1-32.8 23.1-14.2 0-27-8.6-32.3-21.7l-64.2-158c-4.5-11-2.5-23.6 5.2-32.6l94.5-112.4c5.1-6.1 4.7-15-.9-20.6s-14.6-6-20.6-.9l-112.4 94.3c-9.1 7.6-21.6 9.6-32.6 5.2L38.1 216.8c-13.1-5.3-21.7-18.1-21.7-32.3 0-14.7 9.2-27.8 23.1-32.8z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/matis-chiavuzzo-581044356/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
