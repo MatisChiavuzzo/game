@@ -426,21 +426,6 @@ p {
     transition: background-image 0.5s ease-in-out;
 }
 
-.scene-0 { background-image: url(""); }
-.scene-1 { background-image: url(""); }
-.scene-2 { background-image: url(""); }
-.scene-3 { background-image: url(""); }
-.scene-4 { background-image: url(""); }
-.scene-5 { background-image: url("../image/bus.jpg"); }
-.scene-6 { background-image: url(""); }
-.scene-7 { background-image: url(""); }
-.scene-8 { background-image: url(""); }
-
-
-
-
-
-
 body.pluie {
   background-image: url("../image/pluie.jpg");
 }
