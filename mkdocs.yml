@@ -5,6 +5,7 @@ nav:
   - Accueil: index.md
   - Regles du jeu: ./pages/regles.md
   - Jouer: ./pages/jeu.html
+  - Sources: ./pages/sources.md
   - Documentation: ./pages/documentation.md
 
 theme:
