@@ -49,6 +49,8 @@
       
     
     
+      <link rel="stylesheet" href="css/extra.css">
+    
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -63,7 +65,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="red">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -72,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bienvenue-sur-notre-jeu-serras-tu-a-lheure" class="md-skip">
+        <a href="#bienvenue-sur-notre-jeu-seras-tu-a-lheure" class="md-skip">
           Skip to content
         </a>
       
@@ -84,9 +86,7 @@
     
       
 
-  
-
-<header class="md-header md-header--shadow" data-md-component="header">
+<header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="." title="Jeu interractif - Seras-tu à l&#39;heure ?" class="md-header__button md-logo" aria-label="Jeu interractif - Seras-tu à l'heure ?" data-md-component="logo">
       
@@ -169,6 +169,112 @@
       
         
           
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Accueil
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="pages/regles/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Regles du jeu
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="pages/jeu.html" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Jouer
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="pages/sources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Sources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="pages/documentation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Documentation
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -176,14 +282,18 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
 
 
+  
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="." title="Jeu interractif - Seras-tu à l&#39;heure ?" class="md-nav__button md-logo" aria-label="Jeu interractif - Seras-tu à l'heure ?" data-md-component="logo">
       
@@ -429,6 +539,8 @@
             
             
               
+                
+              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -505,10 +617,12 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
 
 
 
-<h1 id="bienvenue-sur-notre-jeu-serras-tu-a-lheure">Bienvenue sur notre jeu - Serras-tu a l'heure ?</h1>
+
+<h1 id="bienvenue-sur-notre-jeu-seras-tu-a-lheure">Bienvenue sur notre jeu - Seras-tu à l'heure ?</h1>
 <p><img alt="Texte alternatif" src="image/logo.png" title="Seras-tu à l'heure ?" /></p>
 <h2 id="pourquoi-ce-jeu-quel-est-lobjectif-du-projet">Pourquoi ce jeu ? Quel est l’objectif du projet ?</h2>
 <p>Ce jeu a été construit dans le cadre d’un cours de licence en troisième année de Géographie et Aménagement à l’Université Marie et Louis Pasteur. Ce cours nommé « Sociétés et environnement », aborde les différents risques de la vie. La plupart des cours abordent souvent les risques d’origines naturels, et faisant un grand nombre de victimes, comme les catastrophes naturelles. Ici, l’objectif est autre, comprendre que les risques sont présent quotidiennement dans nos vies individuelles et apparaissent selon nos choix. Certes, leurs impacts sur les populations sont moindres en termes de nombre de personnes touchées, mais ils constituent toutefois des enjeux sociétaux, passant par la prévention et l’éducation. </p>
@@ -529,8 +643,13 @@ Par les choix possibles et les événements aléatoires qui en découlent, le je
 
 
 
+  
+  
 
 
+
+
+  
 
 
 
@@ -594,7 +713,7 @@ Par les choix possibles et les événements aléatoires qui en découlent, le je
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": [], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
