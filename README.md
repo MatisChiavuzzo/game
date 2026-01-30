@@ -11,7 +11,7 @@ Janvier - Février 2026
 
 # Installation des outils de développement
 
-### VSCode
+## VSCode
 
 Se rendre sur le site suivant : https://code.visualstudio.com/docs?dv=win.
 Placer le fichier sur le bureau, puis l'exécuter.
@@ -21,7 +21,7 @@ Vous devez maintenant vous connecter au dossier partagé pour pouvoir travailler
 Avant chaque utilisation, il faut pull le fichier pour le mettre à jour sur notre ordinateur, et quand on a fini, il faut le push pour que les suivants puissent reprendre là où vous vous êtes arrêtés.
 
 
-### Python
+## Python
 
 Pour télécharger Python :
 Cliquez directement sur ce lien -> https://www.python.org/ftp/python/3.13.2/python-3.13.2-amd64.exe.
@@ -30,7 +30,7 @@ S'il ne se télécharge pas lorsque vous cliquez sur le premier lien, essayez de
 Allez en bas de la page et prenez la version recommandée : Windows installer (64-bit).
 
 
-### PIP 
+## PIP 
 
 Pour télécharger PIP / PyPI :
 Cliquez directement sur ce lien -> https://files.pythonhosted.org/packages/70/53/b309b4a497b09655cb7e07088966881a57d082f48ac3cb54ea729fd2c6cf/pip-25.0.1.tar.gz.
@@ -39,7 +39,7 @@ S'il ne se télécharge pas lorsque vous cliquez sur le premier lien, essayez de
 Allez dans "Distribution des sources" et téléchargez la seule version : pip-25.0.1.tar.gz.
 
 
-### Mkdocs-material
+## Mkdocs-material
 
 Pour télécharger mkdocs-material :
 Cliquez directement sur ce lien -> https://files.pythonhosted.org/packages/10/0a/17557708cfc6a11a1a941199b6b54a8990b297d910db81a43f1082b11e1b/mkdocs_material-9.6.8.tar.gz.
@@ -56,18 +56,22 @@ Pour répondre à cette attente, nous avons développé un jeu à choix inspiré
 
 # 2. Contexte technique 
 
-## A. Technologies utilisées
+## Technologies utilisées
 - HTML5
 - CSS3
 - JavaScript ES6
 - Mkdocs
 
 ## Installation et lancement 
+
 ### Télécharger ou cloner le projet
+
 ### Ouvrir le projet en local via la commande suivante dans le terminal :
 - `mkdocs serve`
+
 ### Publier le projet via la commande suivante dans le terminal :
 - `mkdocs gh-deploy`
+
 ### Commit les modifications (depuis le terminal):
 - `git add .`
 - `git commit -m "Mise à jour de la documentation"`
@@ -83,7 +87,7 @@ Ce dossier contient tous les fichers servant à  , on y retrouve les sous-dossie
     - js : 
     - pages : 
 
-### Dossier "site" :
+## Dossier "site" :
 
 Ce dossier contient tous les fichiers servant à , on y retrouve les sous-dossiers suivants : 
     - assets : 
@@ -153,18 +157,18 @@ Ce code en javascript, permet le fonctionnement du jeu. Dans ce script, nous pou
  ### Le fonctionnement des blocs : QUESTIONS + EXPLICATIONS
  - Le bloc des questions contient 3 éléments : une image d'illustration, un texte et les choix possibles (qui prennent la forme de boutons).
  - Le bloc des explications contient 2 éléments : un texte et un bouton permettant de passer à l'étape suivante. 
- - Les textes, illustrations et choix possibles, ainsi que leurs effets (temps, risques ...) sont codés dans chacun des blocs du js faisant référence aux différentes étapes. Egalement, certains choix peuvent être enregistré, influencant les probablités des événements. C'est par exemple le cas pour le choix ou non de mettre un casque. 
- - A la fin de chaque étapes, le compteur temps, la barre de risque et la barre de progression sont mis à jour, pis le script fait appel au bloc des explications en déffinissant le texte, et le nom de l'étape suivant, associé à l'action du bouton. 
+ - Les textes, illustrations et choix possibles, ainsi que leurs effets (temps, risques ...) sont codés dans chacun des blocs du js faisant référence aux différentes étapes. 
+ De plus, certains choix peuvent être enregistrés, influencant les probablités des événements. C'est par exemple le cas pour le choix ou non de mettre un casque. 
+ - À la fin de chaque étapes, le compteur temps, la barre de risque et la barre de progression sont mis à jour, puis le script fait appel au bloc des explications en déffinissant le texte, et le nom de l'étape suivant, associé à l'action du bouton. 
  - Ce schéma fonctionne en boucle, sauf pour la dernière étape qui fait appel à l'annonce du score. 
  - Pour faire appel au bloc des questions dans le html, on utilise "card-modal", avec "card-image", "card-question" et "card-choices".
  - pour faire appel au bloc des explications dans le html, on utilise "explanation-mmodal", avec "explanation-text et "next-step-btn". 
 
  ### Les images d'illustrations
- - Ces images apparaissent en lien avec l'étape en cours. 
- - Pour faire appel dans le html, on utilise "scene". 
+ - À chaque nouvelle étape, le code permet d'appeler la bonne image corresspondante.
 
 ### Le score final
- - Le score final s'affiche par appel, dans la dernière étape (a la place de la prochaine étape pour l'ensembl des autres étapes). 
+ - Le score final s'affiche par appel, dans la dernière étape (à la place de la prochaine étape pour l'ensemble des autres étapes). 
  - Il affiche le temps final, ainsi que le niveau de risque. 
  - Il offre la possibilité de relancer une partie. 
  - Pour y faire appel dans le html, on utilise "final-score". 
