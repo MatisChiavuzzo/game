@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # Voici les règles
 
 ## Introduction

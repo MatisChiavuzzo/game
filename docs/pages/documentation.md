@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # Projet de développement d'un jeu en ligne 
 
 Page web d'un jeu interractif portant sur les risques en deux roues (vélo, moto, trotinette électrique). 

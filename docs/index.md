@@ -1,4 +1,9 @@
-# Bienvenue sur notre jeu - Serras-tu a l'heure ?
+---
+hide:
+  - navigation
+---
+
+# Bienvenue sur notre jeu - Seras-tu à l'heure ?
 
 ![Texte alternatif](./image/logo.png "Seras-tu à l'heure ?")
 

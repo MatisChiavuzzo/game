@@ -14,7 +14,9 @@ theme:
   favicon: ./image/logo.png
   palette:
     primary: blue grey
-    accent: red
+    accent: blue
+  features:
+    - navigation.tabs
 
 extra:
   social:
@@ -25,3 +27,7 @@ extra:
   generator: false
 
 copyright: © Matis Chiavuzzo & Ninon Tuaillon | Dernière mise à jour - Janvier 2026
+
+
+extra_css:
+  - ./css/extra.css
