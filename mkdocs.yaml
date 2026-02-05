@@ -3,7 +3,7 @@ site_url: https://<matischiavuzzo>.github.io/<game>/
 
 nav:
   - Accueil: index.md
-  - Regles du jeu: ./pages/regles.md
+  - Règles du jeu: ./pages/regles.md
   - Jouer: ./pages/jeu.html
   - Sources: ./pages/sources.md
   - Documentation: ./pages/documentation.md
