@@ -13,8 +13,8 @@ theme:
   logo: ./image/logo.png
   favicon: ./image/logo.png
   palette:
-    primary: blue grey
-    accent: blue
+    primary: amber
+    accent: amber
   features:
     - navigation.tabs
 

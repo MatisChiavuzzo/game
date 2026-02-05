@@ -5,7 +5,9 @@ hide:
 
 # Bienvenue sur notre jeu - Seras-tu à l'heure ?
 
-![Texte alternatif](./image/logo.png "Seras-tu à l'heure ?")
+<div class="logo">
+<img src="./image/logo.png" alt=""> 
+</div>
 
 ## Pourquoi ce jeu ? Quel est l’objectif du projet ?
 
@@ -30,4 +32,4 @@ Avant de commencer à jouer, nous vous invitons à [consulter les règles du jeu
 
 ## Nous contacter 
 
-Si vous rencontrez des difficultés, vous pouvez [Nous contacter](mailto:matis.chiavuzzo@laposte.net). 
+Si vous rencontrez des difficultés, vous pouvez [nous contacter](mailto:matis.chiavuzzo@laposte.net). 

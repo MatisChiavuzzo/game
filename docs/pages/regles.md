@@ -68,36 +68,36 @@ A l’issue de chaque choix pris par le joueur, plusieurs éléments peuvent ent
 
 ![Texte alternatif](../image/tuto.png "")
 
-### 1 - Barre de risque
+- 1 - Barre de risque
 
 Elle varie du rouge (beaucoup de risques pris) au vert (peu de risques pris), c’est elle qui indique au joueur si ses actes ont été pour le moment plus ou moins dangereux. 
 
-### 2 - Heure d’arrivées prévue
+- 2 - Heure d’arrivées prévue
 
 Cette horloge indique, tout comme un GPS, l’heure d’arrivée prévue, dans le cas ou la circulation est fluide et qu’aucuns évènements viennent perturber le trajet. Cette heure d’arrivée changera donc obligatoirement au cours de la partie, puisque les choix fait par le joueurs, lui feront soit perdre du temps, ce qui augmentera l’heure d’arrivé, ou alors lui faire gagné du temps, ce qui avancera l’heure d’arrivée prévue. C’est donc sur l’heure affiché, que le joueur doit se fixer afin d’évaluer, si oui ou non dans l’état actuel de sa partie il arrive dans les temps. 
 
-### 3 - Fiches questions / situations / choix
+- 3 - Fiches questions / situations / choix
 
 C’est ici que les différentes situations sont présentés au joueur, également nous trouvons à cette emplacements les boutons de choix, le joueur peu en choisir un seul par étape. 
 Après son choix, c’est également à cet emplacement que les explications sur l’évènement qui a eu lieu sont présentés, ainsi que les aspects pédagogiques.
 
-### 4 - Progression du trajet
+- 4 - Progression du trajet
 
 Cette barre indique au joueur son état d’avancement dans la partie. Elle lui permet d’estimer le nombre d’étapes restantes. 
 
-### 5 - Météo pour la partie
+- 5 - Météo pour la partie
 
 C’est ici que le jouer, en plus de l’image d’illustration en fond de page que le joueur sais si il fait jour, il pleut, ou alors si il fait nuit.
 
-### 6 - Mode de transport pour la partie
+- 6 - Mode de transport pour la partie
 
 C’est ici que le joueur sais quel mode de transport il utilise pour ce trajet. 
 
-### 7 - Images d’illustrations des situations
+- 7 - Images d’illustrations des situations
 
 Cet emplacement affiche selon les étapes, les images d’illustrations associées. Ces images permettent au joueur de mieux se représenter l’espace, et ainsi de faire les choix qui lui semble les plus justes. De plus ces images permettent au joueur de se projeter dans une situation réel, d’autant plus que toute les photographies ont été prises dans la ville de Besançon. 
 
-### 8 - Bouton de retour à l’accueil
+- 8 - Bouton de retour à l’accueil
 
 Ce bouton permet un retour à la page d’accueil. 
 
