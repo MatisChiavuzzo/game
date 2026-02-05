@@ -313,7 +313,7 @@ function askHelmet() {
 
 // ========================== ETAPE 2 : La lumière
 function askLight() {
-    showCard("../image/lumière.png", "Il est déjà tard et ta lumière ne marche plus… la répares-tu avant de partir ?", [
+    showCard("../image/lumière.png", "Il est déjà tard et ta lumière ne fonctionne plus. \n La répares-tu avant de partir ? \n Attention, cela te prendra du temps ...", [
         {
             text: "Oui", action: () => {
                 lightOn = true;
@@ -352,7 +352,7 @@ function school() {
             text: "Tu maintient ton allur, avec la petite taille de ton véhicule ça va passer", action: () => {
                 lightOn = true;
                 risk -= 4; updateUI();
-                showExplanation("Un enfant a ouvert la porte de sa voiture au moment où tu arrivais. Tu te la prends en pleine face et dégringole devant tous les enfants qui se moquent de toi.", ruralStraight);
+                showExplanation("Un enfant a ouvert la portière de sa voiture pile au moment où tu arrivais. Tu te la prends en pleine figure et t’étales par terre sous les rires des autres enfants.", ruralStraight);
             }
         }
     ]);
@@ -576,7 +576,7 @@ function chooseStreet() {
     showScene("../image/choixvoie.png");
     showCard("../image/interdit.png", "Tu arrives devant la Grande Rue, mais un arrêté interdit la circulation des motos et trottinettes électriques. \n Que fait tu ?", [
         {
-            text: "Je passa quand même par la Grande Rue (interdite)", action: () => {
+            text: "Je passe quand même par la Grande Rue (interdite)", action: () => {
                 risk -= 6;
                 const r = Math.random();
                 let message = "";
@@ -584,7 +584,7 @@ function chooseStreet() {
                 if (r < 0.5) {
                     // 50 %
                     time += 5
-                    message = "Malheur ! Tu t’es fait arrêté par la police. Ce risque d’autonomie a de lourdes conséquences. Tu perds 5 minutes, tu te prends AMENDES et en plus ils t’ont humiliés en te filmant pour publier sur les réseaux sociaux pour faire de toi un exemple.";
+                    message = "Malheur ! Tu t’es fait arrêté par la police. Ce risque d’autonomie a de lourdes conséquences. Tu perds 5 minutes, tu te prends une amendes !";
                 } else {
                     // 50 %
                     message = "Tu as de la chance, tu as pris un risque d’autonomie et il ne t'est rien arrivé. Tu aurais pu te faire arrêter par la police ou renverser quelqu’un.";
@@ -607,7 +607,7 @@ function chooseStreet() {
 function trackbike() {
     showCard("", "PISTE", [
         {
-            text: "Je passa quand même par la Grande Rue (interdite)", action: () => {
+            text: "", action: () => {
                 risk -= 6;
                 const r = Math.random();
                 let message = "";
@@ -626,7 +626,7 @@ function trackbike() {
             }
         },
         {
-            text: "Je fait le détour par une rue parrallèle (autorisée)", action: () => {
+            text: "", action: () => {
                 time += 2; risk += 4; updateUI();
                 showExplanation("Félicitations ! Tu as perdu du temps mais tu as évité de te faire arrêter par la police ou de renverser quelqu’un.", sharedLane);
             }
@@ -646,10 +646,10 @@ function motorbike() {
                 if (r < 0.5) {
                     // 50 %
                     time += 5
-                    message = "Malheur ! Tu t’es fait arrêté par la police. Ce risque d’autonomie a de lourdes conséquences. Tu perds 5 minutes, tu te prends AMENDES et en plus ils t’ont humiliés en te filmant pour publier sur les réseaux sociaux pour faire de toi un exemple.";
+                    message = "";
                 } else {
                     // 50 %
-                    message = "Tu as de la chance, tu as pris un risque d’autonomie et il ne t'est rien arrivé. Tu aurais pu te faire arrêter par la police ou renverser quelqu’un.";
+                    message = "";
                 }
 
                 updateUI();
@@ -676,7 +676,7 @@ function sharedLane() {
                 let message = "";
 
                 if (r < 0.95) {
-                    message = "Tu as énormément de chance...";
+                    message = "Tu as de la chance, un engin de chantier te frôle, mais ne t’atteint pas ! Les conséquences auraient pu être dramatiques !";
                 } else {
                     risk -= 50;
                     time += 60
@@ -722,7 +722,7 @@ function raceFriend() {
                 if (r < 0.7) {
                     // 0 %
                     time += 5
-                    message = "Tu as pris un risque de prestance en voulant t’amuser avec ton ami. Tu rentres dans une poubelle juste devant ton établissement et t’étales devant tout le monde. Tu arrives en un seul morceau mais on t’appellera “La poubelle sur roues” jusqu’à la fin de ta scolarité.";
+                    message = "Tu as pris un risque de prestance en voulant t’amuser avec ton ami. Tu rentres dans une poubelle juste devant ton établissement et t’étales devant tout le monde.";
                 } else {
                     // 30 %
                     message = "Tu as pris un risque de prestance en voulant fanfaronner devant ton ami. Tu gagnes la course mais ton prof qui était en vélo juste derrière vous vous a vu. Il vous réprimande et refuse de vous accepter dans son cours.";
