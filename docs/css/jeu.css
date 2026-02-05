@@ -184,11 +184,13 @@ p {
     position: absolute;
     bottom: -0.5vh;
     left: 0;
-    width: 0.4vh;
+    width: 0.8vh;
     height: 3vh;
-    background-color: black;
+    background-color: rgb(255, 255, 255);
     border-radius: 0.2vh;
-    transition: left 0.3s ease;
+    transition: left 0.3s ease;    
+    border-style: solid;
+    border-radius: 25px;
 }
 
 /* =================================== */
@@ -274,13 +276,11 @@ p {
 /* =================================== */
 /* SCENE */
 #scene {
-    margin-left: 50%;
-    width: 40%;
-    height: 40vh;
-    /* responsive */
+    margin-left: 40%;
+    width: 45%;
+    height: 95%;
     border-radius: 2vw;
     margin-top: 2vh;
-    margin-bottom: 2vh;
     background-size: cover;
     background-position: center;
     transition: background-image 0.5s ease-in-out;
@@ -309,6 +309,7 @@ p {
     transform: translateX(100%);
     opacity: 0;
     transition: transform 0.5s ease, opacity 0.5s ease;
+    vertical-align: text-top;
 }
 
 #card-modal.show #card {
@@ -317,7 +318,7 @@ p {
 }
 
 #card img {
-    width: 30%;
+    width: 40%;
     border-radius: 1vw;
     margin-bottom: 1.5vh;
 }
