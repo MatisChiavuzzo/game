@@ -397,6 +397,11 @@ p {
     text-align: center;
     min-width: 20vw;
     box-shadow: 0 0.4vw 1.5vw rgba(0, 0, 0, 0.3);
+    max-height: 50%;      /* hauteur max du bloc */
+    max-width: 60%;
+    overflow-y: auto;       /* scroll vertical seulement */
+    padding: 10px;
+    line-height: 1.4;
 }
 
 #final-score-card h2 {
@@ -460,3 +465,66 @@ body > * {
 }
 
 
+.hurry-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+}
+
+.police-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+}
+
+.hurry-box {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    animation: pop 0.3s ease;
+}
+
+.police-box {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    animation: pop 0.3s ease;
+}
+
+.hurry-box h2 {
+    margin-bottom: 10px;
+    color: #d32f2f;
+}
+
+.police-box h2 {
+    margin-bottom: 10px;
+    color: #d32f2f;
+}
+
+.hurry-box button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+.police-box button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 25px;
+}
