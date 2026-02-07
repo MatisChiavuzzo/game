@@ -87,6 +87,30 @@ function formatTime(totalMinutes) {
     return `${hours}h${paddedMinutes}`;
 }
 
+// Alerte si 8h10
+function showwarning() {
+    const modal = document.getElementById("hurry-modal");
+    const btn = document.getElementById("hurry-btn");
+
+    modal.style.display = "flex";
+
+    btn.onclick = () => {
+        modal.style.display = "none";
+    };
+}
+
+// Alerte si police
+function showpolice() {
+    const modal = document.getElementById("police-modal");
+    const btn = document.getElementById("police-btn");
+
+    modal.style.display = "flex";
+
+    btn.onclick = () => {
+        modal.style.display = "none";
+    };
+}
+
 // Fonction qui fait appel au compteur temps et risque, les met a jour selon les + ou - appliqués
 function updateUI() {
     // définit que l'on appel l'élément temps par "time"
@@ -96,6 +120,11 @@ function updateUI() {
     risk = Math.max(0, Math.min(100, risk));
     // Permet le déplacement  de tant (risk =) de % sur l'idée d'une barre de progression allant de 0 à 100 %
     riskIndicator.style.left = `${risk}%`;
+    // Avertissement à 8h10
+    if (time >= 15 && !window.hurryShown) {
+        showwarning();
+        window.hurryShown = true;
+    };
 }
 
 // MAJ de la barre de progression
@@ -146,20 +175,20 @@ function modes2() {
 }
 
 function night() {
-    const currentEnv = environmentEl.textContent; 
+    const currentEnv = environmentEl.textContent;
     if (currentEnv === "Nuit") {
-        slownight();  
+        slownight();
     } else if (currentEnv === "Pluie" || currentEnv === "Jour") {
-        busStop();   
+        busStop();
     }
-} 
+}
 
 function rain() {
-    const currentEnv = environmentEl.textContent; 
+    const currentEnv = environmentEl.textContent;
     if (currentEnv === "Pluie") {
-        fallrain();  
+        fallrain();
     } else if (currentEnv === "Nuit" || currentEnv === "Jour") {
-        redLight();   
+        redLight();
     }
 }
 
@@ -199,37 +228,37 @@ function showCard(img, text, options) {
 // Les cartes EXPLICATION
 // =====================
 // La focntion implique un text, et le passage à l'étape suivante 
-function showExplanation(text, nextStepFunc) { 
+function showExplanation(text, nextStepFunc) {
     // Supprime automatiquement l'image de la scène
     hideScene();
 
     // met à jour le texte
-    explanationText.textContent = text; 
+    explanationText.textContent = text;
 
     // Affiche la carte
-    explanationModal.style.display = "flex"; 
+    explanationModal.style.display = "flex";
 
     // Action du bouton
-    nextStepBtn.onclick = () => { 
+    nextStepBtn.onclick = () => {
         // Ferme la carte explication
         explanationModal.style.display = "none";
 
         // passe à l'étape suivante
-        currentStep++; 
+        currentStep++;
 
         // MAJ de la barre de progression
-        updateProgress(); 
+        updateProgress();
 
         // On n'a plus besoin de updateScene ici
 
         // Appel de la fonction de l'étape suivante
-        nextStepFunc(); 
+        nextStepFunc();
     };
 }
 
 
 
-    
+
 function motsdefin(text) {
     motsText.textContent = text;
 }
@@ -333,23 +362,24 @@ function askLight() {
 
 // ========================== ETAPE 3 : L'école../image/bus.jpg../image/bus.jpg
 function school() {
+    showScene("../image/ecolebouchons.png");
     showCard("../image/ecole.png", "Tu voulais filer, mais tu habites juste à côté d’une école. Les deux voies sont bloquées par les voitures des parents. \n Que fais-tu ?", [
-                {
-            text: "Tu attends", action: () => {
+        {
+            text: "J'attends", action: () => {
                 lightOn = false;
-                risk += 4; time += 3; updateUI();
+                risk += 4; time += 2; updateUI();
                 showExplanation("Tant mieux ! Tu perds du temps, mais on ne rigole pas avec la sécurité des gens et encore plus avec celles des enfants qui peuvent avoir des comportements très imprévisibles.", ruralStraight);
             }
         },
-                {
-            text: "Tu met un pied à terre, et passe", action: () => {
+        {
+            text: "Je mets un pied à terre, et passe", action: () => {
                 lightOn = false;
                 risk += 2; time += 1; updateUI();
                 showExplanation("Un enfant traverse la route sans regarder. Tu manques de l’écraser. Heureusement tu ne roulais pas vite mais en prenant ce risque pratique tu aurais pu l’écraser.", ruralStraight);
             }
         },
-                {
-            text: "Tu maintient ton allur, avec la petite taille de ton véhicule ça va passer", action: () => {
+        {
+            text: "Je maintiens mon allure, avec la petite taille de mon véhicule ça va passer", action: () => {
                 lightOn = true;
                 risk -= 4; updateUI();
                 showExplanation("Un enfant a ouvert la portière de sa voiture pile au moment où tu arrivais. Tu te la prends en pleine figure et t’étales par terre sous les rires des autres enfants.", ruralStraight);
@@ -360,6 +390,7 @@ function school() {
 
 // ========================== ETAPE 4 : La ligne droite en milieu rural
 function ruralStraight() {
+    showScene("../image/rural.png");
     showCard("../image/vitesse.png", "Enfin ! Tu es sorti des bouchons et une longue ligne droite est devant toi. \n Respectes-tu la vitesse ?", [
         {
             text: "Oui", action: () => {
@@ -370,10 +401,6 @@ function ruralStraight() {
         },
         {
             text: "Non", action: () => {
-                // Ajout de + 1 dans le compteur temps
-                time -= 2;
-                risk -= 3;
-
                 // Probabilité de l’événement 1
                 let probEvent1 = 0.2; // 20% de chance de base
                 if (!helmetOn) probEvent1 += 0.2; // si pas de casque, +40% de chance que l'événement 1 se produise
@@ -390,10 +417,11 @@ function ruralStraight() {
                     // Ajout de - 20 minutes dans le compteur temps
                     time += 3;
                     // Message affiché dans ce cas 
-                    message = "Tu as pris un risque cathartique et tu percutés un lapin ! Même un petit animal peut provoquer une chute grave à vélo ou en moto. Les collisions avec des animaux représentent environ 2 à 5 % des accidents de deux-roues dans certaines zones rurales.";
+                    message = "Tu as pris un risque cathartique et tu as percutés un lapin ! Même un petit animal peut provoquer une chute grave à vélo ou en moto. Les collisions avec des animaux représentent environ 2 à 5 % des accidents de deux-roues dans certaines zones rurales.";
                     // Si r était supérieur à la valeur de la proba de l'événement 1, alors fait ca 
                 } else {
                     // Affiche simplement ce message 
+                    risk -= 3;
                     message = "Tu as eu de la chance, tu n’as rien touché… cette fois. Mais rouler trop vite augmente beaucoup le risque : dépasser la vitesse limite de 10 km/h peut augmenter le risque de blessures graves de 15 % et celui de décès de manière significative. Chaque excès de vitesse augmente tes chances d’avoir un accident grave.";
                 }
 
@@ -411,28 +439,28 @@ function fallrain() {
         "Il pleut fort et la route est glissante. Que fais-tu ?",
         [
             {
-                text: "Je ralentis", 
+                text: "Je ralentis",
                 action: () => {
-                    risk += 5;   
-                    time += 1;   
+                    risk += 5;
+                    time += 1;
                     updateUI();
                     showExplanation("Tu ralentis et restes concentré. Bonne décision ! En roulant plus lentement sous la pluie, tu réduis ton risque de chute, car les cyclistes et trottinettes ont jusqu’à 50 % plus de chances de tomber par temps humide si la vitesse n’est pas adaptée.", redLight);
                 }
             },
             {
-                text: "Je maintient mon allure", 
+                text: "Je maintiens mon allure",
                 action: () => {
-                    let probFall = 0.5; // 50% de base
-                    if (!helmetOn) probFall += 0.2; // +20% si le casque n'est pas porté
+                    let probFall = 0.3; // 30% 
+                    if (!helmetOn) probFall += 0.2;
                     const r = Math.random();
 
                     if (r < probFall) {
-                        risk -= 5;  // chute → augmente le risque négatif
-                        time += 2;   // perd plus de temps
+                        risk -= 5;
+                        time += 2;
                         updateUI();
                         showExplanation("La pluie rend la route glissante et tu as perdu le contrôle ! Les statistiques montrent que 50 % des chutes de cyclistes et trottinettes surviennent par temps humide, et le risque est encore plus élevé si la vitesse est excessive ou que le casque n’est pas porté.", redLight);
                     } else {
-                        risk -= 5;  
+                        risk -= 5;
                         time -= 2;
                         updateUI();
                         showExplanation("Tu as eu de la chance ! Tu n’as pas chuté cette fois, mais attention : les cyclistes et trottinettes ont jusqu’à 50 % plus de chances de tomber par temps humide si la vitesse n’est pas adaptée.", redLight);
@@ -443,39 +471,39 @@ function fallrain() {
     );
 }
 
-
 // ========================== ETAPE 5 : Le feu rouge
 function redLight() {
     // Affiche l'image spécifique de cette étape
     showScene("../image/feurouge.png");
     showCard("../image/feu.png", "Le feu passe au rouge juste devant toi. \n Que fais-tu ?", [
         {
-            text: "Tu attends patiemment", action: () => {
+            text: "J'attends patiemment", action: () => {
                 time += 2; risk += 2; updateUI();
-                showExplanation("Encore heureux ! Respecter les feux réduit fortement le risque d’accidents à vélo ou en trottinette, car près de 40 % des collisions de deux-roues surviennent aux intersections !", night);
+                showExplanation("Encore heureux ! Respecter les feux réduit fortement le risque d’accident à vélo ou en trottinette, car près de 40 % des collisions de deux-roues surviennent aux intersections !", night);
             }
         },
         {
-            text: "Tu le grilles", action: () => {
+            text: "Je le grille", action: () => {
                 risk -= 5;
 
                 const r = Math.random();
                 let message = "";
 
-                if (r < 0.6) {
-                    // 60 %
+                if (r < 0.5) {
+                    // 40 %
                     message = "C’était super dangereux ! Mais tu as eu de la chance et il ne t'est rien arrivé. Mais attention : chaque année en France, des centaines d’accidents impliquant des cyclistes et trottinettes surviennent à cause du non-respect des feux rouges, souvent avec des blessures graves.";
-                } else if (r < 0.9) {
-                    // 30 %
+                } else if (r < 0.85) {
+                    // 40 %
                     time += 4;
+                    showpolice();
                     message = "Oups ! Tu as pris un risque de stimulation mais la police était cachée à côté. Tu te fais arrêter, perds du temps et prends une amende. Au final, tu a quand même de la chance, puisque environ 30 % des accidents mortels de cyclistes et trottinettes ont lieu aux intersections, souvent à cause du non-respect du feu.";
                 } else {
-                    // 10 % — MORT
+                    // 15 % — MORT
                     risk -= 50;
                     time += 60
                     updateUI();
                     showExplanation(
-                        "Un voiture est arrivé au même moment, tu meurt sur la coup ! Chaque année en France, des centaines d’usagers vulnérables comme les cyclistes (plus de 220 morts en 2023) et les trottinettes (plus de 40 morts) perdent la vie dans des accidents de la route, souvent à des intersections.",
+                        "Un voiture est arrivé au même moment, tu meurs sur la coup ! Chaque année en France, des centaines d’usagers vulnérables comme les cyclistes (plus de 220 morts en 2023) et les trottinettes (plus de 40 morts) perdent la vie dans des accidents de la route, souvent à des intersections.",
                         showFinalScore
                     );
                     return;
@@ -492,16 +520,16 @@ function slownight() {
         "Il fait nuit et l'éclairage public est en panne. Tu vois mal la route. Que fais-tu ?",
         [
             {
-                text: "Je ralentis", 
+                text: "Je ralentis",
                 action: () => {
-                    risk += 5;  
-                    time += 1;   
+                    risk += 5;
+                    time += 1;
                     updateUI();
                     showExplanation("Tu ralentis et gardes le contrôle malgré la pénombre. Bonne décision !", busStop);
                 }
             },
             {
-                text: "Je maintient mon allure", 
+                text: "Je maintiens mon allure",
                 action: () => {
                     // Calcul aléatoire : 50% de chance de tomber
                     let probFall = 0.5; // 50%
@@ -510,13 +538,12 @@ function slownight() {
 
                     if (r < probFall) {
                         // le joueur tombe
-                        risk -= 4;  
-                        time += 2;   
+                        risk -= 4;
+                        time += 2;
                         updateUI();
-                        showExplanation("Tu ne voyais pas bien et tu as perdu le contrôle ! Tu tombes et perds du temps, puis reprend la route", busStop);
+                        showExplanation("Tu ne voyais pas bien et tu as perdu le contrôle ! Tu tombes et perds du temps, puis reprends la route", busStop);
                     } else {
                         risk -= 4;
-                        time -= 2;
                         updateUI();
                         showExplanation("Tu as eu de la chance ! Tu gardes ton allure sans tomber, mais tu restes exposé au risque.", busStop);
                     }
@@ -532,7 +559,7 @@ function busStop() {
     showScene("../image/bus.png");
     showCard("../image/arret.png", "Le bus juste devant toi s’arrête pour faire monter des passagers. \n Quelle est ta réaction ?", [
         {
-            text: "J'attend", action: () => {
+            text: "J'attends", action: () => {
                 time += 2;
                 risk += 4;
                 updateUI();
@@ -554,10 +581,10 @@ function busStop() {
                 if (r < probEvent1) {
                     // 10 %
                     time += 10;
-                    message = "Catastrophe ! Tu t’es fait renverser par une voiture qui arrivait en face et que tu n’avais pas vu. Tu as pris un risque pratique mais tu t’es fait très mal et tu as perdu du temps.";
+                    message = "Catastrophe ! Tu t’es fait renverser par une voiture qui arrivait en face et que tu n’avais pas vue. Tu as pris un risque pratique mais tu t’es fait très mal et tu as perdu du temps.";
                 } else if (r < 0.5) {
                     // 40 %
-                    message = "Attention !!! Tu as failli te faire écraser par une voiture qui arrivait en face et que tu n’avais pas vu. Tu as pris un risque pratique et tu t’es mis en danger.";
+                    message = "Attention !!! Tu as failli te faire écraser par une voiture qui arrivait en face et que tu n’avais pas vue. Tu as pris un risque pratique et tu t’es mis en danger.";
                 } else {
                     // 10 %
                     message = "Tu as failli rentrer dans un piéton que tu n’avais pas vu ! Tu as pris un risque pratique mais tu t’es mis en danger toi et les autres usagers de la route.";
@@ -574,7 +601,7 @@ function busStop() {
 function chooseStreet() {
     // Affiche l'image spécifique de cette étape
     showScene("../image/choixvoie.png");
-    showCard("../image/interdit.png", "Tu arrives devant la Grande Rue, mais un arrêté interdit la circulation des motos et trottinettes électriques. \n Que fait tu ?", [
+    showCard("../image/interdit.png", "Tu arrives devant la Grande Rue, mais un arrêté interdit la circulation des motos et trottinettes électriques. \n Que fais-tu ?", [
         {
             text: "Je passe quand même par la Grande Rue (interdite)", action: () => {
                 risk -= 6;
@@ -584,9 +611,11 @@ function chooseStreet() {
                 if (r < 0.5) {
                     // 50 %
                     time += 5
-                    message = "Malheur ! Tu t’es fait arrêté par la police. Ce risque d’autonomie a de lourdes conséquences. Tu perds 5 minutes, tu te prends une amendes !";
+                    showpolice();
+                    message = "Malheur ! Tu t’es fait arrêté par la police. Ce risque d’autonomie a de lourdes conséquences. Tu perds 5 minutes et tu te prends une amende !";
                 } else {
                     // 50 %
+                    time -= 2
                     message = "Tu as de la chance, tu as pris un risque d’autonomie et il ne t'est rien arrivé. Tu aurais pu te faire arrêter par la police ou renverser quelqu’un.";
                 }
 
@@ -595,7 +624,7 @@ function chooseStreet() {
             }
         },
         {
-            text: "Je fait le détour par une rue parrallèle (autorisée)", action: () => {
+            text: "Je fais le détour par une rue parrallèle (autorisée)", action: () => {
                 time += 2; risk += 4; updateUI();
                 showExplanation("Félicitations ! Tu as perdu du temps mais tu as évité de te faire arrêter par la police ou de renverser quelqu’un.", modes2);
             }
@@ -605,20 +634,22 @@ function chooseStreet() {
 
 // ========================== SPECIAL : velo sur piste cyclable
 function trackbike() {
-    showCard("", "PISTE", [
+    showCard("../image/pistevelo.png", "Tu arrives à un croisement où la piste cyclable se divise. Un autre cycliste arrive en sens inverse très vite ! \n Que fait tu ?", [
         {
-            text: "", action: () => {
-                risk -= 6;
+            text: "Je maintient ma vitesse, pour ne pas perdre de temps", action: () => {
                 const r = Math.random();
                 let message = "";
 
                 if (r < 0.5) {
                     // 50 %
-                    time += 5
-                    message = "Malheur ! Tu t’es fait arrêté par la police. Ce risque d’autonomie a de lourdes conséquences. Tu perds 5 minutes, tu te prends AMENDES et en plus ils t’ont humiliés en te filmant pour publier sur les réseaux sociaux pour faire de toi un exemple.";
+                    time += 3
+                    risk -= 4
+                    message = "Catastrophe ! Vous vous percutez et tombez tous les deux ! Vous êtes tous les deux en tort. On n’est jamais seul sur la route !";
                 } else {
                     // 50 %
-                    message = "Tu as de la chance, tu as pris un risque d’autonomie et il ne t'est rien arrivé. Tu aurais pu te faire arrêter par la police ou renverser quelqu’un.";
+                    time += 1
+                    risk -= 2
+                    message = "A deux doights de la catastrophes ! Personne n’est blessé, mais ton cœur bat à toute vitesse. Tu prends une minute pour souffler et reprendre tes esprits avant de continuer ton trajet.";
                 }
 
                 updateUI();
@@ -626,9 +657,23 @@ function trackbike() {
             }
         },
         {
-            text: "", action: () => {
-                time += 2; risk += 4; updateUI();
-                showExplanation("Félicitations ! Tu as perdu du temps mais tu as évité de te faire arrêter par la police ou de renverser quelqu’un.", sharedLane);
+            text: "Je ralentis et laisse passer l’autre cycliste", action: () => {
+                const r = Math.random();
+                let message = "";
+
+                if (r < 0.5) {
+                    // 50 %
+                    time += 1
+                    risk += 4
+                    message = "Excellent réflexe ! En ralentissant, tu évites de te retrouver face à un autre cycliste inattentif. Tu continues en toute sécurité !";
+                } else {
+                    // 50 %
+                    risk += 4
+                    message = "Finalement, tu n’as pas eu à ralentir : l’autre cycliste t’a repéré et te laisse passer en s’excusant. Tu n’as donc pas perdu de temps et aucun risque n’a été pris. C’était le bon réflexe !";
+                }
+
+                updateUI();
+                showExplanation(message, sharedLane);
             }
         }
     ]);
@@ -636,20 +681,20 @@ function trackbike() {
 
 // ========================== SPECIAL : moto
 function motorbike() {
-    showCard("", "Une voiture roule lentement à gauche. À droite, il y a juste assez de place pour passer en moto…", [
+    showCard("../image/motodepasse.png", "Une voiture roule lentement à gauche. À droite, il y a juste assez de place pour passer en moto…", [
         {
             text: "Je passe par la droite", action: () => {
-                risk -= 6;
+                risk -= 5;
                 const r = Math.random();
                 let message = "";
 
-                if (r < 0.5) {
-                    // 50 %
-                    time += 5
-                    message = "";
+                if (r < 0.4) {
+                    // 40 %
+                    message = "Ce dépassement était risqué, mais tout s’est passé sans encombre. L’issue aurait pu être différente…";
                 } else {
-                    // 50 %
-                    message = "";
+                    // 60 %
+                    time += 3
+                    message = "Aïe… tu chutes brusquement à cause d’une flaque d’huile sur la route ! La voiture ne voulait prendre aucun risque, ce qui explique sa faible vitesse. Tu te relèves, un peu choqué, ta moto est abîmée, et tu reprends calmement ta route.";
                 }
 
                 updateUI();
@@ -658,7 +703,8 @@ function motorbike() {
         },
         {
             text: "J’attends", action: () => {
-                time += 2; risk += 4; updateUI();
+                time += 1; 
+                risk += 4; updateUI();
                 showExplanation("Félicitations ! Tu as perdu du temps mais tu as évité de te faire arrêter par la police ou de renverser quelqu’un.", raceFriend);
             }
         }
@@ -669,22 +715,23 @@ function motorbike() {
 function sharedLane() {
     showCard("../image/partage.png", "La voie partagée que tu prends habituellement est entravée par des travaux, réduisant la largeur de la route. \n Pour couronner le tout, un vélo est devant toi et avance très lentement. \n Que fait-tu ?", [
         {
-            text: "Tu zigzague dans la zone en travaux", action: () => {
+            text: "Je zigzague dans la zone en travaux", action: () => {
                 risk -= 5;
                 time += 1;
                 const r = Math.random();
                 let message = "";
 
-                if (r < 0.95) {
+                if (r < 0.6) {
                     message = "Tu as de la chance, un engin de chantier te frôle, mais ne t’atteint pas ! Les conséquences auraient pu être dramatiques !";
                 } else {
                     risk -= 50;
                     time += 60
                     updateUI();
                     showExplanation(
-                        "Tu tombes dans un trou et es enseveli...",
-                        () => showFinalScore() 
+                        "Tu as de la chance, les ouvriers sont trop occupés pour te remarquer. \n Mais soudain, tu tombes dans un trou que tu n’avais pas vu. Une pelleteuse s'exécute au même moment et tu meurs enseveli sans que personne ne s’en rende compte.",
+                        showFinalScore
                     );
+                    return;
                 }
 
                 updateUI();
@@ -693,13 +740,15 @@ function sharedLane() {
         },
 
         {
-            text: "Tu dépasse le vélo", action: () => {
-                risk -= 5; updateUI();
+            text: "Je dépasse le vélo", action: () => {
+                risk -= 5; 
+                time -= 1;
+                updateUI();
                 showExplanation("Tu as gagné du temps en prenant ce risque pratique. Mais tu t’es fait insulter par le cycliste qui a failli tomber à cause de toi", raceFriend);
             }
         },
         {
-            text: "Tu attends patiemment derrière le vélo.", action: () => {
+            text: "J'attends patiemment derrière le vélo.", action: () => {
                 time += 2; risk += 5; updateUI();
                 showExplanation("Quelle chance ! Tu réalises que c’est ton prof devant toi ! Il est donc tout aussi en retard que toi.", raceFriend);
             }
@@ -713,18 +762,18 @@ function raceFriend() {
     showScene("../image/course.png");
     showCard("../image/finish.png", "Tu es presque arrivé quand tu croises un ami, lui aussi en deux-roues. Il te propose de faire la course sur cette dernière portion de route.", [
         {
-            text: "Tu accepte le défi !", action: () => {
+            text: "J'accepte le défi !", action: () => {
                 risk -= 5;
-                time -= 2
                 const r = Math.random();
                 let message = "";
 
-                if (r < 0.7) {
-                    // 0 %
+                if (r < 0.6) {
+                    // 60 %
                     time += 5
                     message = "Tu as pris un risque de prestance en voulant t’amuser avec ton ami. Tu rentres dans une poubelle juste devant ton établissement et t’étales devant tout le monde.";
                 } else {
-                    // 30 %
+                    // 40 %
+                    time -= 2;
                     message = "Tu as pris un risque de prestance en voulant fanfaronner devant ton ami. Tu gagnes la course mais ton prof qui était en vélo juste derrière vous vous a vu. Il vous réprimande et refuse de vous accepter dans son cours.";
                 }
 
@@ -733,9 +782,9 @@ function raceFriend() {
             }
         },
         {
-            text: "Tu refuse", action: () => {
+            text: "Je refuse", action: () => {
                 risk += 3; updateUI();
-                showExplanation("Tu as bien fait de ne pas accepter, ton prof était à vélo juste derrière vous. Il a vu ton ami et manquer de renverser quelqu’un en faisant n’importe quoi et il l’a exclu de son cours !", showFinalScore);
+                showExplanation("Tu as bien fait de ne pas accepter, ton prof était à vélo juste derrière vous. Il a vu ton ami manquer de renverser quelqu’un en faisant n’importe quoi et il l’a exclu de son cours !", showFinalScore);
             }
         }
     ]);
@@ -749,7 +798,6 @@ function showFinalScore() {
     // Création du bloc
     finalScoreDiv.style.display = "block";
     // Affiche le score de a manière suivant, en l'état du niveau du compteur risquue et temps
-    // Déterminer le niveau de risque en mots
     let riskLevel = "";
     if (risk > 70) {
         riskLevel = "Aucun risque";
@@ -762,10 +810,9 @@ function showFinalScore() {
     }
 
     // Affiche le score final
-    scoreText.textContent = `Heure d'arrivée : 8h${time} | Risque : ${riskLevel}`;
+    scoreText.textContent = `Heure d'arrivée : 8h${time} |${riskLevel}`;
     messagefin();
 }
-
 
 function messagefin() {
     if (time <= 5) {
@@ -812,5 +859,3 @@ function messagefin() {
         motsdefin("Tu as perdu... la vie ! Tu as choisi de prendre des risques pour arriver à l'heure et cela t'a coonduit à ta perte.");
     }
 }
-
-

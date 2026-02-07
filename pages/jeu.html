@@ -10,11 +10,32 @@
 </head>
 
 <body>
-
-        <div id="game">
-            <div id="txt"><p>Départ immédiat ! Il est 7 h 40, le cours débute à 8 h et la route dure 25 minutes. <br> Attention, si tu a plus de 15 minutes de retard, tu serras refusé du cours !<br> Alors, seras-tu à l’heure ?</p></div>
-        <button id="startBtn">PLAY</button>
+    <div id="game">
+        <div id="txt">
+            <p>Départ immédiat ! Il est 7 h 40, le cours débute à 8 h et la route dure 25 minutes. <br> Attention, si tu
+                a plus de 15 minutes de retard, tu serras refusé du cours !<br> Alors, seras-tu à l’heure ?</p>
+        </div>
+        <button id="startBtn">JOUER</button>
     </div>
+
+    <div id="hurry-modal" class="hurry-overlay">
+        <div class="hurry-box">
+            <h2>Attention !</h2>
+            <img src="../image/warning.gif" width="50%" alt="Animation" />
+            <p>Il est déjà tard, chaque minute compte maintenant !</p>
+            <button id="hurry-btn">OK</button>
+        </div>
+    </div>
+
+    <div id="police-modal" class="police-overlay">
+        <div class="police-box">
+            <h2>Stop police arreté vous !</h2>
+            <img src="../image/sirenes.gif" width="50%" alt="Animation" />
+            <p>La police t'arrête ... </p>
+            <button id="police-btn">OK</button>
+        </div>
+    </div>
+
 
     <div class="grid">
 
@@ -45,7 +66,7 @@
                 </div>
             </div>
 
-                        <!-- BLOC EXPLICATION / PIoche -->
+            <!-- BLOC EXPLICATION / PIoche -->
             <div id="explanation-modal">
                 <div id="explanation-card">
                     <p id="explanation-text"></p>
@@ -54,56 +75,76 @@
             </div>
 
         </div>
-        <div class="center"> 
+        <div class="center">
 
-<div id="scene"></div>
+            <div id="scene"></div>
 
         </div>
 
         <div class="left-bottom">
 
-    <div id="progress-container">
-        <div id="progress-bar"></div>
-    </div>
-        <p>Progression de ton trajet : </p>
+            <div id="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+            <p>Progression de ton trajet : </p>
         </div>
         <div class="bottom-1">
 
             <div class="block meteo">
                 <span id="environment">...</span>
             </div>
-                <p>La météo pour la partie</p>
+
         </div>
+
         <div class="bottom-2">
 
             <div class="block transport">
                 <span id="transport">...</span>
             </div>
-        <p>Ton moyen de transport</p>
+
         </div>
 
     </div>
 
+    <div id="final-score" style="display:none;">
+        <div id="final-score-overlay">
+            <div id="final-score-card">
+                <h2>
+                    <p id="mots_fin"></p>
+                </h2>
+                <p id="score-text"></p>
+                <p>
+“Lors de ton trajet, tu as pris un certain nombre de risques. 
 
-    
+Peu importe tes raisons, ces risques auraient tout de même pu te mettre dans des situations dangereuses, autant pour toi que pour les autres usagers de la route. De fait, selon le type de transport que tu utilise, tu peux faire face à des risques plus ou moins importants, en voici quelques chiffres :  
 
+Moto : 
+En 2022, 787 usagers de deux-roues motorisés sont décédés sur les routes de France et 21 448 ont été victimes d’accidents. 
+Les manoeuvres principales ayant causées un accident sont les suivantes :
+Circulation sans changer de direction
+Dépassement ou Déportation 
+Circulation à contresens 
+51 % des accidents mortels en deux roues motorisés sont dus à la vitesse
 
+Vélo : 
+Le risque d’être tué à vélo est plus important que lorsqu’on est piéton ou automobiliste, et croît fortement à partir de 55 ans. 
+Les facteurs revenant le plus souvent dans les accident impliquant un cycliste sont :
+le non respect des règles de priorité
+l’inattention
+le changement de file
 
-<div id="final-score" style="display:none;">
-  <div id="final-score-overlay">
-    <div id="final-score-card">
-      <h2><p id="mots_fin"></p></h2>
-      <p id="score-text"></p>
-      <button onclick="window.location.reload()">Rejouer</button>
+Trottinette :  
+En 2019 : 10 décès accidentels dus aux EDPM (engins de déplacement personnel motorisés) sur l’ensemble du territoire national 
+en 2020, 7 décès (contre 178 cyclistes et 391 piétons)  dus aux EDPM (engins de déplacement personnel motorisés) sur l’ensemble du territoire national avec 870 lésions corporelles concernant 774 blessés ont été enregistrées
+</p>
+                <button onclick="window.location.reload()">Rejouer</button>
+                <button onclick="window.location.href='./index.md'">Accueil</button>
+
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
-
-
-<script src="../js/script.js"></script>
-
-
+    <script src="../js/script.js"></script>
 
 </body>
 
