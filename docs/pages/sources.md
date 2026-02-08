@@ -5,7 +5,7 @@ hide:
 
 # Sources 
 
-Dans cet onglet, vous trouverez l’ensemble des sources mobilisées pour le jeu. Il regroupe tous les articles, sites et autres références utilisés, ainsi que les citations qui en sont issues.
+Dans cet onglet, vous trouverez l’ensemble des sources mobilisées pour le jeu. Il regroupe tous les articles, sites et autres références utilisées, ainsi que les citations qui en sont issues.
 
 
 ## Bilan 2024 de la sécurité routière

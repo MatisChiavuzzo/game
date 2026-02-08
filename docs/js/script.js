@@ -321,7 +321,7 @@ function askHelmet() {
                     // Met a jour temps et barre de risque
                     updateUI();
                     // Monte la carte explication, avec ce texte, puis associe le cli du bouton à l'étape suivante, soit la lumière cassée
-                    showExplanation("Tu as bien fait de mettre ton casque ! \n Cela réduit fortement tes risques de blessures graves à la tête : jusqu’à 88 % pour le vélo et environ 69 % pour la moto. Le risque de décès sur une moto baisse aussi de 42 %. Porter un casque te protège vraiment en cas d’accident.", askLight);
+                    showExplanation("Tu as bien fait de mettre ton casque ! \n Cela réduit fortement les risques de blessures graves à la tête : jusqu’à 88 % pour le vélo et environ 69 % pour la moto. Le risque de décès sur une moto baisse aussi de 42 %. Porter un casque te protège vraiment en cas d’accident.", askLight);
                 }
             },
             {
@@ -382,7 +382,7 @@ function school() {
             text: "Je maintiens mon allure, avec la petite taille de mon véhicule ça va passer", action: () => {
                 lightOn = true;
                 risk -= 4; updateUI();
-                showExplanation("Un enfant a ouvert la portière de sa voiture pile au moment où tu arrivais. Tu te la prends en pleine figure et t’étales par terre sous les rires des autres enfants.", ruralStraight);
+                showExplanation("Un enfant a ouvert la portière de sa voiture pile au moment où tu arrivais. Tu te la prends en pleine figure et tu t’étales par terre sous les rires des autres enfants.", ruralStraight);
             }
         }
     ]);
@@ -417,7 +417,7 @@ function ruralStraight() {
                     // Ajout de - 20 minutes dans le compteur temps
                     time += 3;
                     // Message affiché dans ce cas 
-                    message = "Tu as pris un risque cathartique et tu as percutés un lapin ! Même un petit animal peut provoquer une chute grave à vélo ou en moto. Les collisions avec des animaux représentent environ 2 à 5 % des accidents de deux-roues dans certaines zones rurales.";
+                    message = "Tu as pris un risque cathartique et tu as percuté un lapin ! Même un petit animal peut provoquer une chute grave. Les collisions avec des animaux représentent environ 2 à 5 % des accidents de deux-roues dans certaines zones rurales.";
                     // Si r était supérieur à la valeur de la proba de l'événement 1, alors fait ca 
                 } else {
                     // Affiche simplement ce message 
@@ -444,7 +444,7 @@ function fallrain() {
                     risk += 5;
                     time += 1;
                     updateUI();
-                    showExplanation("Tu ralentis et restes concentré. Bonne décision ! En roulant plus lentement sous la pluie, tu réduis ton risque de chute, car les cyclistes et trottinettes ont jusqu’à 50 % plus de chances de tomber par temps humide si la vitesse n’est pas adaptée.", redLight);
+                    showExplanation("Tu ralentis et tu restes concentré. Bonne décision ! En roulant plus lentement sous la pluie, tu réduis ton risque de chute, car les cyclistes et trottinettes ont jusqu’à 50 % plus de chance de tomber par temps humide si la vitesse n’est pas adaptée.", redLight);
                 }
             },
             {
@@ -463,7 +463,7 @@ function fallrain() {
                         risk -= 5;
                         time -= 2;
                         updateUI();
-                        showExplanation("Tu as eu de la chance ! Tu n’as pas chuté cette fois, mais attention : les cyclistes et trottinettes ont jusqu’à 50 % plus de chances de tomber par temps humide si la vitesse n’est pas adaptée.", redLight);
+                        showExplanation("Tu as eu de la chance ! Tu n’as pas chuté cette fois, mais attention : les cyclistes et trottinettes ont jusqu’à 50 % plus de chance de tomber par temps humide si la vitesse n’est pas adaptée.", redLight);
                     }
                 }
             }
@@ -496,14 +496,14 @@ function redLight() {
                     // 40 %
                     time += 4;
                     showpolice();
-                    message = "Oups ! Tu as pris un risque de stimulation mais la police était cachée à côté. Tu te fais arrêter, perds du temps et prends une amende. Au final, tu a quand même de la chance, puisque environ 30 % des accidents mortels de cyclistes et trottinettes ont lieu aux intersections, souvent à cause du non-respect du feu.";
+                    message = "Oups ! Tu as pris un risque de stimulation mais la police était cachée à côté. Tu te fais arrêter, tu perds du temps et tu prends une amende. Au final, tu a quand même de la chance, puisque environ 30 % des accidents mortels de cyclistes et trottinettes ont lieu aux intersections, souvent à cause du non-respect du feu.";
                 } else {
                     // 15 % — MORT
                     risk -= 50;
                     time += 60
                     updateUI();
                     showExplanation(
-                        "Un voiture est arrivé au même moment, tu meurs sur la coup ! Chaque année en France, des centaines d’usagers vulnérables comme les cyclistes (plus de 220 morts en 2023) et les trottinettes (plus de 40 morts) perdent la vie dans des accidents de la route, souvent à des intersections.",
+                        "Une voiture est arrivé au même moment, tu meurs sur le coup ! Chaque année en France, des centaines d’usagers vulnérables comme les cyclistes (plus de 220 morts en 2023) et les trottinettes (plus de 40 morts) perdent la vie dans des accidents de la route, souvent à des intersections.",
                         showFinalScore
                     );
                     return;
@@ -541,11 +541,11 @@ function slownight() {
                         risk -= 4;
                         time += 2;
                         updateUI();
-                        showExplanation("Tu ne voyais pas bien et tu as perdu le contrôle ! Tu tombes et perds du temps, puis reprends la route", busStop);
+                        showExplanation("Tu ne voyais pas bien et tu as perdu le contrôle ! Tu tombes et perds du temps, puis tu reprends la route", busStop);
                     } else {
                         risk -= 4;
                         updateUI();
-                        showExplanation("Tu as eu de la chance ! Tu gardes ton allure sans tomber, mais tu restes exposé au risque.", busStop);
+                        showExplanation("Tu as eu de la chance ! Tu maintiens ton allure sans tomber, mais tu restes exposé au risque.", busStop);
                     }
                 }
             }
@@ -581,13 +581,13 @@ function busStop() {
                 if (r < probEvent1) {
                     // 10 %
                     time += 10;
-                    message = "Catastrophe ! Tu t’es fait renverser par une voiture qui arrivait en face et que tu n’avais pas vue. Tu as pris un risque pratique mais tu t’es fait très mal et tu as perdu du temps.";
+                    message = "Catastrophe ! Tu t’es fait renverser par une voiture qui arrivait en face et que tu n’avais pas vu. Tu as pris un risque pratique mais tu t’es fait très mal et tu as perdu du temps.";
                 } else if (r < 0.5) {
                     // 40 %
-                    message = "Attention !!! Tu as failli te faire écraser par une voiture qui arrivait en face et que tu n’avais pas vue. Tu as pris un risque pratique et tu t’es mis en danger.";
+                    message = "Attention !!! Tu as failli te faire écraser par une voiture qui arrivait en face et que tu n’avais pas vu. Tu as pris un risque pratique et tu t’es mis en danger.";
                 } else {
                     // 10 %
-                    message = "Tu as failli rentrer dans un piéton que tu n’avais pas vu ! Tu as pris un risque pratique mais tu t’es mis en danger toi et les autres usagers de la route.";
+                    message = "Tu as failli rentrer dans un piéton que tu n’avais pas vu ! Tu as pris un risque pratique mais tu t’es mis en danger ainsi que les autres usagers de la route.";
                 }
 
                 updateUI();
@@ -612,7 +612,7 @@ function chooseStreet() {
                     // 50 %
                     time += 5
                     showpolice();
-                    message = "Malheur ! Tu t’es fait arrêté par la police. Ce risque d’autonomie a de lourdes conséquences. Tu perds 5 minutes et tu te prends une amende !";
+                    message = "Malheur ! Tu t’es fait arrêter par la police. Ce risque d’autonomie a de lourdes conséquences. Tu perds 5 minutes et tu te prends une amende !";
                 } else {
                     // 50 %
                     time -= 2
@@ -634,9 +634,9 @@ function chooseStreet() {
 
 // ========================== SPECIAL : velo sur piste cyclable
 function trackbike() {
-    showCard("../image/pistevelo.png", "Tu arrives à un croisement où la piste cyclable se divise. Un autre cycliste arrive en sens inverse très vite ! \n Que fait tu ?", [
+    showCard("../image/pistevelo.png", "Tu arrives à un croisement où la piste cyclable se divise. Un autre cycliste arrive en sens inverse très vite ! \n Que fais-tu ?", [
         {
-            text: "Je maintient ma vitesse, pour ne pas perdre de temps", action: () => {
+            text: "Je maintiens ma vitesse, pour ne pas perdre de temps", action: () => {
                 const r = Math.random();
                 let message = "";
 
@@ -649,7 +649,7 @@ function trackbike() {
                     // 50 %
                     time += 1
                     risk -= 2
-                    message = "A deux doights de la catastrophes ! Personne n’est blessé, mais ton cœur bat à toute vitesse. Tu prends une minute pour souffler et reprendre tes esprits avant de continuer ton trajet.";
+                    message = "A deux doights de la catastrophe ! Personne n’est blessé, mais ton cœur bat à toute vitesse. Tu prends une minute pour souffler et reprendre tes esprits avant de continuer ton trajet.";
                 }
 
                 updateUI();
@@ -713,7 +713,7 @@ function motorbike() {
 
 // ========================== ETAPE 8 : La voie partagée
 function sharedLane() {
-    showCard("../image/partage.png", "La voie partagée que tu prends habituellement est entravée par des travaux, réduisant la largeur de la route. \n Pour couronner le tout, un vélo est devant toi et avance très lentement. \n Que fait-tu ?", [
+    showCard("../image/partage.png", "La voie partagée que tu prends habituellement est entravée par des travaux, réduisant la largeur de la route. \n Pour couronner le tout, un vélo est devant toi et avance très lentement. \n Que fais-tu ?", [
         {
             text: "Je zigzague dans la zone en travaux", action: () => {
                 risk -= 5;
@@ -750,7 +750,7 @@ function sharedLane() {
         {
             text: "J'attends patiemment derrière le vélo.", action: () => {
                 time += 2; risk += 5; updateUI();
-                showExplanation("Quelle chance ! Tu réalises que c’est ton prof devant toi ! Il est donc tout aussi en retard que toi.", raceFriend);
+                showExplanation("Quelle chance ! Tu réalises que c’est ton prof devant toi ! Il est tout aussi en retard que toi !", raceFriend);
             }
         }
     ]);
@@ -770,11 +770,11 @@ function raceFriend() {
                 if (r < 0.6) {
                     // 60 %
                     time += 5
-                    message = "Tu as pris un risque de prestance en voulant t’amuser avec ton ami. Tu rentres dans une poubelle juste devant ton établissement et t’étales devant tout le monde.";
+                    message = "Tu as pris un risque de prestance en voulant t’amuser avec ton ami. Tu rentres dans une poubelle juste devant ton établissement et tu t’étales devant tout le monde.";
                 } else {
                     // 40 %
                     time -= 2;
-                    message = "Tu as pris un risque de prestance en voulant fanfaronner devant ton ami. Tu gagnes la course mais ton prof qui était en vélo juste derrière vous vous a vu. Il vous réprimande et refuse de vous accepter dans son cours.";
+                    message = "Tu as pris un risque de prestance en voulant fanfaronner devant ton ami. Tu gagnes la course mais ton prof qui était en vélo juste derrière, vous a vu. Il vous réprimande et refuse de vous accepter dans son cours.";
                 }
 
                 updateUI();

@@ -13,17 +13,11 @@ Le nombre de joueurs est fixé à 1 joueur par appareil, mais il est tout à fai
 
 ### Objectif du jeu
 
-Le jeu reprend le concept du jeu de simulation de négociation où le joueur a un nombre limité de jetons qu’il peut décider de répartir comme il le souhaite (ici, il s’agit d’une barre de risque). Il va ainsi donc décider de la façon dont il souhaite faire varier sa barre de risque en la faisant baisser ou monter. De plus, nous avons décidé de rajouter dans notre fonctionnement de jeu une variable de temps pour le rendre plus intéressant à jouer.
+Le jeu reprend le concept du jeu de simulation de négociation où le joueur a un nombre limité de jetons qu’il peut décider de répartir comme il le souhaite (ici, il s’agit d’une barre de risque). Il va ainsi décider de la façon dont il souhaite faire varier sa barre de risque en la faisant baisser ou monter. De plus, nous avons décidé de rajouter dans notre fonctionnement de jeu une variable de temps pour le rendre plus intéressant à jouer.
 
 Ainsi, afin de gagner la partie, le joueur ne doit non seulement pas arriver au-delà de 8h15, mais également ne pas dépasser un trop haut niveau de risque. En effet, si un joueur arrive avant 8h15, mais qu’il a pris trop de risques, il aura perdu la partie.
 
 Le joueur doit donc trouver le juste milieu entre arriver dans les temps et une prise de risques. Comme dans le cas d’un retard en temps réel, l’objectif est de contraindre le joueur à prendre des risques à cause du temps. En effet, lorsque l’on est sous pression, nous sommes amenés à prendre des risques, même les plus anodins, qui peuvent parfois entraîner des conséquences importantes. C’est tout l’objet du jeu, montrer au joueur que tous les risques peuvent avoir de lourdes conséquences.
-
-
-### Aspects éducatifs
-
-Au cours de la partie, après chaque choix du joueur, des éléments explicatifs et statistiques sont présentés, dans l’idée d’inclure l’aspect éducatif. 
-Également, lorsque qu’un joueur prend un risque, une pop-up lui indique quel(s) type(s) de risque a-t-il pris. 
 
 ## Déroulement d'une partie
 
@@ -35,7 +29,7 @@ La première phase est composée de deux étapes, portant sur les aspects de pro
 
 ### Seconde phase
 
-La seconde phase est composée de 7 étapes, pour chacune d'entre elles, le joueur a entre 2 à 3 possibilités selon l’étape. Chacune de ces possibilités entraîne des événements particuliers. Chacun de ces événements à des probabilités d’apparitions différentes, et des influences sur le niveau de risque et le temps différents. Certains événements avec de faibles probabilités peuvent même entraîner la mort du joueur, soit la fin de la partie. 
+La seconde phase est composée de 7 étapes, pour chacune d'entre elles, le joueur a entre 2 à 3 possibilités selon l’étape. Chacune de ces possibilités entraîne des événements particuliers. Chacun de ces événements a des probabilités d’apparitions différentes, et des influences sur le niveau de risque et le temps. Certains événements avec de faibles probabilités peuvent même entraîner la mort du joueur, soit la fin de la partie. 
 De plus, une des étapes varie selon le mode de transport de la partie. Par exemple, si l’on est à vélo, toutes les étapes ne seront pas les mêmes que pour un joueur à moto. 
 
 ### Phases complémentaires
@@ -62,10 +56,7 @@ En somme, le jeu se présente de la manière suivante, quelles que soient les é
 
 ### Prises en compte d’une éducation :
 
-Au cours de la partie, après chaque choix du joueur, des éléments explicatifs et statistiques sont présentés, dans l’idée d’inclure l’aspect éducatif. De plus, lorsqu'un joueur prend un risque, un popup lui indique quel(s) type(s) de risque il a pris (risque d’autonomie, cathartique, pratique, prestance ou stimulation).
- 
-
-
+Au cours de la partie, après chaque choix du joueur, des éléments explicatifs et statistiques sont présentés, dans l’idée d’inclure l’aspect éducatif. De plus, lorsqu'un joueur prend un risque, un popup lui indique quel(s) type(s) de risque(s) il a pris (risque d’autonomie, cathartique, pratique, prestance ou stimulation).
 
 ## Contenu du jeu
 

@@ -5,7 +5,7 @@ hide:
 
 # Projet de développement d'un jeu en ligne 
 
-Page web d'un jeu interractif portant sur les risques en deux roues (vélo, moto, trotinette électrique). 
+Page web d'un jeu interractif portant sur les risques en deux roues (vélo, moto, trottinette électrique). 
 
 Janvier - Février 2026
 
@@ -20,28 +20,9 @@ Le projet a été effectué dans le cadre de notre cours "Société et environne
 
 Le but était de produire un jeu de rôle inspiré d'un trad-off game basé sur la prise de risque des adolescents en deux roues développé par L.Colbeau-Jusin, S.Depeau et T.Ramadier en 2001.
 
-Pour répondre à cette attente, nous avons développé un jeu à choix inspiré des "visual novels" où le joueur se voit attribué un moyen de transport (vélo, moto, trotinette électrique) et doit rejoindre son école à temps. Pour cela, le jouer sera confronté tout le long de son trajet à différentes situations face auxquelles il aura un choix à faire. Les choix qu'il décidera de faire influenceront ainsi à la fois son heure d'arrivée mais également sa "barre de prise de risque". Le but final du jeu est ainsi d'arriver à l'heure mais aussi de ne pas finir avec un score trop bas dans la barre de risque.
+Pour répondre à cette attente, nous avons développé un jeu à choix inspiré des "visual novels" où le joueur se voit attribuer un moyen de transport (vélo, moto, trottinette électrique) et doit rejoindre son école à temps. Pour cela, le jouer sera confronté tout le long de son trajet à différentes situations face auxquelles il aura un choix à faire. Les choix qu'il décidera de faire influenceront ainsi à la fois son heure d'arrivée mais également sa "barre de prise de risque". Le but final du jeu est ainsi d'arriver à l'heure mais aussi de ne pas finir avec un score trop bas dans la barre de risque.
 
-## 2. Contexte technique 
-
-## A. Technologies utilisées
-- HTML5
-- CSS3
-- JavaScript ES6
-- Mkdocs
-
-## Installation et lancement 
-### Télécharger ou cloner le projet
-### Ouvrir le projet en local via la commande suivante dans le terminal :
-- `mkdocs serve`
-### Publier le projet via la commande suivante dans le terminal :
-- `mkdocs gh-deploy`
-### Commit les modifications (depuis le terminal):
-- `git add .`
-- `git commit -m "Mise à jour de la documentation"`
-- `git push origin main`
-
-# 3. Arboresance des fichiers
+# 3. Arborescence des fichiers
 
 ## Dossier "docs" :
 
@@ -57,14 +38,14 @@ Ce dossier contient tous les fichers servant à construire les pages du site pou
 ## index.md
 
 Ce code en .md, correpond à la page d'accueil du jeu. Il contient un menu de navigation renvoyant vers : 
-- Accueil : page principal, dans laquelle on trouve des éléments contextes et de présentations du projet. Également, on retrouve un bouton de contact. 
-- Règles du jeu :  Renvoie vers une autre page contenant les règles du jeu (page regles.md).
-- Jeu : Renvoie vers le jeu (page jeu.html).
+- Accueil : page principale, dans laquelle on trouve des éléments contextes et de présentations du projet. Également, on retrouve un bouton de contact. 
+- Règles du jeu :  Renvoie vers une autre page contenant les règles du jeu (regles.md).
+- Jeu : Renvoie vers le jeu (jeu.html).
 - Documentation : Renvoie vers la documentation (documentation.md)
 - Sources : Renvoie vers l'ensemble des sources statistiques utilisées dans le jeu (sources.md)
 
 ## regles.md
-Ce code en .md recense les règles détaillées du jeu ainsi que les fins et possibilités possibles. 
+Ce code en .md recense les règles détaillées du jeu ainsi que les fins et possibilités. 
 
 ## jeu.html
 Ce code en .html établit la structure du jeu. 
@@ -78,7 +59,7 @@ Ce code en .css permet de moduler l'apparence de l'ensemble des pages .md
 ## script.js
 Ce code en javascript, permet le fonctionnement du jeu. Dans ce script, nous pouvons retrouver six blocs d'éléments : 
 
-### Le bouton PLAY
+### Le bouton JOUER
 - Permet de lancer le jeu.
 - Au clic, il disparait et lance les tirages aléatoires du temps et du mode de transport. Également il réinitialise selon la valeur par défaut le compteur temps, la barre de risques et la barre de progression. 
 Enfin, il fait appel au lancement de la première étape. 
@@ -86,7 +67,7 @@ Enfin, il fait appel au lancement de la première étape.
 
 ### Le compteur temps
  - Le compteur temps permet d'afficher et gérer via des additions et soustractions les gains et les pertes de temps qui peuvent apparaitre selon les choix du joueur. 
- - Par défaut, le joueur à 5 minutes de retard. 
+ - Par défaut, le joueur a 5 minutes de retard. 
  - Pour y faire appel dans le html, on utilise "time". 
  - Son fonctionnement est suivant : en partant de la valeur 5, à chaque choix fait par le joueur le compteur se met à jour. 
 
@@ -104,13 +85,13 @@ Enfin, il fait appel au lancement de la première étape.
  ### L'indication du temps
  - L'indicateur temps indique la météo durant la partie. 
  - Les valeurs possibles sont les suivantes : Jour, Nuit et Pluie.
- - Chacune des valeurs est associés à une image de fond la représentant. 
+ - Chacune des valeurs est associée à une image de fond la représentant. 
  - Pour y faire appel dansle html, on utilise "environnement".
  - Son fonctionnement est le suivant : au lancement de la partie, le script sélectionne aléatoirement l'une des valeurs, puis celle-ci s'affiche dans l'emplacement prévu à cet effet, et l'image de fond se met à jour. 
 
  ### L'indicateur du mode de transport
  - L'indicateur du mode de transport indique le mode utilisé pour la partie. Celui-ci influencera les étapes et les choix possibles.
- - Les valeurs possibles sont les suivantes : Vélo, Trotinette, Moto.
+ - Les valeurs possibles sont les suivantes : Vélo, Trottinette, Moto.
  - Pour y faire appel dans le html, on utilise "transport".
  - Son fonctionnement est le suivant : au lancement de la partie, le script sélectionne aléatoirement l'une des valeurs, puis celle-ci s'affiche dans l'emplacement prévu à cet effet et influencera l'apparition de certaines étapes et d'étapes intermédiaires.
 
@@ -118,7 +99,7 @@ Enfin, il fait appel au lancement de la première étape.
  - Le bloc des questions contient 3 éléments : une image d'illustration, un texte et les choix possibles (qui prennent la forme de boutons).
  - Le bloc des explications contient 2 éléments : un texte et un bouton permettant de passer à l'étape suivante. 
  - Les textes, illustrations et choix possibles, ainsi que leurs effets (temps, risques ...) sont codés dans chacun des blocs du .js faisant référence aux différentes étapes. Également, certains choix peuvent être enregistrés, influencant les probablités des événements. C'est par exemple le cas pour le choix ou non de mettre un casque. 
- - À la fin de chaque étape, le compteur temps, la barre de risque et la barre de progression sont mis à jour, puis le script fait appel au bloc des explications en définissant le texte, et le nom de l'étape suivante, associée à l'action du bouton. 
+ - À la fin de chaque étape, le compteur temps, la barre de risque et la barre de progression sont mises à jour, puis le script fait appel au bloc des explications en définissant le texte, et le nom de l'étape suivante, associée à l'action du bouton. 
  - Ce schéma fonctionne en boucle, sauf pour la dernière étape qui fait appel à l'annonce du score (ou dans le cas d'un choix ayant conduit à un évènement entrainant la mort). 
  - Pour faire appel au bloc des questions dans le html, on utilise "card-modal", avec "card-image", "card-question" et "card-choices".
  - Pour faire appel au bloc des explications dans le html, on utilise "explanation-modal", avec "explanation-text et "next-step-btn". 
