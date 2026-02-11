@@ -62,39 +62,43 @@ Au cours de la partie, après chaque choix du joueur, des éléments explicatifs
 
 ![Texte alternatif](../image/tuto.png "")
 
-- 1 - Barre de risque
+### 1 - Barre de risque
 
 Elle varie du rouge (beaucoup de risques pris) au vert (peu de risques pris), elle indique au joueur si ses actes ont été plus ou moins dangereux. 
 
-- 2 - Heure d’arrivées prévue
+### 2 - Heure d’arrivées prévue
 
 Cette horloge indique l’heure d’arrivée prévue, dans le cas où la circulation est fluide et qu’aucun évènement ne vient perturber le trajet. Cette heure d’arrivée changera donc obligatoirement au cours de la partie, puisque les choix faits par le joueur lui feront soit perdre du temps, ce qui augmentera l’heure d'arrivée, ou alors lui faire gagner du temps, ce qui avancera l’heure d’arrivée prévue. C’est donc sur l’heure affichée, que le joueur doit se fixer afin d’évaluer, si, oui ou non, dans l’état actuel de sa partie, il arrive dans les temps. 
 
-- 3 - Fiches questions / situations / choix
+### 3 - Fiches questions / situations / choix
 
 C’est ici que les différentes situations sont présentées au joueur ainsi que les boutons des choix qui lui sont proposés.
 Après son choix, c’est également à cet emplacement que les explications sur l’événement qui a eu lieu sont présentées, ainsi que les aspects pédagogiques.
 
-- 4 - Progression du trajet
+### 4 - Progression du trajet
 
 Cette barre indique au joueur son état d’avancement dans la partie. Elle lui permet d’estimer le nombre d’étapes restantes.
 
-- 5 - Météo pour la partie
+### 5 - Météo pour la partie
 
 C’est ici que le joueur peut savoir s'il fait jour, nuit ou s’il pleut.
 
-- 6 - Mode de transport pour la partie
+### 6 - Mode de transport pour la partie
 
 C’est ici que le joueur sait quel mode de transport il utilise pour ce trajet.
 
-- 7 - Images d’illustrations des situations
+### 7 - Images d’illustrations des situations
 
 Cet emplacement affiche, selon les étapes, les images d’illustrations associées. Ces images permettent au joueur de mieux se représenter l’espace, et ainsi de faire les choix qui lui semblent les plus justes. De plus, ces images permettent au joueur de se projeter dans une situation réelle, d’autant plus que toutes les photographies ont été prises dans la ville de Besançon. 
 
-- 8 - Bouton de retour à l’accueil
+### 8 - Bouton de retour à l’accueil
 
 Ce bouton permet un retour à la page d’accueil.
 
 ## Fin de partie
 
 Le jeu se termine à l'issue de l'ensemble des étapes, ou en cas de mort du joueur au cours de la partie. À La fin de la partie, une pop-up transmet les résultats aux joueurs le temps d'arrivée final ainsi que le niveau de risque pris. 
+
+## Jouer
+
+Vous pouvez désormais [lancer le jeu](../pages/jeu.html) !
