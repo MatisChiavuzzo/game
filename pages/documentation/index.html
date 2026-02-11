@@ -65,7 +65,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -588,14 +588,55 @@ Tuaillon Ninon - ninon.tuaillon@edu.univ-fcomte.fr</p>
 <p>Le projet a été effectué dans le cadre de notre cours "Société et environnement" donné lors du second semestre de notre troisième année de licence en Géographie et aménagement au sein de l'université Marie et Louis Pasteur. </p>
 <p>Le but était de produire un jeu de rôle inspiré d'un trad-off game basé sur la prise de risque des adolescents en deux roues développé par L.Colbeau-Jusin, S.Depeau et T.Ramadier en 2001.</p>
 <p>Pour répondre à cette attente, nous avons développé un jeu à choix inspiré des "visual novels" où le joueur se voit attribuer un moyen de transport (vélo, moto, trottinette électrique) et doit rejoindre son école à temps. Pour cela, le jouer sera confronté tout le long de son trajet à différentes situations face auxquelles il aura un choix à faire. Les choix qu'il décidera de faire influenceront ainsi à la fois son heure d'arrivée mais également sa "barre de prise de risque". Le but final du jeu est ainsi d'arriver à l'heure mais aussi de ne pas finir avec un score trop bas dans la barre de risque.</p>
-<h1 id="3-arborescence-des-fichiers">3. Arborescence des fichiers</h1>
+<h1 id="arborescence-des-fichiers">Arborescence des fichiers</h1>
 <h2 id="dossier-docs">Dossier "docs" :</h2>
 <p>Ce dossier contient tous les fichers servant à construire les pages du site pour l'outil mkdocs, on y retrouve les sous-dossiers suivants : 
     - css : ce dossier contient 2 fichiers de style pour le jeu et l'ensemble des pages
     - image : ce dossier contient toutes les images présentes dans le jeu 
     - js : ce dossier contient 1 fichier .js permettant le fonctionnement du jeu 
     - pages : ce dossier contient les 3 pages .md et 1 page .html liées au site </p>
-<h1 id="4-description-de-la-structurecomposition-des-fichiers">4. Description de la structure/composition des fichiers</h1>
+<h2 id="dossier-image">Dossier image :</h2>
+<h3 id="illustration">Illustration :</h3>
+<ul>
+<li>logo.png (dessiné par Maë Tuaillon)</li>
+</ul>
+<h3 id="photographies-et-infographies-personelles">Photographies et infographies personelles</h3>
+<ul>
+<li>bus.png</li>
+<li>choixvoie.png</li>
+<li>course.png</li>
+<li>ecolebouchons.png</li>
+<li>feurouge.png</li>
+<li>rural.png</li>
+<li>fond.png</li>
+<li>tuto.png</li>
+<li>bandeau.png</li>
+</ul>
+<h3 id="photographies-issues-de-canva">Photographies issues de canva</h3>
+<ul>
+<li>arret.png</li>
+<li>casque.png</li>
+<li>ecole.png</li>
+<li>feu.png</li>
+<li>finish.png</li>
+<li>interdit.png</li>
+<li>jour.png</li>
+<li>lumière.png</li>
+<li>motodepasse.png</li>
+<li>nuit.png</li>
+<li>partage.png</li>
+<li>paslumiere.png</li>
+<li>pistevelo.png</li>
+<li>pluie.png</li>
+<li>routeglissante.png</li>
+<li>vitesse.png</li>
+</ul>
+<h3 id="gifs-issus-de-pixabay">Gifs issus de pixabay</h3>
+<ul>
+<li>sirenes.gif</li>
+<li>warning.gif </li>
+</ul>
+<h1 id="description-de-la-structurecomposition-des-fichiers">Description de la structure/composition des fichiers</h1>
 <h2 id="indexmd">index.md</h2>
 <p>Ce code en .md, correpond à la page d'accueil du jeu. Il contient un menu de navigation renvoyant vers : 
 - Accueil : page principale, dans laquelle on trouve des éléments contextes et de présentations du projet. Également, on retrouve un bouton de contact. 
@@ -627,37 +668,49 @@ Enfin, il fait appel au lancement de la première étape. </li>
 <li>Pour y faire appel dans le html, on utilise "time". </li>
 <li>Son fonctionnement est suivant : en partant de la valeur 5, à chaque choix fait par le joueur le compteur se met à jour. </li>
 </ul>
-<p>### La barre de risque 
- - La barre de risque permet d'indiquer au joueur l'intensité du risque qu'il prend, du rouge (beaucoup de risques) au vert (peu de risques).
- - Par défaut, le niveau de risque est fixé à 50.
- - Pour y faire appel dans le html, on utilise "risk-indicator" et "risk-container".
- - Son fonctionnement est le suivant : en partant de la valeur 50, à chaque choix fait par le joueur la barre se met à jour. </p>
-<p>### La barre de progression
- - La barre de progression permet au joueur de visualiser son état d'avancement dans la partie. 
- - Pour y faire appel dans le html, on utilise "progress-bar".
- - Son fonctionnement est le suivant : à chaque fin d'étape, le niveau augmente (d'une longeur proportionnelle à la taillle de la barre, selon le nombre d'étapes au total), de la gauche vers la droite, soit 9 étapes. </p>
-<p>### L'indication du temps
- - L'indicateur temps indique la météo durant la partie. 
- - Les valeurs possibles sont les suivantes : Jour, Nuit et Pluie.
- - Chacune des valeurs est associée à une image de fond la représentant. 
- - Pour y faire appel dansle html, on utilise "environnement".
- - Son fonctionnement est le suivant : au lancement de la partie, le script sélectionne aléatoirement l'une des valeurs, puis celle-ci s'affiche dans l'emplacement prévu à cet effet, et l'image de fond se met à jour. </p>
-<p>### L'indicateur du mode de transport
- - L'indicateur du mode de transport indique le mode utilisé pour la partie. Celui-ci influencera les étapes et les choix possibles.
- - Les valeurs possibles sont les suivantes : Vélo, Trottinette, Moto.
- - Pour y faire appel dans le html, on utilise "transport".
- - Son fonctionnement est le suivant : au lancement de la partie, le script sélectionne aléatoirement l'une des valeurs, puis celle-ci s'affiche dans l'emplacement prévu à cet effet et influencera l'apparition de certaines étapes et d'étapes intermédiaires.</p>
-<p>### Le fonctionnement des blocs : QUESTIONS + EXPLICATIONS
- - Le bloc des questions contient 3 éléments : une image d'illustration, un texte et les choix possibles (qui prennent la forme de boutons).
- - Le bloc des explications contient 2 éléments : un texte et un bouton permettant de passer à l'étape suivante. 
- - Les textes, illustrations et choix possibles, ainsi que leurs effets (temps, risques ...) sont codés dans chacun des blocs du .js faisant référence aux différentes étapes. Également, certains choix peuvent être enregistrés, influencant les probablités des événements. C'est par exemple le cas pour le choix ou non de mettre un casque. 
- - À la fin de chaque étape, le compteur temps, la barre de risque et la barre de progression sont mises à jour, puis le script fait appel au bloc des explications en définissant le texte, et le nom de l'étape suivante, associée à l'action du bouton. 
- - Ce schéma fonctionne en boucle, sauf pour la dernière étape qui fait appel à l'annonce du score (ou dans le cas d'un choix ayant conduit à un évènement entrainant la mort). 
- - Pour faire appel au bloc des questions dans le html, on utilise "card-modal", avec "card-image", "card-question" et "card-choices".
- - Pour faire appel au bloc des explications dans le html, on utilise "explanation-modal", avec "explanation-text et "next-step-btn". </p>
-<p>### Les images d'illustrations
- - Ces images apparaissent en lien avec l'étape en cours. 
- - Pour y faire appel dans le html, on utilise "scene". </p>
+<h3 id="la-barre-de-risque">La barre de risque</h3>
+<ul>
+<li>La barre de risque permet d'indiquer au joueur l'intensité du risque qu'il prend, du rouge (beaucoup de risques) au vert (peu de risques).</li>
+<li>Par défaut, le niveau de risque est fixé à 50.</li>
+<li>Pour y faire appel dans le html, on utilise "risk-indicator" et "risk-container".</li>
+<li>Son fonctionnement est le suivant : en partant de la valeur 50, à chaque choix fait par le joueur la barre se met à jour. </li>
+</ul>
+<h3 id="la-barre-de-progression">La barre de progression</h3>
+<ul>
+<li>La barre de progression permet au joueur de visualiser son état d'avancement dans la partie. </li>
+<li>Pour y faire appel dans le html, on utilise "progress-bar".</li>
+<li>Son fonctionnement est le suivant : à chaque fin d'étape, le niveau augmente (d'une longeur proportionnelle à la taillle de la barre, selon le nombre d'étapes au total), de la gauche vers la droite, soit 9 étapes. </li>
+</ul>
+<h3 id="lindication-du-temps">L'indication du temps</h3>
+<ul>
+<li>L'indicateur temps indique la météo durant la partie. </li>
+<li>Les valeurs possibles sont les suivantes : Jour, Nuit et Pluie.</li>
+<li>Chacune des valeurs est associée à une image de fond la représentant. </li>
+<li>Pour y faire appel dansle html, on utilise "environnement".</li>
+<li>Son fonctionnement est le suivant : au lancement de la partie, le script sélectionne aléatoirement l'une des valeurs, puis celle-ci s'affiche dans l'emplacement prévu à cet effet, et l'image de fond se met à jour. </li>
+</ul>
+<h3 id="lindicateur-du-mode-de-transport">L'indicateur du mode de transport</h3>
+<ul>
+<li>L'indicateur du mode de transport indique le mode utilisé pour la partie. Celui-ci influencera les étapes et les choix possibles.</li>
+<li>Les valeurs possibles sont les suivantes : Vélo, Trottinette, Moto.</li>
+<li>Pour y faire appel dans le html, on utilise "transport".</li>
+<li>Son fonctionnement est le suivant : au lancement de la partie, le script sélectionne aléatoirement l'une des valeurs, puis celle-ci s'affiche dans l'emplacement prévu à cet effet et influencera l'apparition de certaines étapes et d'étapes intermédiaires.</li>
+</ul>
+<h3 id="le-fonctionnement-des-blocs-questions-explications">Le fonctionnement des blocs : QUESTIONS + EXPLICATIONS</h3>
+<ul>
+<li>Le bloc des questions contient 3 éléments : une image d'illustration, un texte et les choix possibles (qui prennent la forme de boutons).</li>
+<li>Le bloc des explications contient 2 éléments : un texte et un bouton permettant de passer à l'étape suivante. </li>
+<li>Les textes, illustrations et choix possibles, ainsi que leurs effets (temps, risques ...) sont codés dans chacun des blocs du .js faisant référence aux différentes étapes. Également, certains choix peuvent être enregistrés, influencant les probablités des événements. C'est par exemple le cas pour le choix ou non de mettre un casque. </li>
+<li>À la fin de chaque étape, le compteur temps, la barre de risque et la barre de progression sont mises à jour, puis le script fait appel au bloc des explications en définissant le texte, et le nom de l'étape suivante, associée à l'action du bouton. </li>
+<li>Ce schéma fonctionne en boucle, sauf pour la dernière étape qui fait appel à l'annonce du score (ou dans le cas d'un choix ayant conduit à un évènement entrainant la mort). </li>
+<li>Pour faire appel au bloc des questions dans le html, on utilise "card-modal", avec "card-image", "card-question" et "card-choices".</li>
+<li>Pour faire appel au bloc des explications dans le html, on utilise "explanation-modal", avec "explanation-text et "next-step-btn". </li>
+</ul>
+<h3 id="les-images-dillustrations">Les images d'illustrations</h3>
+<ul>
+<li>Ces images apparaissent en lien avec l'étape en cours. </li>
+<li>Pour y faire appel dans le html, on utilise "scene". </li>
+</ul>
 <h3 id="le-score-final">Le score final</h3>
 <ul>
 <li>Le score final s'affiche par appel, dans la dernière étape (à la place de la prochaine étape). </li>

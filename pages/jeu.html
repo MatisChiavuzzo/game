@@ -15,7 +15,15 @@
             <p>Départ immédiat ! Il est 7 h 40, le cours débute à 8 h et la route dure 25 minutes. <br> Attention, si tu
                 as plus de 15 minutes de retard, tu seras refusé du cours !<br> Alors, seras-tu à l’heure ?</p>
         </div>
-        <button id="startBtn">JOUER</button>
+        <div class="boutonjouer">
+            <div class="startBtn">
+                <button class="btn" id="startBtn"> <span class="btn__inner">
+                        <span class="btn__slide"></span>
+                        <span class="btn__content">JOUER</span> </span>
+                </button>
+            </div>
+        </div>
+
     </div>
 
     <div id="hurry-modal" class="hurry-overlay">
@@ -23,7 +31,14 @@
             <h2>Attention !</h2>
             <img src="../image/warning.gif" width="50%" alt="Animation" />
             <p>Il est déjà tard, chaque minute compte maintenant !</p>
-            <button id="hurry-btn">OK</button>
+            <div class="boutonhurry">
+                <div class="startBtn">
+                    <button class="btn" id="hurry-btn"> <span class="btn__inner">
+                            <span class="btn__slide"></span>
+                            <span class="btn__content">OK</span> </span>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -32,7 +47,14 @@
             <h2>Stop police arrêtez-vous !</h2>
             <img src="../image/sirenes.gif" width="50%" alt="Animation" />
             <p>La police t'arrête ... </p>
-            <button id="police-btn">OK</button>
+            <div class="boutonpolice">
+                <div class="startBtn">
+                    <button class="btn" id="police-btn"> <span class="btn__inner">
+                            <span class="btn__slide"></span>
+                            <span class="btn__content">OK</span> </span>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -41,7 +63,14 @@
 
         <div class="header">
 
-            <button id="index"><a href="../index.html">Accueil</a></button>
+            <div class="boutonjouer">
+                <div class="startBtn">
+                    <button class="btn" id="index"> <span class="btn__inner">
+                            <span class="btn__slide"></span>
+                            <span class="btn__content" onclick="window.location.href = '../index.html';">Accueil</span>
+                    </button>
+                </div>
+            </div>
 
             <!-- BARRE DE RISQUE -->
             <div id="risk-container">
@@ -84,9 +113,11 @@
         <div class="left-bottom">
 
             <div id="progress-container">
-                <div id="progress-bar"></div>
+                <div id="progress-bar">
+                    <img id="progress-icon" src="../image/logo.png" alt="icône" />
+                </div>
             </div>
-            <p>Progression de ton trajet : </p>
+
         </div>
         <div class="bottom-1">
 
@@ -113,38 +144,68 @@
                     <p id="mots_fin"></p>
                 </h2>
                 <p id="score-text"></p>
-                <p>
-“Lors de ton trajet, tu as pris un certain nombre de risques. 
+                <div id="textestatsfin">
 
-Peu importe tes raisons, ces risques auraient tout de même pu te mettre dans des situations dangereuses, autant pour toi que pour les autres usagers de la route. De fait, selon le type de transport que tu utilise, tu peux faire face à des risques plus ou moins importants, en voici quelques chiffres :  
+                    <h1>Quelques statistiques générales pour finir !</h1>
 
-Moto : 
-En 2022, 787 usagers de deux-roues motorisés sont décédés sur les routes de France et 21 448 ont été victimes d’accidents. 
-Les manoeuvres principales ayant causées un accident sont les suivantes :
-Circulation sans changer de direction
-Dépassement ou Déportation 
-Circulation à contresens 
-51 % des accidents mortels en deux roues motorisés sont dus à la vitesse
+                    <h2>Lors de ton trajet, tu as pris un certain nombre de risques</h2>
 
-Vélo : 
-Le risque d’être tué à vélo est plus important que lorsqu’on est piéton ou automobiliste, et croît fortement à partir de 55 ans. 
-Les facteurs revenant le plus souvent dans les accident impliquant un cycliste sont :
-le non respect des règles de priorité
-l’inattention
-le changement de file
+                    Peu importe tes raisons, ces risques auraient tout de même pu te mettre dans des situations
+                    dangereuses,
+                    autant pour toi que pour les autres usagers de la route. De fait, selon le type de transport que tu
+                    utilise, tu peux faire face à des risques plus ou moins importants, en voici quelques chiffres :
 
-Trottinette :  
-En 2019 : 10 décès accidentels dus aux EDPM (engins de déplacement personnel motorisés) sur l’ensemble du territoire national 
-en 2020, 7 décès (contre 178 cyclistes et 391 piétons)  dus aux EDPM (engins de déplacement personnel motorisés) sur l’ensemble du territoire national avec 870 lésions corporelles concernant 774 blessés ont été enregistrées
-</p>
-                <button onclick="window.location.reload()">Rejouer</button>
-                <button onclick="window.location.href='./index.md'">Accueil</button>
+                    <h3>Moto : </h3>
+                    En 2022, 787 usagers de deux-roues motorisés sont décédés sur les routes de France et 21 448 ont été
+                    victimes d’accidents.
+                    Les manoeuvres principales ayant causées un accident sont les suivantes :
+                    Circulation sans changer de direction
+                    Dépassement ou Déportation
+                    Circulation à contresens
+                    51 % des accidents mortels en deux roues motorisés sont dus à la vitesse
 
+                    <h3>Vélo : </h3>
+                    Le risque d’être tué à vélo est plus important que lorsqu’on est piéton ou automobiliste, et croît
+                    fortement à partir de 55 ans.
+                    Les facteurs revenant le plus souvent dans les accident impliquant un cycliste sont :
+                    le non respect des règles de priorité
+                    l’inattention
+                    le changement de file
+
+                    <h3>Trottinette : </h3>
+                    En 2019 : 10 décès accidentels dus aux EDPM (engins de déplacement personnel motorisés) sur
+                    l’ensemble
+                    du territoire national
+                    en 2020, 7 décès (contre 178 cyclistes et 391 piétons) dus aux EDPM (engins de déplacement personnel
+                    motorisés) sur l’ensemble du territoire national avec 870 lésions corporelles concernant 774 blessés
+                    ont
+                    été enregistrées
+                    <img src="../image/garph_stats_fin.png" alt="">
+                </div>
+
+                <div class="rejouer">
+                    <div class="startBtn">
+                        <button class="btn" id="index"> <span class="btn__inner">
+                                <span class="btn__slide"></span>
+                                <span class="btn__content" onclick="window.location.reload()">Rejouer</span>
+                        </button>
+                    </div>
+
+                    <div class="retouracceil">
+                        <div class="startBtn">
+                            <button class="btn" id="index"> <span class="btn__inner">
+                                    <span class="btn__slide"></span>
+                                    <span class="btn__content"
+                                        onclick="window.location.href='../index.html'">Accueil</span>
+                            </button>
+                        </div>
+
+
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <script src="../js/script.js"></script>
+            <script src="../js/script.js"></script>
 
 </body>
 

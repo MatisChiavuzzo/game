@@ -1,18 +1,136 @@
 .logo img {
   display: block;
   margin: auto;
-  width: 25%;
+  width: 35%;
 }
 
 .md-typeset h1, .md-typeset h2{
-  color: #7E56C2;
+  color: #607186;
   font-weight: bold;
 }
 
 .md-typeset h3 {
-  color: #7E56C2;
+  color: #607186;
 }
 
-.md-typeset ol li, .md-typeset ul li {
-    font-weight: bold;
+
+header.md-header {
+  background-image: url("../image/bandeau.png");
+  background-position: top center;
+  background-size: cover;
+
 }
+nav.md-tabs {
+  background-color: #9fbce2;
+}
+
+.md-ellipsis {
+color: #607186;
+}
+
+.md-footer-meta {
+  background-color: #9fbce2;
+}
+
+.md-tabs__link {
+  font-size: 0.8rem;
+}
+
+
+
+:root {
+  --background-color: #0f1923;
+}
+
+.bouton {
+  text-align: center;
+  margin-top: 2%;
+}
+
+.btn {
+  /* Reset */
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  color: var(--button-text-color);
+  cursor: pointer;
+
+  /* Variables */
+  --button-text-color: var(--background-color);
+  --button-text-color-hover: var(--button-background-color);
+  --border-color: #7D8082;
+  --button-background-color: #ece8e1;
+  --highlight-color: #9fbce2;
+  --button-inner-border-color: transparent;
+  --button-bits-color: var(--background-color);
+  --button-bits-color-hover: var(--button-background-color);
+
+  position: relative;
+  padding: 0.5rem;
+  margin-bottom: 1.25rem;
+
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all .15s ease;
+}
+
+.btn__inner {
+  position: relative;
+  display: block;
+  padding: 1.25rem 1.875rem;
+  background-color: var(--button-background-color);
+  overflow: hidden;
+  box-shadow: inset 0 0 0 0.0625rem var(--button-inner-border-color);
+  border-radius: 1vw;
+}
+
+.btn__inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.125rem;
+  height: 0.125rem;
+  background-color: var(--button-bits-color);
+}
+
+.btn__inner::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0.25rem;
+  height: 0.25rem;
+  background-color: var(--button-bits-color);
+  transition: all .2s ease;
+}
+
+.btn__slide {
+  position: absolute;
+  top: 0;
+  bottom: -0.0625rem;
+  left: -0.5rem;
+  width: 0;
+  background-color: var(--highlight-color);
+  transform: skew(-15deg);
+  transition: all .2s ease;
+}
+
+.btn__content {
+  position: relative;
+}
+
+.btn:hover {
+  color: var(--button-text-color-hover);
+}
+
+.btn:hover .btn__slide {
+  width: calc(100% + 0.9375rem);
+}
+
+
+
+
+
