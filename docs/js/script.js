@@ -256,12 +256,10 @@ function showExplanation(text, nextStepFunc) {
     };
 }
 
-
-
-
 function motsdefin(text) {
     motsText.textContent = text;
 }
+
 // =====================
 // DÉMARRAGE du jeu
 // =====================
@@ -366,21 +364,18 @@ function school() {
     showCard("../image/ecole.png", "Tu voulais filer, mais tu habites juste à côté d’une école. Les deux voies sont bloquées par les voitures des parents. \n Que fais-tu ?", [
         {
             text: "J'attends", action: () => {
-                lightOn = false;
                 risk += 4; time += 2; updateUI();
                 showExplanation("Tant mieux ! Tu perds du temps, mais on ne rigole pas avec la sécurité des gens et encore plus avec celles des enfants qui peuvent avoir des comportements très imprévisibles.", ruralStraight);
             }
         },
         {
             text: "Je mets un pied à terre, et passe", action: () => {
-                lightOn = false;
                 risk += 2; time += 1; updateUI();
                 showExplanation("Un enfant traverse la route sans regarder. Tu manques de l’écraser. Heureusement tu ne roulais pas vite mais en prenant ce risque pratique tu aurais pu l’écraser.", ruralStraight);
             }
         },
         {
             text: "Je maintiens mon allure, avec la petite taille de mon véhicule ça va passer", action: () => {
-                lightOn = true;
                 risk -= 4; updateUI();
                 showExplanation("Un enfant a ouvert la portière de sa voiture pile au moment où tu arrivais. Tu te la prends en pleine figure et tu t’étales par terre sous les rires des autres enfants.", ruralStraight);
             }
@@ -741,6 +736,7 @@ function sharedLane() {
 
         {
             text: "Je dépasse le vélo", action: () => {
+                plottwist = false;
                 risk -= 5; 
                 time -= 1;
                 updateUI();
@@ -810,52 +806,56 @@ function showFinalScore() {
     }
 
     // Affiche le score final
-    scoreText.textContent = `Heure d'arrivée : 8h${time} |${riskLevel}`;
+    scoreText.textContent = `Heure d'arrivée : 8h${time} | ${riskLevel}`;
     messagefin();
+    if (!plottwist){
+        motsdefin("PERDU ! Tu es arrivé juste à temps pour rejoindre ton cours. Mais tu réalises que le cycliste que tu as bousculé sur la voie partagée est ton prof ! Il refuse de te laisser entrer dans son cours et a une dent contre toi pour le restant de l’année");
+    }
 }
 
 function messagefin() {
     if (time <= 5) {
         if (risk >= 70) {
-            motsdefin("Tu arrives à l'heure, tu as gagné, et cela sans prendre de risques ! Félicitation !");
+            motsdefin("GAGNÉ ! Tu es arrivé à l’heure et sans prendre de risques ! Félicitations !");
         } else if (risk >= 50) {
-            motsdefin("Tu arrives à l'heure, tu as gagné, et cela sans prendre de risques ! Félicitation !");
+            motsdefin("GAGNÉ ! Tu es arrivé à l’heure et sans prendre trop de risques ! Félicitations, mais pense à partir plus tôt la prochaine fois pour éviter de te remettre en danger.");
         } else if (risk < 50 && risk > 30) {
-            motsdefin("Tu as perdu ! Tu es arrivé à l'heure, mais tu as pris beaucoup de risques... et ton trajet t'a probablement fait trembler plus d'une fois !");
+            motsdefin("PERDU ! Tu es arrivé à l'heure. Cependant, tu as pris trop de risques ! Tu as eu de la chance, mais tu aurais pu te mettre en danger toi ou les autres usagers !");
         } else { // risque ≤ 30
-            motsdefin("Tu as perdu ! Tu es arrivé à l'heure, mais tu as pris beaucoup trop de risques... et ton trajet t'a probablement fait trembler plus d'une fois !");
+            motsdefin("PERDU ! Tu es arrivé à l’heure, mais tu as pris énormément de risques ! Tu as eu de la chance, mais tu aurais pu te mettre en danger toi ou les autres usagers de la route");
         }
     } else if (time >= 6 && time <= 10) {
         if (risk >= 70) {
-            motsdefin("Tu arrives dans les temps, tu as gagné, et cela sans prendre de risques ! Bravo !");
+            motsdefin("GAGNÉ ! Tu es arrivé avec un peu de retard, mais ton prof aussi. Tu as pu rejoindre ton cours sans problème. Félicitations, parfois tu as accepté de perdre quelques minutes, mais tu as assuré ta sécurité et celle des autres usagers.");
         } else if (risk >= 50) {
-            motsdefin("Tu arrives dans les temps, tu as gagné ! Quelques risques ont été pris, ils n'étaient peut-être pas nécessaires...");
+            motsdefin("GAGNÉ ! Tu es arrivé avec un peu de retard, mais ton prof aussi. Cependant, tu as pris quelques risques ! Tu as eu de la chance, mais tu aurais pu te mettre en danger toi ou les autres usagers de la route.");
         } else if (risk < 50 && risk > 30) {
-            motsdefin("Tu as gagné ! Tu es arrivé dans les temps, mais tu as pris beaucoup de risques... et ton trajet t'a probablement fait trembler plus d'une fois !");
+            motsdefin("PERDU ! Tu es arrivé avec un peu de retard, mais ton prof aussi. Cependant, tu as pris trop de risques ! Tu as eu de la chance, mais tu aurais pu te mettre en danger toi ou les autres usagers de la route.");
         } else { // risque ≤ 30
-            motsdefin("Tu as perdu ! Tu es arrivé dans les temps, mais tu as pris beaucoup trop de risques... et ton trajet t'a probablement fait trembler plus d'une fois !");
+            motsdefin("PERDU ! Tu es arrivé avec un peu de retard, mais ton prof aussi. Cependant, tu as pris bien énormément de risques ! Tu as eu de la chance, mais tu aurais pu te mettre en danger toi ou les autres usagers de la route.");
         }
     } else if (time >= 11 && time <= 17) {
         if (risk >= 70) {
-            motsdefin("Tu arrives avant un retard trop important, tu as gagné, et cela sans prendre de risques ! Bravo !");
+            motsdefin("GAGNÉ ! Tu es arrivé en retard en cours. Mais ton prof a pris une partie du même chemin que toi à vélo, il comprend que tu as dû faire des choix pour assurer ta sécurité et celle des autres usagers. Il te laisse entrer en classe malgré ton retard.");
         } else if (risk >= 50) {
-            motsdefin("Tu arrives avant un retard trop important, tu as gagné ! Quelques risques ont été pris, ils n'étaient peut-être pas nécessaires...");
+            motsdefin("GAGNÉ ! Tu es arrivé avec beaucoup de retard, mais ton prof aussi. Cependant, tu as pris quelques risques ! Tu as eu de la chance, mais tu aurais pu te mettre en danger toi ou les autres usagers de la route.");
         } else if (risk < 50 && risk > 30) {
-            motsdefin("Tu arrives avant un retard trop important, tu as gagné, mais ne prends plus jamais autant de risques ! L'issue aurait pu être différente...");
+            motsdefin("PERDU ! Tu es arrivé avec beaucoup de retard, mais ton prof aussi. Cependant, tu as pris trop de risques ! Tu as eu de la chance, mais tu aurais pu te mettre en danger toi ou les autres usagers de la route.");
         } else { // risque ≤ 30
-            motsdefin("Tu as perdu ! Tu es presque arrivé dans les temps, mais tu as pris beaucoup de risques... Tout ce danger pour rien !");
+            motsdefin("PERDU ! Tu es arrivé avec beaucoup de retard, mais ton prof aussi. Cependant, tu as pris bien énormément de risques ! Tu as eu de la chance, mais tu aurais pu te mettre en danger toi ou les autres usagers de la route.");
         }
     } else if (time >= 18 && time <= 49) {
         if (risk >= 75) {
-            motsdefin("Pas de chance ! Tu est arrivé un peu tard, mais tu n'a pris aucuns risques !");
+            motsdefin("PERDU ! Tu es arrivé avec un retard trop important. Félicitations tout de même, tu as accepté de perdre quelques minutes, mais tu as assuré ta sécurité et celle des autres usagers !");
         } else if (risk >= 50) {
-            motsdefin("Tu as perdu ! Arrivé trop tard malgré quelques prises de risques... Tout ce danger pour pas grand chose !");
+            motsdefin("PERDU ! Tu es arrivé avec un retard trop important. Félicitations tout de même, tu as accepté de perdre quelques minutes, mais tu as assuré ta sécurité et celle des autres usagers !");
         } else if (risk < 50 && risk > 30) {
-            motsdefin("Tu as perdu ! Arrivé trop tard malgré plusieurs prises de risques... Tout ce danger pour rien !");
+            motsdefin("PERDU ! Tu es arrivé avec un retard trop important. De plus, tu as pris trop de risques ! Tu as eu de la chance, mais tu aurais pu te mettre en danger toi ou les autres usagers.");
         } else { // risque ≤ 30
-            motsdefin("Tu as perdu ! Arrivé trop tard malgré beaucoup de prises de risques... Tout ce danger pour rien !");
+            motsdefin("PERDU ! Tu es arrivé avec un retard trop important. De plus, tu as pris bien énormément de risques ! Tu as eu de la chance, mais tu aurais pu te mettre en danger toi ou les autres usagers.");
         }
     } else { // time ≥ 50
-        motsdefin("Tu as perdu... la vie ! Tu as choisi de prendre des risques pour arriver à l'heure et cela t'a coonduit à ta perte.");
+        motsdefin("Tu as perdu... la vie ! Tu as choisi de prendre des risques pour arriver à l'heure et cela t'a conduit à ta perte.");
     }
 }
+

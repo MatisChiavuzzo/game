@@ -11,16 +11,7 @@ body {
 
 /* ====================================== */
 /* BOUTON ACCUEIL */
-#index {
-    padding: 1vh 2vw;
-    font-size: 2vh;
-    border: #0f172a;
-    border-radius: 0.5vw;
-    background-color: #ffffff;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-}
+
 
 #index:hover {
     transform: scale(1.05);
@@ -52,6 +43,7 @@ a {
     z-index: 1000;
 }
 
+/*
 #game button {
     padding: 1.5vh 3vw;
     font-size: 2vh;
@@ -66,6 +58,99 @@ a {
 #game button:hover {
     background-color: #ff3b2e;
 }
+    */
+
+
+
+    :root {
+        --background-color: #0f1923;
+      }
+      
+      .bouton {
+        text-align: center;
+        margin-top: 2%;
+      }
+      
+      .btn {
+        /* Clean style */
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        border: none;
+        background: none;
+        padding: 0;
+        color: var(--button-text-color);
+        cursor: pointer;
+        /* Clean style */
+        
+        --button-text-color: var(--background-color);
+        --button-text-color-hover: var(--button-background-color);
+        --border-color: #7D8082;
+        --button-background-color: #ece8e1;
+        --highlight-color: #9fbce2;
+        --button-inner-border-color: transparent;
+        --button-bits-color: var(--background-color);
+        --button-bits-color-hover: var(--button-background-color);
+        
+        position: relative;
+        padding: 8px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 15px;
+        transition: all .15s ease;
+      }
+      
+      .btn__inner {
+        position: relative;
+        display: block;
+        padding: 20px 30px;
+        background-color: var(--button-background-color);
+        overflow: hidden;
+        box-shadow: inset 0px 0px 0px 1px var(--button-inner-border-color);
+        border-radius: 1vw;
+      }
+      
+      .btn__inner::before {
+        display: block;
+        position: absolute;
+        top: 0; left: 0;
+        width: 2px;
+        height: 2px;
+        background-color: var(--button-bits-color);
+      }
+      
+      .btn__inner::after {
+        display: block;
+        position: absolute;
+        right: 0; bottom: 0;
+        width: 4px;
+        height: 4px;
+        background-color: var(--button-bits-color);
+        transition: all .2s ease;
+      }
+      
+      .btn__slide {
+        display: block;
+        position: absolute;
+        top: 0; bottom: -1px; left: -8px;
+        width: 0;
+        background-color: var(--highlight-color);
+        transform: skew(-15deg);
+        transition: all .2s ease;
+      }
+      
+      .btn__content {
+        position: relative;
+      }
+      
+      .btn:hover {
+        color: var(--button-text-color-hover);
+      }
+      
+      .btn:hover .btn__slide {
+        width: calc(100% + 15px);
+      }
 
 #game p {
     font-size: 4vh;

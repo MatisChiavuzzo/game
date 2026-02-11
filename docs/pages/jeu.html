@@ -15,7 +15,15 @@
             <p>Départ immédiat ! Il est 7 h 40, le cours débute à 8 h et la route dure 25 minutes. <br> Attention, si tu
                 as plus de 15 minutes de retard, tu seras refusé du cours !<br> Alors, seras-tu à l’heure ?</p>
         </div>
-        <button id="startBtn">JOUER</button>
+        <div class="boutonjouer">
+            <div class="startBtn">
+                <button class="btn" id="startBtn"> <span class="btn__inner">
+                    <span class="btn__slide"></span>
+                    <span class="btn__content">JOUER</span> </span>
+            </button>
+              </div>
+          </div>
+
     </div>
 
     <div id="hurry-modal" class="hurry-overlay">
@@ -41,7 +49,14 @@
 
         <div class="header">
 
-            <button id="index"><a href="../index.html">Accueil</a></button>
+            <div class="boutonjouer">
+                <div class="startBtn">
+                    <button class="btn" id="index"> <span class="btn__inner">
+                        <span class="btn__slide"></span>
+                        <span class="btn__content" onclick="window.location.href = '../index.html';">Accueil</span>
+                </button>
+            </div>
+            </div>
 
             <!-- BARRE DE RISQUE -->
             <div id="risk-container">
@@ -148,7 +163,7 @@
 
 
                 <button onclick="window.location.reload()">Rejouer</button>
-                <button onclick="window.location.href='./index.md'">Accueil</button>
+                <button onclick="window.location.href='../index.html'">Accueil</button>
 
             </div>
         </div>

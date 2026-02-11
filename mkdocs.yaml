@@ -13,8 +13,8 @@ theme:
   logo: ./image/logo.png
   favicon: ./image/logo.png
   palette:
-    primary: deep purple
-    accent: deep purple
+    primary: #9fbce2
+    accent: #9fbce2
   features:
     - navigation.tabs
 

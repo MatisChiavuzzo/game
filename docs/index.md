@@ -9,6 +9,17 @@ hide:
 <img src="./image/logo.png" alt=""> 
 </div>
 
+<div class="boutonjouer">
+  <div class="bouton">
+    <button class="btn">
+      <span class="btn__inner">
+        <span class="btn__slide"></span>
+        <span class="btn__content" onclick="window.location.href = './pages/jeu.html';">LANCER LE JEU</span>
+      </span>
+    </button>
+    </div>
+</div>
+
 ## Pourquoi ce jeu ? Quel est l’objectif du projet ?
 
 Ce jeu a été construit dans le cadre d’un cours de licence en troisième année de Géographie et Aménagement à l’Université Marie et Louis Pasteur. La première partie de ce cours, nommé « Sociétés et environnement », aborde les différents risques de la vie, qu'ils soient naturels ou d'origine anthropique. Dans le cadre de ce travail, nous nous sommes uniquement intéressés aux risques anthropiques et plus précisément ceux causés par l'utilisation des deux roues. De fait, le but est d'offrir un outil ludique permettant de comprendre que les risques sont présents quotidiennement dans nos vies individuelles et apparaissent selon nos choix. Certes, leurs impacts sur les populations sont moindres en terme de nombre de personnes touchées, mais ils constituent toutefois des enjeux sociétaux, passant par la prévention et l’éducation.  
