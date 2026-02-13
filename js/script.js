@@ -296,6 +296,10 @@ startBtn.onclick = () => {
     updateUI();
     // Affiche la question du casque (soit la première question)
     askHelmet();
+
+    if (document.documentElement.requestFullscreen) {
+    document.documentElement.requestFullscreen();
+    };
 };
 
 // =====================
