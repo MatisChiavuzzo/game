@@ -22,9 +22,9 @@ Le but était de produire un jeu de rôle inspiré d'un trad-off game basé sur 
 
 Pour répondre à cette attente, nous avons développé un jeu à choix inspiré des "visual novels" où le joueur se voit attribuer un moyen de transport (vélo, moto, trottinette électrique) et doit rejoindre son école à temps. Pour cela, le jouer sera confronté tout le long de son trajet à différentes situations face auxquelles il aura un choix à faire. Les choix qu'il décidera de faire influenceront ainsi à la fois son heure d'arrivée mais également sa "barre de prise de risque". Le but final du jeu est ainsi d'arriver à l'heure mais aussi de ne pas finir avec un score trop bas dans la barre de risque.
 
-# Arborescence des fichiers
+## Arborescence des fichiers
 
-## Dossier "docs" :
+### Le dossier "docs"
 
 Ce dossier contient tous les fichers servant à construire les pages du site pour l'outil mkdocs, on y retrouve les sous-dossiers suivants : 
     - css : ce dossier contient 2 fichiers de style pour le jeu et l'ensemble des pages
@@ -32,12 +32,12 @@ Ce dossier contient tous les fichers servant à construire les pages du site pou
     - js : ce dossier contient 1 fichier .js permettant le fonctionnement du jeu 
     - pages : ce dossier contient les 3 pages .md et 1 page .html liées au site 
 
-## Dossier image : 
+### Le dossier "image"
 
-### Illustration : 
+#### Illustration
 - logo.png (dessiné par Maë Tuaillon)
 
-### Photographies et infographies personelles 
+#### Photographies et infographies personelles 
 - bus.png
 - choixvoie.png
 - course.png
@@ -48,7 +48,7 @@ Ce dossier contient tous les fichers servant à construire les pages du site pou
 - tuto.png
 - bandeau.png
 
-### Photographies issues de canva 
+#### Photographies issues de canva 
 - arret.png
 - casque.png
 - ecole.png
@@ -66,34 +66,31 @@ Ce dossier contient tous les fichers servant à construire les pages du site pou
 - routeglissante.png
 - vitesse.png
 
-### Gifs issus de pixabay 
+#### Gifs issus de pixabay 
 - sirenes.gif
 - warning.gif 
 
-# Description de la structure/composition des fichiers
+## Description de la structure/composition des fichiers
 
-## index.md
-Ce code en .md, correpond à la page d'accueil du jeu. Il contient un menu de navigation renvoyant vers : 
-- Accueil : page principale, dans laquelle on trouve des éléments contextes et de présentations du projet. Également, on retrouve un bouton de contact. 
-- Règles du jeu :  Renvoie vers une autre page contenant les règles du jeu (regles.md).
-- Jeu : Renvoie vers le jeu (jeu.html).
-- Documentation : Renvoie vers la documentation (documentation.md)
-- Sources : Renvoie vers l'ensemble des sources statistiques utilisées dans le jeu (sources.md)
+- <strong>index.md :</strong> 
+Ce code en .md, correpond à la page d'accueil du jeu, dans laquelle on trouve des éléments contextes et de présentations du projet. Également, on retrouve un bouton de contact. Il contient un menu de navigation.
 
-## regles.md
+- <strong>regles.md :</strong>
 Ce code en .md recense les règles détaillées du jeu ainsi que les fins et possibilités. 
 
-## jeu.html
+- <strong>jeu.html :</strong>
 Ce code en .html établit la structure du jeu. 
 
-## jeu.css
+- <strong>jeu.css :</strong>
 Ce code en .css permet de moduler l'apparence de la page du jeu. 
 
-## extra.css
+- <strong>extra.css :</strong>
 Ce code en .css permet de moduler l'apparence de l'ensemble des pages .md
 
-## script.js
+- <strong>script.js :</strong>
 Ce code en javascript, permet le fonctionnement du jeu. Dans ce script, nous pouvons retrouver six blocs d'éléments : 
+
+## Les éléments du jeu
 
 ### Le bouton JOUER
 
@@ -158,7 +155,3 @@ Enfin, il fait appel au lancement de la première étape.
  - Il affiche le temps final, ainsi que le niveau de risque pris. Également, un message cloturant l'expérience de jeu s'affiche selon les deux paramètres cités précedémment ainsi qu'une synthèse des statistiques.  
  - Il offre la possibilité de relancer une partie. 
  - Pour y faire appel dans le html, on utilise "final-score". 
-
-
-
-

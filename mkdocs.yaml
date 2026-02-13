@@ -18,6 +18,8 @@ theme:
   features:
     - navigation.tabs
 
+
+
 extra:
   social:
     - icon: fontawesome/solid/paper-plane
@@ -26,7 +28,7 @@ extra:
       link: https://www.linkedin.com/in/matis-chiavuzzo-581044356/
   generator: false
 
-copyright: © Matis Chiavuzzo & Ninon Tuaillon | Dernière mise à jour - Janvier 2026
+copyright: © Matis Chiavuzzo & Ninon Tuaillon | Dernière mise à jour - Février 2026
 
 
 extra_css:
