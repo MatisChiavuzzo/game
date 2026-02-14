@@ -69,6 +69,78 @@ const environments = ["Pluie", "Nuit", "Jour"];
 // FONCTIONS des éléments dynamiques
 // =====================
 
+function animateOrb(amount, type) {
+    const orb = document.createElement("div");
+    orb.classList.add("floating-orb");
+
+   // Ajouter la classe correspondant au type et au signe
+if (type === "time") {
+    orb.classList.add(amount > 0 ? "time-positive" : "time-negative");
+} else if (type === "risk") {
+    orb.classList.add(amount > 0 ? "risk-positive" : "risk-negative");
+} else {
+    orb.classList.add("neutral");
+}
+
+    orb.textContent = (amount > 0 ? "+" : "") + amount;
+
+    // Position initiale au centre
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    orb.style.left = centerX + "px";
+    orb.style.top = centerY + "px";
+
+    document.body.appendChild(orb);
+
+    // Cible selon le type
+    let targetEl;
+    if (type === "risk") targetEl = document.getElementById("risk-indicator");
+    else if (type === "time") targetEl = document.getElementById("time");
+
+    const targetRect = targetEl.getBoundingClientRect();
+    const targetX = targetRect.left + targetRect.width / 2;
+    const targetY = targetRect.top + targetRect.height / 2;
+
+    // Durée de l’animation en ms
+    const duration = 4000;
+
+    // Animation du compteur en parallèle
+    const startValue = type === "risk" ? risk : time;
+    const endValue = startValue + amount;
+    const startTime = performance.now();
+
+    function updateCounter(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const currentValue = Math.round(startValue + (endValue - startValue) * progress);
+
+        if (type === "risk") {
+            riskIndicator.style.left = `${Math.max(0, Math.min(100, currentValue))}%`;
+        } else if (type === "time") {
+            timeEl.textContent = formatTime(currentValue);
+        }
+
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+        } else {
+            // fin de l'animation
+            if (type === "risk") risk = endValue;
+            else if (type === "time") time = endValue;
+            orb.remove();
+        }
+    }
+
+    requestAnimationFrame(updateCounter);
+
+    // Lancer le mouvement de la bulle
+    requestAnimationFrame(() => {
+        orb.style.left = targetX + "px";
+        orb.style.top = targetY + "px";
+        orb.style.opacity = 0;
+        orb.style.transform = "translate(-50%, -50%) scale(0.5)";
+    });
+}
+
 // Heures
 function formatTime(totalMinutes) {
     const startHour = 8;
@@ -318,8 +390,8 @@ function askHelmet() {
                     // On mémorise le fait que l'utilisateur mette un casque 
                     helmetOn = true;
                     // Ajout d'un risque de 10
-                    risk += 5;
-                    time += 1;
+                    animateOrb(5, "risk");  // Animation +5 pour le risque
+                    animateOrb(1, "time");  // Animation +5 pour le risque
                     // Met a jour temps et barre de risque
                     updateUI();
                     // Monte la carte explication, avec ce texte, puis associe le cli du bouton à l'étape suivante, soit la lumière cassée
@@ -433,6 +505,7 @@ function ruralStraight() {
     ]);
 }
 
+// ============================= ETAPE SI PLUIE
 function fallrain() {
     showCard("../image/routeglissante.png",
         "Il pleut fort et la route est glissante. Que fais-tu ?",
@@ -514,6 +587,7 @@ function redLight() {
     ]);
 }
 
+// ======================== ETAPE SI NUIT
 function slownight() {
     showCard("../image/paslumiere.png",
         "Il fait nuit et l'éclairage public est en panne. Tu vois mal la route. Que fais-tu ?",
@@ -633,6 +707,7 @@ function chooseStreet() {
 
 // ========================== SPECIAL : velo sur piste cyclable
 function trackbike() {
+    showScene("../image/pistecyclable.png");
     showCard("../image/pistevelo.png", "Tu arrives à un croisement où la piste cyclable se divise. Un autre cycliste arrive en sens inverse très vite ! \n Que fais-tu ?", [
         {
             text: "Je maintiens ma vitesse, pour ne pas perdre de temps", action: () => {
@@ -862,4 +937,14 @@ function messagefin() {
         motsdefin("Tu as perdu... la vie ! Tu as choisi de prendre des risques pour arriver à l'heure et cela t'a conduit à ta perte.");
     }
 }
+
+
+
+
+
+
+
+
+
+
 

@@ -130,7 +130,12 @@ color: #607186;
   width: calc(100% + 0.9375rem);
 }
 
+path {
+  fill: black;
+}
 
-
-
-
+.md-nav--primary .md-nav__title[for=__drawer] {
+        background-color: #9fbce2;
+        color: var(--md-primary-bg-color);
+        font-weight: 700;
+    }
