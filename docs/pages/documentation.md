@@ -47,6 +47,7 @@ Ce dossier contient tous les fichers servant à construire les pages du site pou
 - fond.png
 - tuto.png
 - bandeau.png
+- pistecyclable.png
 
 #### Photographies issues de canva 
 - arret.png
