@@ -48,6 +48,9 @@ Ce dossier contient tous les fichers servant à construire les pages du site pou
 - tuto.png
 - bandeau.png
 - pistecyclable.png
+- ruedenuit.png
+- ruepluie.png
+- voiepartage.png
 
 #### Photographies issues de canva 
 - arret.png
@@ -66,6 +69,8 @@ Ce dossier contient tous les fichers servant à construire les pages du site pou
 - pluie.png
 - routeglissante.png
 - vitesse.png
+- motodouble.png
+- pompier.png
 
 #### Gifs issus de pixabay 
 - sirenes.gif

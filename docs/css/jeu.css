@@ -666,6 +666,17 @@ body>* {
     z-index: 9999;
 }
 
+.fireman-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+}
+
 .hurry-box {
     background: white;
     padding: 30px 40px;
@@ -684,12 +695,26 @@ body>* {
     animation: pop 0.3s ease;
 }
 
+.fireman-box {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    animation: pop 0.3s ease;
+}
+
 .hurry-box h2 {
     margin-bottom: 10px;
     color: #d32f2f;
 }
 
 .police-box h2 {
+    margin-bottom: 10px;
+    color: #d32f2f;
+}
+
+.fireman-box h2 {
     margin-bottom: 10px;
     color: #d32f2f;
 }
@@ -708,6 +733,13 @@ body>* {
     border-radius: 25px;
 }
 
+.fireman-box button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
 /* ================================ */
 /* STATS DE FIN */
 
@@ -720,7 +752,10 @@ body>* {
   font-family: "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
   color: #2c2c2c;
+
+  margin: 0 auto; /* centre horizontalement */
 }
+
 
 /* Titre principal */
 #textestatsfin h1 {
