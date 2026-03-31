@@ -4,6 +4,16 @@
   width: 35%;
 }
 
+
+.logo {
+  transition: transform 30s ease; /* On prépare le mouvement */
+}
+
+.logo:hover {
+  transform: rotate(360deg); /* L'action se déclenche au survol */
+}
+
+
 .md-typeset h1, .md-typeset h2{
   color: #607186;
   font-weight: bold;
@@ -139,3 +149,5 @@ path {
         color: var(--md-primary-bg-color);
         font-weight: 700;
     }
+
+
